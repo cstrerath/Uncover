@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id 'androidx.room'
 }
 
 android {
@@ -40,9 +41,18 @@ android {
         kotlinCompilerExtensionVersion '1.5.1'
     }
 
+    room {
+        schemaDirectory "$projectDir/schemas"
+    }
+
 }
 
 dependencies {
+
+    def room_version = "2.6.1"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
     implementation libs.osmdroid
     implementation libs.androidx.core.ktx
