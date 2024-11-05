@@ -1,12 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id 'androidx.room'
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace 'com.github.cstrerath.uncover'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.github.cstrerath.uncover"
@@ -16,9 +16,13 @@ android {
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/shemas".toString()]
+            }
+        }
     }
-
-
 
     buildTypes {
         release {
@@ -41,19 +45,13 @@ android {
         kotlinCompilerExtensionVersion '1.5.1'
     }
 
-    room {
-        schemaDirectory "$projectDir/schemas"
-    }
-
 }
 
 dependencies {
 
-    def room_version = "2.6.1"
-
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-
+    implementation libs.androidx.room.runtime
+    implementation libs.androidx.room.ktx
+    ksp libs.androidx.room.compiler
     implementation libs.osmdroid
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
