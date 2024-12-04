@@ -30,7 +30,7 @@ fun MapScreen() {
             MapView(context).apply {
                 setMultiTouchControls(true)
                 controller.setZoom(9.5)
-                controller.setCenter(GeoPoint(48.8583, 2.2944)) // Paris
+                controller.setCenter(GeoPoint(48.8583, 2.2944)) // Paris, auf Mannheim ändern also (49.4889, 8.4692)
             }
         },
         modifier = Modifier.fillMaxSize()
