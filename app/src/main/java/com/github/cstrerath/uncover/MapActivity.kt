@@ -3,89 +3,76 @@ package com.github.cstrerath.uncover
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
 import org.osmdroid.views.MapView
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.util.BoundingBox
 import org.osmdroid.config.Configuration
 import org.osmdroid.views.overlay.Polygon
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.activity.result.contract.ActivityResultContracts
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
+import android.location.Location
+
 
 
 class MapActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Configuration.getInstance().load(this, getPreferences(MODE_PRIVATE))
-        setContent {
-            Box(modifier = Modifier.fillMaxSize()) {
-                MapScreen()
-                FadeOverlay()
+    private val locationPermissionRequest = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        when {
+            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
+                // Berechtigung erteilt, zeige Karte
+                setContent { MapScreen() }
+            }
+            else -> {
+                // Berechtigung verweigert, beende Activity
+                finish()
             }
         }
     }
-}
 
-@Composable
-fun FadeOverlay() {
-    Canvas(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        // Fade-Breite definieren
-        val fadeWidth = 50f
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Configuration.getInstance().load(this, getPreferences(MODE_PRIVATE))
 
-        // Linker Fade
-        drawRect(
-            brush = Brush.horizontalGradient(
-                colors = listOf(Color.Black, Color.Transparent),
-                startX = 0f,
-                endX = fadeWidth
-            ),
-            topLeft = Offset.Zero,
-            size = Size(fadeWidth, size.height)
-        )
+        // Prüfe Berechtigungen vor dem Setzen des Contents
+        checkLocationPermissions()
+    }
 
-        // Rechter Fade
-        drawRect(
-            brush = Brush.horizontalGradient(
-                colors = listOf(Color.Transparent, Color.Black),
-                startX = size.width - fadeWidth,
-                endX = size.width
-            ),
-            topLeft = Offset(size.width - fadeWidth, 0f),
-            size = Size(fadeWidth, size.height)
-        )
+    private fun checkLocationPermissions() {
+        when {
+            checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
+                    PackageManager.PERMISSION_GRANTED -> {
+                // Berechtigungen vorhanden, zeige Karte
+                setContent { MapScreen() }
+            }
+            shouldShowRequestPermissionRationale(
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) -> {
+                // Optional: Hier später Erklärung anzeigen
+                requestLocationPermissions()
+            }
+            else -> {
+                // Frage Berechtigungen an
+                requestLocationPermissions()
+            }
+        }
+    }
 
-        // Oberer Fade
-        drawRect(
-            brush = Brush.verticalGradient(
-                colors = listOf(Color.Black, Color.Transparent),
-                startY = 0f,
-                endY = fadeWidth
-            ),
-            topLeft = Offset.Zero,
-            size = Size(size.width, fadeWidth)
-        )
-
-        // Unterer Fade
-        drawRect(
-            brush = Brush.verticalGradient(
-                colors = listOf(Color.Transparent, Color.Black),
-                startY = size.height - fadeWidth,
-                endY = size.height
-            ),
-            topLeft = Offset(0f, size.height - fadeWidth),
-            size = Size(size.width, fadeWidth)
-        )
+    private fun requestLocationPermissions() {
+        locationPermissionRequest.launch(arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ))
     }
 }
+
 
 @Composable
 fun MapScreen() {
@@ -107,6 +94,15 @@ fun MapScreen() {
                 maxZoomLevel = 20.0
                 controller.setCenter(GeoPoint(49.4889, 8.4692))
                 controller.setZoom(14.0)
+
+                // Einfaches Location Overlay
+                val myLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(context), this)
+                myLocationOverlay.enableMyLocation() // Aktiviert die Positionsanzeige
+                myLocationOverlay.enableFollowLocation() // Folgt der Position
+                myLocationOverlay.isDrawAccuracyEnabled = true
+
+                // Wichtig: Overlay als erstes hinzufügen, vor den schwarzen Bereichen
+                overlays.add(0, myLocationOverlay)
 
                 // Stark erweiterte nicht spielbare Bereiche
                 val nonPlayableAreas = listOf(
