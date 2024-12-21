@@ -17,6 +17,7 @@ import org.osmdroid.views.MapView
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.util.BoundingBox
 import org.osmdroid.config.Configuration
+import org.osmdroid.views.overlay.Polygon
 
 
 class MapActivity : ComponentActivity() {
@@ -86,33 +87,77 @@ fun FadeOverlay() {
     }
 }
 
-
 @Composable
 fun MapScreen() {
     AndroidView(
         factory = { context ->
             MapView(context).apply {
-                // Aktiviere Multi-Touch
                 setMultiTouchControls(true)
 
-                // Definiere die BoundingBox für Mannheim/Ludwigshafen
-                val boundingBox = BoundingBox(
-                    49.5400, // Nord
-                    8.5500,  // Ost
-                    49.4000, // Süd
-                    8.3500   // West
+                // Scrollbarer Bereich (mit Puffer)
+                val scrollableBoundingBox = BoundingBox(
+                    49.56415,
+                    8.55226,
+                    49.42672,
+                    8.38477
                 )
 
-                // Setze die Grenzen
-                setScrollableAreaLimitDouble(boundingBox)
-
-                // Minimale/Maximale Zoomstufen
+                setScrollableAreaLimitDouble(scrollableBoundingBox)
                 minZoomLevel = 13.0
                 maxZoomLevel = 20.0
-
-                // Startposition (Zentrum von Mannheim)
                 controller.setCenter(GeoPoint(49.4889, 8.4692))
                 controller.setZoom(14.0)
+
+                // Stark erweiterte nicht spielbare Bereiche
+                val nonPlayableAreas = listOf(
+                    // Westlicher nicht spielbarer Bereich
+                    mapOf(
+                        "north" to 49.67415,
+                        "east" to 8.39477,
+                        "south" to 49.31672,
+                        "west" to 8.24477
+                    ),
+                    // Östlicher nicht spielbarer Bereich
+                    mapOf(
+                        "north" to 49.67415,
+                        "east" to 8.69226,
+                        "south" to 49.31672,
+                        "west" to 8.54226
+                    ),
+                    // Nördlicher nicht spielbarer Bereich
+                    mapOf(
+                        "north" to 49.67415,
+                        "east" to 8.69226,
+                        "south" to 49.55415,
+                        "west" to 8.24477
+                    ),
+                    // Südlicher nicht spielbarer Bereich
+                    mapOf(
+                        "north" to 49.43672,
+                        "east" to 8.69226,
+                        "south" to 49.31672,
+                        "west" to 8.24477
+                    )
+                )
+
+                nonPlayableAreas.forEach { area ->
+                    val polygon = Polygon().apply {
+                        points = listOf(
+                            GeoPoint(area["north"]!!, area["west"]!!),
+                            GeoPoint(area["north"]!!, area["east"]!!),
+                            GeoPoint(area["south"]!!, area["east"]!!),
+                            GeoPoint(area["south"]!!, area["west"]!!),
+                            GeoPoint(area["north"]!!, area["west"]!!)
+                        )
+
+                        getFillPaint().color = 0xFF000000.toInt() // Komplett schwarz
+                        getOutlinePaint().apply {
+                            color = 0xFF000000.toInt() // Schwarzer Rand
+                            strokeWidth = 0.0f // Kein sichtbarer Rand
+                        }
+                    }
+                    overlays.add(polygon)
+                }
             }
         },
         modifier = Modifier.fillMaxSize()
