@@ -14,6 +14,8 @@ import org.osmdroid.config.Configuration
 import org.osmdroid.views.overlay.Polygon
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.activity.result.contract.ActivityResultContracts
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
@@ -73,7 +75,6 @@ class MapActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
 fun MapScreen() {
     AndroidView(
@@ -95,39 +96,50 @@ fun MapScreen() {
                 controller.setCenter(GeoPoint(49.4889, 8.4692))
                 controller.setZoom(14.0)
 
-                // Einfaches Location Overlay
-                val myLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(context), this)
-                myLocationOverlay.enableMyLocation() // Aktiviert die Positionsanzeige
-                myLocationOverlay.enableFollowLocation() // Folgt der Position
-                myLocationOverlay.isDrawAccuracyEnabled = true
+                // Benutzerdefiniertes Location Overlay
+                val myLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(context), this).apply {
+                    enableMyLocation()
+                    enableFollowLocation()
+                    isDrawAccuracyEnabled = true
 
-                // Wichtig: Overlay als erstes hinzufügen, vor den schwarzen Bereichen
+                    // Benutzerdefiniertes Icon skalieren
+                    val originalBitmap = BitmapFactory.decodeResource(
+                        context.resources,
+                        R.drawable.player_map_marker // Dein Icon
+                    )
+                    val scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, 256, 256, true) // Skalierung auf 48x48 Pixel
+                    setPersonIcon(scaledBitmap)
+
+                    // Optional: Bewegungsicon ebenfalls setzen
+                    setDirectionIcon(scaledBitmap)
+
+                    // Ankerpunkte setzen (zentriert)
+                    setPersonAnchor(0.5f, 0.5f)
+                    setDirectionAnchor(0.5f, 0.5f)
+                }
+
                 overlays.add(0, myLocationOverlay)
 
                 // Stark erweiterte nicht spielbare Bereiche
                 val nonPlayableAreas = listOf(
-                    // Westlicher nicht spielbarer Bereich
                     mapOf(
                         "north" to 49.67415,
                         "east" to 8.39477,
                         "south" to 49.31672,
                         "west" to 8.24477
                     ),
-                    // Östlicher nicht spielbarer Bereich
                     mapOf(
                         "north" to 49.67415,
                         "east" to 8.69226,
                         "south" to 49.31672,
                         "west" to 8.54226
                     ),
-                    // Nördlicher nicht spielbarer Bereich
                     mapOf(
                         "north" to 49.67415,
                         "east" to 8.69226,
                         "south" to 49.55415,
                         "west" to 8.24477
                     ),
-                    // Südlicher nicht spielbarer Bereich
                     mapOf(
                         "north" to 49.43672,
                         "east" to 8.69226,
