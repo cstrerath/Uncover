@@ -120,6 +120,12 @@ fun MapScreen() {
 
                 overlays.add(0, myLocationOverlay)
 
+                val fogOfWar = FogOfWarOverlay(
+                    playerLocationProvider = {myLocationOverlay.myLocation},
+                    visibilityRadiusMeters = 200f // Wird durch Spielerwert ersetzt
+                )
+                overlays.add(fogOfWar)
+
                 // Stark erweiterte nicht spielbare Bereiche
                 val nonPlayableAreas = listOf(
                     mapOf(
