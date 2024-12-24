@@ -1,17 +1,18 @@
 package com.github.cstrerath.uncover
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Dao
-interface QuestStepDao {
-    @Query("SELECT * FROM quest_steps WHERE questId = :questId")
-    fun getStepsForQuest(questId: Int): List<QuestStep>
-
-    @Query("SELECT * FROM quest_steps WHERE questId = :questId AND stepType = :stepType")
-    fun getStepForQuestAndType(questId: Int, stepType: StepType): QuestStep
-
-    @Insert
-    fun insertQuestStep(questStep: QuestStep)
+enum class StepType {
+    INITIAL, SOLUTION, COMPLETION
 }
+
+@Entity(tableName = "quest_steps")
+data class QuestStep(
+    @PrimaryKey val stepId: Int,
+    val questId: Int,
+    val stepType: StepType,
+    val warriorVariantKey: String,
+    val thiefVariantKey: String,
+    val mageVariantKey: String
+)
