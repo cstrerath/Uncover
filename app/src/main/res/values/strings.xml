@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Uncover</string>
+
+    <!-- Quest 1: Der erste Auftrag -->
+    <string name="quest_1_warrior_initial">Der Hauptmann der Wache benötigt Hilfe bei einem Banditenproblem</string>
+    <string name="quest_1_thief_initial">Ein Händler sucht jemanden für einen delikaten Auftrag</string>
+    <string name="quest_1_mage_initial">Der Erzmagier hat eine wichtige magische Anomalie entdeckt</string>
+
+    <string name="quest_1_warrior_solution">Die Banditen wurden in einer alten Mine gesichtet</string>
+    <string name="quest_1_thief_solution">Der gestohlene Gegenstand wurde in einer alten Mine versteckt</string>
+    <string name="quest_1_mage_solution">Die magische Störung kommt aus einer alten Mine</string>
+
+    <string name="quest_1_warrior_completion">Die Banditen wurden vertrieben</string>
+    <string name="quest_1_thief_completion">Der Gegenstand wurde erfolgreich zurückgebracht</string>
+    <string name="quest_1_mage_completion">Die magische Anomalie wurde behoben</string>
 </resources>
