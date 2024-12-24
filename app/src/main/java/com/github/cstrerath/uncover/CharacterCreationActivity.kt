@@ -45,7 +45,7 @@ class CharacterCreationActivity : ComponentActivity() {
                             characterClass?.let {
                                 characterCreator.createPlayerCharacter(name, it)
                                 // Nach erfolgreicher Erstellung zur MainActivity
-                                startActivity(Intent(this@CharacterCreationActivity, MainActivity::class.java))
+                                startActivity(Intent(this@CharacterCreationActivity, MainMenuActivity::class.java))
                                 finish()
                             }
                         }

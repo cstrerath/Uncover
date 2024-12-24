@@ -28,66 +28,26 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             UncoverTheme {
-                var isInitializing by remember { mutableStateOf(isFirstLaunch) }
-
-                if (isInitializing) {
+                if (isFirstLaunch) {
                     SplashScreen()
 
                     LaunchedEffect(true) {
                         val loginManager = LoginManager(applicationContext)
                         delay(2000)
-
                         val hasPlayerCharacter = loginManager.performInitialCheck()
 
-                        if (!hasPlayerCharacter) {
-                            startActivity(Intent(this@MainActivity, CharacterCreationActivity::class.java))
+                        val intent = if (hasPlayerCharacter) {
+                            Intent(this@MainActivity, MainMenuActivity::class.java)
+                        } else {
+                            Intent(this@MainActivity, CharacterCreationActivity::class.java)
                         }
-                        isInitializing = false
+
                         isFirstLaunch = false
+                        startActivity(intent)
+                        finish()
                     }
-                } else {
-                    MainScreen(onNavigateToCharacterList = {
-                        startActivity(Intent(this, DatabaseActivity::class.java))
-                    }, onNavigateToMap = {
-                        startActivity(Intent(this, MapActivity::class.java))
-                    }, onNavigateToCharacterInit = {
-                        startActivity(Intent(this, CharacterCreationActivity::class.java))
-                    })
                 }
             }
         }
-    }
-}
-
-@Composable
-fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Unit, onNavigateToCharacterInit: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-
-        Button(
-            onClick = onNavigateToMap,
-        ) {
-            Text("Zur Karte")
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = onNavigateToCharacterList,
-            ) {
-            Text("View Character List")
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = onNavigateToCharacterInit,
-            ) {
-            Text("View Character Init")
-        }
-
     }
 }
