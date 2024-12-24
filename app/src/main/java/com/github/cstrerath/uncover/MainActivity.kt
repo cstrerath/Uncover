@@ -46,6 +46,11 @@ class MainActivity : ComponentActivity() {
                         startActivity(intent)
                         finish()
                     }
+                } else {
+                    LaunchedEffect(true) {
+                        startActivity(Intent(this@MainActivity, MainMenuActivity::class.java))
+                        finish()
+                    }
                 }
             }
         }
