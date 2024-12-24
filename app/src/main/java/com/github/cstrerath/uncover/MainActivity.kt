@@ -15,26 +15,46 @@ import kotlinx.coroutines.launch
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-
+import kotlinx.coroutines.delay
 
 
 class MainActivity : ComponentActivity() {
+    companion object {
+        private var isFirstLaunch = true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lifecycleScope.launch {
-            DatabaseInitializer(applicationContext).initializedDatabase()
-        }
-
         setContent {
-            MainScreen(onNavigateToCharacterList = {
-                startActivity(Intent(this, DatabaseActivity::class.java))
-            }, onNavigateToMap = {
-                startActivity(Intent(this, MapActivity::class.java))
-            }, onNavigateToCharacterInit = {
-                startActivity(Intent(this, CharacterCreationActivity::class.java))
-            })
+            UncoverTheme {
+                var isInitializing by remember { mutableStateOf(isFirstLaunch) }
+
+                if (isInitializing) {
+                    SplashScreen()
+
+                    LaunchedEffect(true) {
+                        val loginManager = LoginManager(applicationContext)
+                        delay(2000)
+
+                        val hasPlayerCharacter = loginManager.performInitialCheck()
+
+                        if (!hasPlayerCharacter) {
+                            startActivity(Intent(this@MainActivity, CharacterCreationActivity::class.java))
+                        }
+                        isInitializing = false
+                        isFirstLaunch = false
+                    }
+                } else {
+                    MainScreen(onNavigateToCharacterList = {
+                        startActivity(Intent(this, DatabaseActivity::class.java))
+                    }, onNavigateToMap = {
+                        startActivity(Intent(this, MapActivity::class.java))
+                    }, onNavigateToCharacterInit = {
+                        startActivity(Intent(this, CharacterCreationActivity::class.java))
+                    })
+                }
+            }
         }
     }
 }
