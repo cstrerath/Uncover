@@ -21,4 +21,14 @@ class Converters {
     fun toQuestProgress(value: String): QuestProgress {
         return QuestProgress.valueOf(value)
     }
+
+    @TypeConverter
+    fun fromCharacterClass(value: CharacterClass): String {
+        return value.name
+    }
+
+    @TypeConverter
+    fun toCharacterClass(value: String): CharacterClass {
+        return CharacterClass.valueOf(value)
+    }
 }

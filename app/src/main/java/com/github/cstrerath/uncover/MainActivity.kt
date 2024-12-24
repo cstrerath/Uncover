@@ -12,6 +12,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+
+
+
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +32,15 @@ class MainActivity : ComponentActivity() {
                 startActivity(Intent(this, DatabaseActivity::class.java))
             }, onNavigateToMap = {
                 startActivity(Intent(this, MapActivity::class.java))
+            }, onNavigateToCharacterInit = {
+                startActivity(Intent(this, CharacterCreationActivity::class.java))
             })
         }
     }
 }
 
 @Composable
-fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Unit) {
+fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Unit, onNavigateToCharacterInit: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,5 +60,14 @@ fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Uni
             ) {
             Text("View Character List")
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = onNavigateToCharacterInit,
+            ) {
+            Text("View Character Init")
+        }
+
     }
 }
