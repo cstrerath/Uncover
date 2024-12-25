@@ -1,5 +1,6 @@
 package com.github.cstrerath.uncover
 
+import QuestViewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,8 +12,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
+import androidx.lifecycle.viewmodel.compose.viewModel
+
+
 
 
 class DatabaseActivity : ComponentActivity() {
@@ -45,7 +47,12 @@ fun CharacterListScreen() {
 }
 
 @Composable
-fun CharacterItem(character: GameCharacter) {
+fun CharacterItem(character: GameCharacter, viewModel: QuestViewModel = viewModel()) {
+    var showQuests by remember { mutableStateOf(false) }
+    val quests by viewModel.quests.collectAsState()
+    val questSteps by viewModel.questSteps.collectAsState()
+    val context = LocalContext.current
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -62,6 +69,41 @@ fun CharacterItem(character: GameCharacter) {
             Text(text = "Health: ${character.health}", style = MaterialTheme.typography.bodyMedium)
             Text(text = "Mana: ${character.mana}", style = MaterialTheme.typography.bodyMedium)
             Text(text = "Stamina: ${character.stamina}", style = MaterialTheme.typography.bodyMedium)
+
+            Button(
+                onClick = {
+                    showQuests = !showQuests
+                    if (showQuests) {
+                        viewModel.loadQuestsForCharacter(1) // Lädt Quest 1
+                    }
+                }
+            ) {
+                Text(if (showQuests) "Hide Quests" else "Show Quests")
+            }
+
+            if (showQuests) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "Available Quests:",
+                    style = MaterialTheme.typography.titleMedium
+                )
+                quests.forEach { quest ->
+                    val relevantStep = questSteps.find { it.questId == quest.questId && it.stepType == StepType.INITIAL }
+                    val questText = when(character.characterClass) {
+                        "Warrior" -> relevantStep?.warriorVariantKey
+                        "Thief" -> relevantStep?.thiefVariantKey
+                        "Mage" -> relevantStep?.mageVariantKey
+                        else -> null
+                    }
+                    if (questText != null) {
+                        Text(
+                            text = context.getString(context.resources.getIdentifier(questText, "string", context.packageName)),
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(vertical = 4.dp)
+                        )
+                    }
+                }
+            }
         }
     }
 }
