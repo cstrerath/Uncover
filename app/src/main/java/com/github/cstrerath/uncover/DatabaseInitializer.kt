@@ -83,7 +83,8 @@ class DatabaseInitializer(private val context: Context) {
                 health = 100,
                 mana = 50,
                 stamina = 100,
-                characterClass = "Warrior"
+                characterClass = CharacterClass.WARRIOR,
+                isPlayer = false
             ),
             GameCharacter(
                 id = "thief_1",
@@ -93,7 +94,8 @@ class DatabaseInitializer(private val context: Context) {
                 health = 80,
                 mana = 60,
                 stamina = 100,
-                characterClass = "Thief"
+                characterClass = CharacterClass.THIEF,
+                isPlayer = false
             ),
             GameCharacter(
                 id = "mage_1",
@@ -103,7 +105,8 @@ class DatabaseInitializer(private val context: Context) {
                 health = 70,
                 mana = 100,
                 stamina = 80,
-                characterClass = "Mage"
+                characterClass = CharacterClass.MAGE,
+                isPlayer = false
             )
         )
 

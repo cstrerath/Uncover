@@ -90,10 +90,9 @@ fun CharacterItem(character: GameCharacter, viewModel: QuestViewModel = viewMode
                 quests.forEach { quest ->
                     val relevantStep = questSteps.find { it.questId == quest.questId && it.stepType == StepType.INITIAL }
                     val questText = when(character.characterClass) {
-                        "Warrior" -> relevantStep?.warriorVariantKey
-                        "Thief" -> relevantStep?.thiefVariantKey
-                        "Mage" -> relevantStep?.mageVariantKey
-                        else -> null
+                        CharacterClass.WARRIOR -> relevantStep?.warriorVariantKey
+                        CharacterClass.THIEF -> relevantStep?.thiefVariantKey
+                        CharacterClass.MAGE -> relevantStep?.mageVariantKey
                     }
                     if (questText != null) {
                         Text(

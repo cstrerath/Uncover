@@ -12,45 +12,47 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import kotlinx.coroutines.delay
+
+
 class MainActivity : ComponentActivity() {
+    companion object {
+        private var isFirstLaunch = true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lifecycleScope.launch {
-            DatabaseInitializer(applicationContext).initializedDatabase()
-        }
-
         setContent {
-            MainScreen(onNavigateToCharacterList = {
-                startActivity(Intent(this, DatabaseActivity::class.java))
-            }, onNavigateToMap = {
-                startActivity(Intent(this, MapActivity::class.java))
-            })
-        }
-    }
-}
+            UncoverTheme {
+                if (isFirstLaunch) {
+                    SplashScreen()
 
-@Composable
-fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
+                    LaunchedEffect(true) {
+                        val loginManager = LoginManager(applicationContext)
+                        delay(2000)
+                        val hasPlayerCharacter = loginManager.performInitialCheck()
 
-        Button(
-            onClick = onNavigateToMap,
-        ) {
-            Text("Zur Karte")
-        }
+                        val intent = if (hasPlayerCharacter) {
+                            Intent(this@MainActivity, MainMenuActivity::class.java)
+                        } else {
+                            Intent(this@MainActivity, CharacterCreationActivity::class.java)
+                        }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = onNavigateToCharacterList,
-            ) {
-            Text("View Character List")
+                        isFirstLaunch = false
+                        startActivity(intent)
+                        finish()
+                    }
+                } else {
+                    LaunchedEffect(true) {
+                        startActivity(Intent(this@MainActivity, MainMenuActivity::class.java))
+                        finish()
+                    }
+                }
+            }
         }
     }
 }
