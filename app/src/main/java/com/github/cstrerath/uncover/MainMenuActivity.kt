@@ -33,6 +33,9 @@ class MainMenuActivity : ComponentActivity() {
                     },
                     onNavigateToCharacterInit = {
                         startActivity(Intent(this, CharacterCreationActivity::class.java))
+                    },
+                    onNavigateToLocationList = {
+                        startActivity(Intent(this, LocationListActivity::class.java))
                     }
                 )
             }
@@ -41,7 +44,7 @@ class MainMenuActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Unit, onNavigateToCharacterInit: () -> Unit) {
+fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Unit, onNavigateToCharacterInit: () -> Unit, onNavigateToLocationList: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -68,6 +71,14 @@ fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Uni
             onClick = onNavigateToCharacterInit,
         ) {
             Text("View Character Init")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = onNavigateToLocationList,
+        ) {
+            Text("View Locations")
         }
 
     }

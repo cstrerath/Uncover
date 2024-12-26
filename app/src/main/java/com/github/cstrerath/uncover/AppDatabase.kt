@@ -10,10 +10,11 @@ import androidx.room.TypeConverters
     GameCharacter::class,
     Quest::class,
     QuestStep::class,
-    CharacterQuestProgress::class
+    CharacterQuestProgress::class,
+    Location::class
                      ],
-    version = 3,
-    exportSchema = true
+    version = 4,
+    exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -21,6 +22,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun questDao(): QuestDao
     abstract fun questStepDao(): QuestStepDao
     abstract fun characterQuestProgressDao(): CharacterQuestProgressDao
+    abstract fun locationDao(): LocationDao
 
     companion object {
         @Volatile
