@@ -1,13 +1,20 @@
 package com.github.cstrerath.uncover
 
+import android.content.Context
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import org.osmdroid.views.MapView
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
+
 
 @Composable
 fun MapScreen() {
+    val scope = rememberCoroutineScope()
+
     AndroidView(
         factory = { context ->
             MapView(context).apply {
@@ -25,13 +32,15 @@ fun MapScreen() {
                     visibilityRadiusMeters = 200f
                 ))
 
-                // Füge Quest Marker hinzu
-                overlays.add(QuestMarkerOverlay(
-                    latitude = 49.47433,
-                    longitude = 8.53472,
-                    playerLocationProvider = { locationOverlay.myLocation },
-                    context = context
-                ))
+                // Lade Quest Marker in Coroutine
+                scope.launch {
+                    loadQuestMarkers(
+                        ids = listOf(1, 2, 3), // Beispiel-IDs
+                        context = context,
+                        mapView = this@apply,
+                        locationOverlay = locationOverlay
+                    )
+                }
 
                 // Füge Non-Playable Areas hinzu
                 overlays.addAll(NonPlayableAreasOverlay().createOverlays())
@@ -39,4 +48,27 @@ fun MapScreen() {
         },
         modifier = Modifier.fillMaxSize()
     )
+}
+
+private suspend fun loadQuestMarkers(
+    ids: List<Int>,
+    context: Context,
+    mapView: MapView,
+    locationOverlay: MyLocationNewOverlay
+) {
+    val database = AppDatabase.getInstance(context)
+    val locationDao = database.locationDao()
+
+    ids.forEach { id ->
+        locationDao.getLocation(id)?.let { location ->
+            mapView.overlays.add(QuestMarkerOverlay(
+                latitude = location.latitude,
+                longitude = location.longitude,
+                playerLocationProvider = { locationOverlay.myLocation },
+                context = context
+            ))
+        }
+    }
+    // Karte aktualisieren nach dem Hinzufügen der Marker
+    mapView.invalidate()
 }
