@@ -72,6 +72,348 @@ class DatabaseInitializer(private val context: Context) {
         questStepDao.insertQuestStep(quest1Initial)
         questStepDao.insertQuestStep(quest1Solution)
         questStepDao.insertQuestStep(quest1Completion)
+
+        // Quest 2
+        val quest2 = Quest(
+            questId = 2,
+            questSequence = 2,
+            resourceKey = "quest_2",
+            startLocationId = 1,  // Startstadt
+            questLocationId = 3,  // Forest
+            endLocationId = 1     // Zurück zur Stadt
+        )
+        questDao.insertQuest(quest2)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 4,
+            questId = 2,
+            stepType = StepType.INITIAL,
+            warriorVariantKey = "quest_2_warrior_initial",
+            thiefVariantKey = "quest_2_thief_initial",
+            mageVariantKey = "quest_2_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 5,
+            questId = 2,
+            stepType = StepType.SOLUTION,
+            warriorVariantKey = "quest_2_warrior_solution",
+            thiefVariantKey = "quest_2_thief_solution",
+            mageVariantKey = "quest_2_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 6,
+            questId = 2,
+            stepType = StepType.COMPLETION,
+            warriorVariantKey = "quest_2_warrior_completion",
+            thiefVariantKey = "quest_2_thief_completion",
+            mageVariantKey = "quest_2_mage_completion"
+        ))
+
+        // Quest 3
+        val quest3 = Quest(
+            questId = 3,
+            questSequence = 3,
+            resourceKey = "quest_3",
+            startLocationId = 1,
+            questLocationId = 4, // Cave
+            endLocationId = 1
+        )
+        questDao.insertQuest(quest3)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 7,
+            questId = 3,
+            stepType = StepType.INITIAL,
+            warriorVariantKey = "quest_3_warrior_initial",
+            thiefVariantKey = "quest_3_thief_initial",
+            mageVariantKey = "quest_3_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 8,
+            questId = 3,
+            stepType = StepType.SOLUTION,
+            warriorVariantKey = "quest_3_warrior_solution",
+            thiefVariantKey = "quest_3_thief_solution",
+            mageVariantKey = "quest_3_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 9,
+            questId = 3,
+            stepType = StepType.COMPLETION,
+            warriorVariantKey = "quest_3_warrior_completion",
+            thiefVariantKey = "quest_3_thief_completion",
+            mageVariantKey = "quest_3_mage_completion"
+        ))
+
+        // Quest 4
+        val quest4= Quest(
+            questId=4,
+            questSequence=4,
+            resourceKey="quest_4",
+            startLocationId=1,
+            questLocationId=5, // Castle
+            endLocationId=1
+        )
+        questDao.insertQuest(quest4)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=10,
+            questId=4,
+            stepType=StepType.INITIAL,
+            warriorVariantKey="quest_4_warrior_initial",
+            thiefVariantKey="quest_4_thief_initial",
+            mageVariantKey="quest_4_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=11,
+            questId=4,
+            stepType=StepType.SOLUTION,
+            warriorVariantKey="quest_4_warrior_solution",
+            thiefVariantKey="quest_4_thief_solution",
+            mageVariantKey="quest_4_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=12,
+            questId=4,
+            stepType=StepType.COMPLETION,
+            warriorVariantKey="quest_4_warrior_completion",
+            thiefVariantKey="quest_4_thief_completion",
+            mageVariantKey="quest_4_mage_completion"
+        ))
+
+        // Quest 5
+        val quest5 = Quest(
+            questId = 5,
+            questSequence = 5,
+            resourceKey = "quest_5",
+            startLocationId = 1,  // Startstadt
+            questLocationId = 6,  // Ruins
+            endLocationId = 1     // Zurück zur Stadt
+        )
+        questDao.insertQuest(quest5)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 13,
+            questId = 5,
+            stepType = StepType.INITIAL,
+            warriorVariantKey = "quest_5_warrior_initial",
+            thiefVariantKey = "quest_5_thief_initial",
+            mageVariantKey = "quest_5_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 14,
+            questId = 5,
+            stepType = StepType.SOLUTION,
+            warriorVariantKey = "quest_5_warrior_solution",
+            thiefVariantKey = "quest_5_thief_solution",
+            mageVariantKey = "quest_5_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 15,
+            questId = 5,
+            stepType = StepType.COMPLETION,
+            warriorVariantKey = "quest_5_warrior_completion",
+            thiefVariantKey = "quest_5_thief_completion",
+            mageVariantKey = "quest_5_mage_completion"
+        ))
+
+        // Quest 6
+        val quest6 = Quest(
+            questId = 6,
+            questSequence = 6,
+            resourceKey = "quest_6",
+            startLocationId = 1,
+            questLocationId = 7, // Swamp
+            endLocationId = 1
+        )
+        questDao.insertQuest(quest6)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 16,
+            questId = 6,
+            stepType = StepType.INITIAL,
+            warriorVariantKey = "quest_6_warrior_initial",
+            thiefVariantKey = "quest_6_thief_initial",
+            mageVariantKey = "quest_6_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 17,
+            questId = 6,
+            stepType = StepType.SOLUTION,
+            warriorVariantKey = "quest_6_warrior_solution",
+            thiefVariantKey = "quest_6_thief_solution",
+            mageVariantKey = "quest_6_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 18,
+            questId = 6,
+            stepType = StepType.COMPLETION,
+            warriorVariantKey = "quest_6_warrior_completion",
+            thiefVariantKey = "quest_6_thief_completion",
+            mageVariantKey = "quest_6_mage_completion"
+        ))
+
+        // Quest 7
+        val quest7= Quest(
+            questId=7,
+            questSequence=7,
+            resourceKey="quest_7",
+            startLocationId=1,
+            questLocationId=8, // Mountain
+            endLocationId=1
+        )
+        questDao.insertQuest(quest7)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=19,
+            questId=7,
+            stepType=StepType.INITIAL,
+            warriorVariantKey="quest_7_warrior_initial",
+            thiefVariantKey="quest_7_thief_initial",
+            mageVariantKey="quest_7_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=20,
+            questId=7,
+            stepType=StepType.SOLUTION,
+            warriorVariantKey="quest_7_warrior_solution",
+            thiefVariantKey="quest_7_thief_solution",
+            mageVariantKey="quest_7_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=21,
+            questId=7,
+            stepType=StepType.COMPLETION,
+            warriorVariantKey="quest_7_warrior_completion",
+            thiefVariantKey="quest_7_thief_completion",
+            mageVariantKey="quest_7_mage_completion"
+        ))
+
+        val quest8 = Quest(
+            questId = 8,
+            questSequence = 8,
+            resourceKey = "quest_8",
+            startLocationId = 1,  // Startstadt
+            questLocationId = 9,  // Ancient Ruins
+            endLocationId = 1     // Zurück zur Stadt
+        )
+        questDao.insertQuest(quest8)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 22,
+            questId = 8,
+            stepType = StepType.INITIAL,
+            warriorVariantKey = "quest_8_warrior_initial",
+            thiefVariantKey = "quest_8_thief_initial",
+            mageVariantKey = "quest_8_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 23,
+            questId = 8,
+            stepType = StepType.SOLUTION,
+            warriorVariantKey = "quest_8_warrior_solution",
+            thiefVariantKey = "quest_8_thief_solution",
+            mageVariantKey = "quest_8_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 24,
+            questId = 8,
+            stepType = StepType.COMPLETION,
+            warriorVariantKey = "quest_8_warrior_completion",
+            thiefVariantKey = "quest_8_thief_completion",
+            mageVariantKey = "quest_8_mage_completion"
+        ))
+
+        // Quest 9
+        val quest9 = Quest(
+            questId = 9,
+            questSequence = 9,
+            resourceKey = "quest_9",
+            startLocationId = 1,  // Startstadt
+            questLocationId = 10, // Dark Forest
+            endLocationId = 1     // Zurück zur Stadt
+        )
+        questDao.insertQuest(quest9)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 25,
+            questId = 9,
+            stepType = StepType.INITIAL,
+            warriorVariantKey = "quest_9_warrior_initial",
+            thiefVariantKey = "quest_9_thief_initial",
+            mageVariantKey = "quest_9_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 26,
+            questId = 9,
+            stepType = StepType.SOLUTION,
+            warriorVariantKey = "quest_9_warrior_solution",
+            thiefVariantKey = "quest_9_thief_solution",
+            mageVariantKey = "quest_9_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId = 27,
+            questId = 9,
+            stepType = StepType.COMPLETION,
+            warriorVariantKey = "quest_9_warrior_completion",
+            thiefVariantKey = "quest_9_thief_completion",
+            mageVariantKey = "quest_9_mage_completion"
+        ))
+
+        // Quest 10
+        val quest10= Quest(
+            questId=10,
+            questSequence=10,
+            resourceKey="quest_10",
+            startLocationId=1,
+            questLocationId=9, // Final Battle Arena
+            endLocationId=1
+        )
+        questDao.insertQuest(quest10)
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=28,
+            questId=10,
+            stepType=StepType.INITIAL,
+            warriorVariantKey="quest_10_warrior_initial",
+            thiefVariantKey="quest_10_thief_initial",
+            mageVariantKey="quest_10_mage_initial"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=29,
+            questId=10,
+            stepType=StepType.SOLUTION,
+            warriorVariantKey="quest_10_warrior_solution",
+            thiefVariantKey="quest_10_thief_solution",
+            mageVariantKey="quest_10_mage_solution"
+        ))
+
+        questStepDao.insertQuestStep(QuestStep(
+            stepId=30,
+            questId=10,
+            stepType=StepType.COMPLETION,
+            warriorVariantKey="quest_10_warrior_completion",
+            thiefVariantKey="quest_10_thief_completion",
+            mageVariantKey="quest_10_mage_completion"
+        ))
+
     }
 
     private suspend fun initializeCharacters(database: AppDatabase) {

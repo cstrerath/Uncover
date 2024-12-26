@@ -13,4 +13,122 @@
     <string name="quest_1_warrior_completion">Die Banditen wurden vertrieben</string>
     <string name="quest_1_thief_completion">Der Gegenstand wurde erfolgreich zurückgebracht</string>
     <string name="quest_1_mage_completion">Die magische Anomalie wurde behoben</string>
+
+    <!-- Quest 2: Der Wald der Geheimnisse -->
+    <string name="quest_2_warrior_initial">Der Krieger hört von seltsamen Geräuschen im Wald und benötigt Hilfe.</string>
+    <string name="quest_2_thief_initial">Ein Dieb hat von einem versteckten Schatz im Wald gehört und sucht nach Verbündeten.</string>
+    <string name="quest_2_mage_initial">Der Magier spürt eine magische Präsenz im Wald und bittet um Unterstützung.</string>
+
+    <string name="quest_2_warrior_solution">Die Spuren führen tiefer in den Wald hinein, wo das Unheil seinen Ursprung hat.</string>
+    <string name="quest_2_thief_solution">Der Schatz könnte in einer alten Ruine verborgen sein, die im Wald liegt.</string>
+    <string name="quest_2_mage_solution">Die magische Energie scheint von einem alten Artefakt auszugehen, das im Wald versteckt ist.</string>
+
+    <string name="quest_2_warrior_completion">Die Bedrohung im Wald wurde beseitigt und der Krieger kann wieder sicher patrouillieren.</string>
+    <string name="quest_2_thief_completion">Der Schatz wurde gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
+    <string name="quest_2_mage_completion">Die magische Präsenz wurde neutralisiert und der Wald ist wieder sicher.</string>
+
+    <!-- Quest 3: Die Höhle der Prüfungen -->
+    <string name="quest_3_warrior_initial">Ein Krieger berichtet von einer gefährlichen Höhle, die Monster beherbergt.</string>
+    <string name="quest_3_thief_initial">Ein Dieb hat gehört, dass wertvolle Schätze in der Höhle versteckt sind.</string>
+    <string name="quest_3_mage_initial">Der Magier hat von einer magischen Kreatur gehört, die in der Höhle lebt und die Gegend terrorisiert.</string>
+
+    <string name="quest_3_warrior_solution">Die Monster müssen besiegt werden, um die Höhle zu erkunden.</string>
+    <string name="quest_3_thief_solution">Die Schätze sind nur zugänglich, wenn die Wächter besiegt werden.</string>
+    <string name="quest_3_mage_solution">Die magische Kreatur muss besiegt werden, um die Geheimnisse der Höhle zu lüften.</string>
+
+    <string name="quest_3_warrior_completion">Die Höhle ist nun sicher und die Monster wurden besiegt.</string>
+    <string name="quest_3_thief_completion">Der Schatz wurde erfolgreich geborgen und der Dieb hat seinen Reichtum zurückgewonnen.</string>
+    <string name="quest_3_mage_completion">Die magische Kreatur wurde besiegt und das Geheimnis der Höhle gelüftet.</string>
+
+    <!-- Quest 4: Der Angriff auf das Schloss -->
+    <string name="quest_4_warrior_initial">Das Schloss wird von feindlichen Truppen angegriffen und benötigt Hilfe!</string>
+    <string name="quest_4_thief_initial">Ein Dieb hat Informationen über einen geheimen Zugang zum Schloss erhalten.</string>
+    <string name="quest_4_mage_initial">Der Magier benötigt Unterstützung, um eine magische Barriere um das Schloss zu brechen.</string>
+
+    <string name="quest_4_warrior_solution">Die feindlichen Truppen versammeln sich vor dem Haupttor; ein Angriff muss geplant werden.</string>
+    <string name="quest_4_thief_solution">Der geheime Zugang könnte den Unterschied machen; er muss schnell genutzt werden!</string>
+    <string name="quest_4_mage_solution">Die Barriere kann nur durch einen starken Zauber gebrochen werden; Unterstützung ist nötig!</string>
+
+    <string name="quest_4_warrior_completion">Das Schloss wurde verteidigt und die Feinde zurückgeschlagen!</string>
+    <string name="quest_4_thief_completion">Der geheime Zugang war erfolgreich; der Dieb hat wertvolle Informationen gesammelt!</string>
+    <string name="quest_4_mage_completion">Die magische Barriere ist gefallen; das Schloss ist wieder sicher!</string>
+
+    <!-- Quest 5: Die Ruinen der Vergangenheit -->
+    <string name="quest_5_warrior_initial">Der Krieger hat von einem geheimen Ort in den Ruinen gehört, der Schätze birgt.</string>
+    <string name="quest_5_thief_initial">Ein Dieb sucht nach verborgenen Reichtümern in den alten Ruinen.</string>
+    <string name="quest_5_mage_initial">Der Magier spürt eine magische Energie, die aus den Ruinen strömt.</string>
+
+    <string name="quest_5_warrior_solution">Die Ruinen sind voller Gefahren; der Krieger muss vorsichtig sein.</string>
+    <string name="quest_5_thief_solution">Die Schätze sind gut versteckt; der Dieb muss seine Fähigkeiten einsetzen.</string>
+    <string name="quest_5_mage_solution">Die magische Energie könnte von einem Artefakt stammen; es muss untersucht werden.</string>
+
+    <string name="quest_5_warrior_completion">Die Ruinen wurden erkundet und die Geheimnisse gelüftet.</string>
+    <string name="quest_5_thief_completion">Der Schatz wurde gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
+    <string name="quest_5_mage_completion">Die magische Quelle wurde entdeckt und die Gefahr gebannt.</string>
+
+    <!-- Quest 6: Der Sumpf der Schatten -->
+    <string name="quest_6_warrior_initial">Der Krieger hört von einem Sumpf, der von dunklen Kreaturen heimgesucht wird.</string>
+    <string name="quest_6_thief_initial">Ein Dieb hat von einem wertvollen Artefakt gehört, das im Sumpf verborgen ist.</string>
+    <string name="quest_6_mage_initial">Der Magier spürt eine dunkle Magie im Sumpf und benötigt Hilfe.</string>
+
+    <string name="quest_6_warrior_solution">Die dunklen Kreaturen müssen besiegt werden, um den Sumpf zu erkunden.</string>
+    <string name="quest_6_thief_solution">Das Artefakt ist nur zugänglich, wenn die Wächter des Sumpfes besiegt werden.</string>
+    <string name="quest_6_mage_solution">Die dunkle Magie muss neutralisiert werden, um den Sumpf zu reinigen.</string>
+
+    <string name="quest_6_warrior_completion">Der Sumpf ist nun sicher und die Kreaturen wurden vertrieben.</string>
+    <string name="quest_6_thief_completion">Das Artefakt wurde erfolgreich geborgen und der Dieb hat seinen Ruhm zurückgewonnen.</string>
+    <string name="quest_6_mage_completion">Die dunkle Magie wurde beseitigt und der Sumpf ist wieder sicher.</string>
+
+    <!-- Quest 7: Der Berg der Prüfungen -->
+    <string name="quest_7_warrior_initial">Der Krieger hört von einem Berg voller Herausforderungen und Gefahren.</string>
+    <string name="quest_7_thief_initial">Ein Dieb hat von wertvollen Schätzen gehört, die auf dem Berg verborgen sind.</string>
+    <string name="quest_7_mage_initial">Der Magier spürt eine starke magische Energie, die vom Gipfel des Berges ausgeht.</string>
+
+    <string name="quest_7_warrior_solution">Um den Gipfel zu erreichen, müssen viele Prüfungen bestanden werden.</string>
+    <string name="quest_7_thief_solution">Die Schätze sind nur zugänglich, wenn die Fallen überwunden werden.</string>
+    <string name="quest_7_mage_solution">Die magische Energie muss untersucht werden, um ihre Quelle zu finden.</string>
+
+    <string name="quest_7_warrior_completion">Der Gipfel des Berges wurde erreicht und die Herausforderungen gemeistert.</string>
+    <string name="quest_7_thief_completion">Die Schätze wurden gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
+    <string name="quest_7_mage_completion">Die magische Quelle wurde entdeckt und ihre Geheimnisse gelüftet.</string>
+
+    <!-- Quest 8: Die alten Ruinen -->
+    <string name="quest_8_warrior_initial">Der Krieger hat von den alten Ruinen gehört, die voller Geheimnisse sind.</string>
+    <string name="quest_8_thief_initial">Ein Dieb sucht nach verborgenen Schätzen in den alten Ruinen.</string>
+    <string name="quest_8_mage_initial">Der Magier spürt eine starke magische Präsenz in den Ruinen.</string>
+
+    <string name="quest_8_warrior_solution">Die Ruinen sind gefährlich; der Krieger muss vorsichtig sein.</string>
+    <string name="quest_8_thief_solution">Die Schätze sind gut versteckt; der Dieb muss seine Fähigkeiten einsetzen.</string>
+    <string name="quest_8_mage_solution">Die magische Energie könnte von einem Artefakt stammen; es muss untersucht werden.</string>
+
+    <string name="quest_8_warrior_completion">Die Geheimnisse der Ruinen wurden gelüftet und die Gefahren besiegt.</string>
+    <string name="quest_8_thief_completion">Der Schatz wurde gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
+    <string name="quest_8_mage_completion">Die magische Quelle wurde entdeckt und die Gefahr neutralisiert.</string>
+
+    <!-- Quest 9: Der dunkle Wald -->
+    <string name="quest_9_warrior_initial">Der Krieger hört von einem dunklen Wald, der von gefährlichen Kreaturen bewohnt wird.</string>
+    <string name="quest_9_thief_initial">Ein Dieb hat von einem wertvollen Artefakt gehört, das im dunklen Wald verborgen ist.</string>
+    <string name="quest_9_mage_initial">Der Magier spürt eine dunkle Magie im Wald und benötigt Hilfe.</string>
+
+    <string name="quest_9_warrior_solution">Die Kreaturen müssen besiegt werden, um den Wald zu erkunden.</string>
+    <string name="quest_9_thief_solution">Das Artefakt ist nur zugänglich, wenn die Wächter des Waldes besiegt werden.</string>
+    <string name="quest_9_mage_solution">Die dunkle Magie muss neutralisiert werden, um den Wald zu reinigen.</string>
+
+    <string name="quest_9_warrior_completion">Der Wald ist nun sicher und die Kreaturen wurden vertrieben.</string>
+    <string name="quest_9_thief_completion">Das Artefakt wurde erfolgreich geborgen und der Dieb hat seinen Ruhm zurückgewonnen.</string>
+    <string name="quest_9_mage_completion">Die dunkle Magie wurde beseitigt und der Wald ist wieder sicher.</string>
+
+    <!-- Quest 10: Der letzte Kampf -->
+    <string name="quest_10_warrior_initial">Der Krieger bereitet sich auf den letzten Kampf gegen die Dunkelheit vor!</string>
+    <string name="quest_10_thief_initial">Ein Dieb hat Informationen über den Aufenthaltsort des Endgegners erhalten!</string>
+    <string name="quest_10_mage_initial">Der Magier spürt, dass die finale Konfrontation bevorsteht; er benötigt Unterstützung!</string>
+
+    <string name="quest_10_warrior_solution">Um zu gewinnen, müssen alle Kräfte gebündelt werden!</string>
+    <string name="quest_10_thief_solution">Der Dieb muss seine Fähigkeiten nutzen, um den Feind zu überlisten!</string>
+    <string name="quest_10_mage_solution">Die magische Barriere muss durchbrochen werden, um den Endgegner zu erreichen!</string>
+
+    <string name="quest_10_warrior_completion">Der letzte Kampf wurde gewonnen und das Königreich ist gerettet!</string>
+    <string name="quest_10_thief_completion">Der Dieb hat den Endgegner überlistet und seine Beute gesichert!</string>
+    <string name="quest_10_mage_completion">Die Dunkelheit wurde besiegt und das Gleichgewicht der Magie wiederhergestellt!</string>
+
 </resources>

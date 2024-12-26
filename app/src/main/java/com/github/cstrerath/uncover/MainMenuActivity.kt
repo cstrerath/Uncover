@@ -100,12 +100,37 @@ fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Uni
                 coroutineScope.launch {
                     try {
                         val playerId = gameCharDao.getPlayerCharacterId() ?: throw Exception("No player found")
+                        Log.d("QuestProgress", "Player ID: $playerId")
+
+                        val activeQuest = questProgress.getFirstIncompleteQuest(playerId)
+                        Log.d("QuestProgress", "Active Quest: $activeQuest")
+
+                        if (activeQuest == null) {
+                            Log.i("QuestProgress", "No incomplete quests found")
+                            return@launch
+                        }
+
+                        val activeQuestId = activeQuest.questId
+                        Log.d("QuestProgress", "Active Quest ID: $activeQuestId")
+
                         val questProgressManager = QuestProgressManager(progressDao = questProgress)
-                        questProgressManager.progressQuest(playerId,1)
-                        val newProgress = questProgress.getQuestProgress(playerId, 1) ?: throw Exception("No quest progress found")
-                        Log.i("QuestProgress", newProgress.toString())
+                        questProgressManager.progressQuest(playerId, activeQuestId)
+
+                        val newProgress = questProgress.getQuestProgress(playerId, activeQuestId)
+                        Log.i("QuestProgress", "New Progress: $newProgress")
+
+                        // Überprüfen Sie hier, ob eine neue Quest erstellt wurde
+                        val nextQuest = questProgress.getFirstIncompleteQuest(playerId)
+                        Log.d("QuestProgress", "Next Quest: $nextQuest")
+
+                        // Ausgabe aller Quests des Charakters
+                        val allQuests = questProgress.getCharacterProgress(playerId)
+                        Log.d("QuestProgress", "All Quests for Character:")
+                        allQuests.forEach { quest ->
+                            Log.d("QuestProgress", "Quest ID: ${quest.questId}, Stage: ${quest.stage}")
+                        }
+
                     } catch (e: Exception) {
-                        // Hier könnten Sie eine Fehlermeldung anzeigen
                         Log.e("QuestProgress", "Error updating quest progress: ${e.message}")
                     }
                 }
@@ -113,6 +138,7 @@ fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Uni
         ) {
             Text("Quest-Progress")
         }
+
 
     }
 }
