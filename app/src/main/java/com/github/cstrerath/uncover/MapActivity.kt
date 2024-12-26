@@ -126,6 +126,15 @@ fun MapScreen() {
                 )
                 overlays.add(fogOfWar)
 
+                val questMarker = QuestMarkerOverlay(
+                    latitude = 49.47433, // DHBW Koordinaten
+                    longitude = 8.53472,
+                    playerLocationProvider = { myLocationOverlay.myLocation },
+                    context = context
+                )
+                overlays.add(questMarker)
+
+
                 // Stark erweiterte nicht spielbare Bereiche
                 val nonPlayableAreas = listOf(
                     mapOf(
