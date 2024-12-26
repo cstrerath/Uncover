@@ -18,4 +18,10 @@ interface CharacterQuestProgressDao {
 
     @Query("SELECT questId FROM character_quest_progress WHERE characterId = :characterId AND stage < :stage")
     suspend fun getActiveQuestIds(characterId: String, stage: QuestStage = QuestStage.COMPLETED): List<Int>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertProgress(progress: CharacterQuestProgress)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertMultipleProgress(progressList: List<CharacterQuestProgress>)
 }

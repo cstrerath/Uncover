@@ -35,7 +35,7 @@ class CharacterCreationActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val db = AppDatabase.getInstance(applicationContext)
-        characterCreator = PlayerCharacterCreator(db.gameCharacterDao())
+        characterCreator = PlayerCharacterCreator(db.gameCharacterDao(),db.characterQuestProgressDao())
 
         setContent {
             UncoverTheme {
