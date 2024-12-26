@@ -8,11 +8,14 @@ import androidx.room.Query
 @Dao
 interface CharacterQuestProgressDao {
     @Query("SELECT * FROM character_quest_progress WHERE characterId = :characterId")
-    fun getCharacterProgress(characterId: String): List<CharacterQuestProgress>
+    suspend fun getCharacterProgress(characterId: String): List<CharacterQuestProgress>
 
     @Query("SELECT * FROM character_quest_progress WHERE characterId = :characterId AND questId = :questId")
-    fun getQuestProgress(characterId: String, questId: Int): CharacterQuestProgress?
+    suspend fun getQuestProgress(characterId: String, questId: Int): CharacterQuestProgress?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateProgress(progress: CharacterQuestProgress)
+    suspend fun updateProgress(progress: CharacterQuestProgress)
+
+    @Query("SELECT questId FROM character_quest_progress WHERE characterId = :characterId AND stage < :stage")
+    suspend fun getActiveQuestIds(characterId: String, stage: QuestStage = QuestStage.COMPLETED): List<Int>
 }
