@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -48,6 +49,7 @@ fun PlayerStatsScreen() {
     var player by remember {
         mutableStateOf<GameCharacter?>(null)
     }
+    val characterProgression = CharacterProgression(context)
 
     LaunchedEffect(Unit) {
         withContext(Dispatchers.IO) {
@@ -76,6 +78,17 @@ fun PlayerStatsScreen() {
                 color = MaterialTheme.colorScheme.primary
             )
         }
+
+        Button(onClick = { characterProgression.tryLevelUp() }) {
+            Text("Level-Up-Try")
+        }
+
+        Spacer(Modifier.padding(16.dp))
+
+        Button(onClick = { characterProgression.addTestXp()}) {
+            Text("Add 250 XP")
+        }
+
     }
 }
 
