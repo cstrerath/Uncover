@@ -1,6 +1,7 @@
 package com.github.cstrerath.uncover
 
 import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +15,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import androidx.compose.runtime.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 
 @Composable
 fun MapScreen() {
@@ -54,7 +57,14 @@ fun MapScreen() {
                             ids = activeLocationIds,
                             context = context,
                             mapView = this@apply,
-                            locationOverlay = locationOverlay
+                            locationOverlay = locationOverlay,
+                            onMarkerClick = { questId ->
+                                // Hier starten Sie die QuestActivity
+                                val intent = Intent(context, QuestActivity::class.java).apply {
+                                    putExtra("QUEST_ID", questId)
+                                }
+                                context.startActivity(intent)
+                            }
                         )
                     }
                 }
@@ -64,24 +74,36 @@ fun MapScreen() {
     )
 }
 
-private suspend fun loadQuestMarkers(
+suspend fun loadQuestMarkers(
     ids: List<Int>,
     context: Context,
     mapView: MapView,
-    locationOverlay: MyLocationNewOverlay
+    locationOverlay: MyLocationNewOverlay,
+    onMarkerClick: (Int) -> Unit
 ) {
-    val database = AppDatabase.getInstance(context)
-    val locationDao = database.locationDao()
+    withContext(Dispatchers.IO) {
+        val database = AppDatabase.getInstance(context)
+        val locationDao = database.locationDao()
 
-    ids.forEach { id ->
-        locationDao.getLocation(id)?.let { location ->
-            mapView.overlays.add(QuestMarkerOverlay(
-                latitude = location.latitude,
-                longitude = location.longitude,
-                playerLocationProvider = { locationOverlay.myLocation },
-                context = context
-            ))
+        ids.forEach { id ->
+            val location = locationDao.getLocation(id)
+            location?.let {
+                withContext(Dispatchers.Main) {
+                    val marker = QuestMarkerOverlay(
+                        latitude = it.latitude,
+                        longitude = it.longitude,
+                        playerLocationProvider = { locationOverlay.myLocation },
+                        onMarkerClick = { onMarkerClick(id) },
+                        context = context
+                    )
+                    mapView.overlays.add(marker)
+                }
+            }
+        }
+        withContext(Dispatchers.Main) {
+            mapView.invalidate()
         }
     }
-    mapView.invalidate()
 }
+
+

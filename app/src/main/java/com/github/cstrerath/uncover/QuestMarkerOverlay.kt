@@ -4,7 +4,9 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.view.MotionEvent
 import androidx.core.content.ContextCompat
+import org.osmdroid.api.IGeoPoint
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Overlay
@@ -14,6 +16,7 @@ class QuestMarkerOverlay(
     private val longitude: Double,
     private val playerLocationProvider: () -> GeoPoint?,
     private val visibilityRadiusMeters: Float = 200f,
+    private val onMarkerClick: () -> Unit,
     context: Context
 ) : Overlay() {
 
@@ -43,7 +46,7 @@ class QuestMarkerOverlay(
         return bitmap
     }
 
-    private fun calculateDistance(point1: GeoPoint, point2: GeoPoint): Double {
+    private fun calculateDistance(point1: IGeoPoint, point2: GeoPoint): Double {
         val results = FloatArray(1)
         android.location.Location.distanceBetween(
             point1.latitude, point1.longitude,
@@ -78,5 +81,22 @@ class QuestMarkerOverlay(
         activeMarker.recycle()
         inactiveMarker.recycle()
         super.onDetach(mapView)
+    }
+
+    override fun onSingleTapConfirmed(e: MotionEvent?, mapView: MapView?): Boolean {
+        if (e != null && mapView != null) {
+            val projection = mapView.projection
+            val tappedPoint = projection.fromPixels(e.x.toInt(),e.y.toInt())
+            val distance = calculateDistance(tappedPoint,questLocation)
+
+            if (distance <= 50) {
+                val playerLocation = playerLocationProvider()
+                if (playerLocation != null && calculateDistance(playerLocation,questLocation) <= visibilityRadiusMeters) {
+                    onMarkerClick()
+                    return true
+                }
+            }
+        }
+        return super.onSingleTapConfirmed(e, mapView)
     }
 }
