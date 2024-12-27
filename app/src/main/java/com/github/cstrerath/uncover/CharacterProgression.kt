@@ -22,6 +22,14 @@ class CharacterProgression(private val context: Context) {
         }
     }
 
+    fun getRequiredXpForNextLevel(currentLevel: Int): Int {
+        return calculateRequiredXp(currentLevel + 1)
+    }
+
+    fun getRemainingXp(currentLevel: Int, currentXp: Int): Int {
+        return getRequiredXpForNextLevel(currentLevel) - currentXp
+    }
+
     fun addTestXp() {
         scope.launch {
             try {
@@ -32,6 +40,28 @@ class CharacterProgression(private val context: Context) {
 
                 val updatedPlayer = player.copy(
                     experience = player.experience + 250
+                )
+
+                gameCharDao.updateCharacter(updatedPlayer)
+                Log.i("CharacterProgression",
+                    "EP hinzugefügt: ${player.experience} -> ${updatedPlayer.experience}")
+
+            } catch (e: Exception) {
+                Log.e("CharacterProgression", "Fehler beim Hinzufügen der EP", e)
+            }
+        }
+    }
+
+    fun addQuestXp(experience: Int) {
+        scope.launch {
+            try {
+                val player = gameCharDao.getPlayerCharacter() ?: run {
+                    Log.e("CharacterProgression", "Kein Spielercharakter gefunden")
+                    return@launch
+                }
+
+                val updatedPlayer = player.copy(
+                    experience = player.experience + experience
                 )
 
                 gameCharDao.updateCharacter(updatedPlayer)
