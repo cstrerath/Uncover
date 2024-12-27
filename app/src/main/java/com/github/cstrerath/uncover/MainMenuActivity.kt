@@ -60,6 +60,7 @@ fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Uni
         val database = AppDatabase.getInstance(context = LocalContext.current)
         val gameCharDao = database.gameCharacterDao()
         val questProgress = database.characterQuestProgressDao()
+        val questDao = database.questDao()
 
         Button(
             onClick = onNavigateToMap,
@@ -113,7 +114,7 @@ fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Uni
                         val activeQuestId = activeQuest.questId
                         Log.d("QuestProgress", "Active Quest ID: $activeQuestId")
 
-                        val questProgressManager = QuestProgressManager(progressDao = questProgress)
+                        val questProgressManager = QuestProgressManager(progressDao = questProgress, questDao)
                         questProgressManager.progressQuest(playerId, activeQuestId)
 
                         val newProgress = questProgress.getQuestProgress(playerId, activeQuestId)

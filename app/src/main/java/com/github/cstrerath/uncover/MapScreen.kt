@@ -47,8 +47,8 @@ fun MapScreen() {
                     playerCharacter = database.gameCharacterDao().getPlayerCharacter()
 
                     playerCharacter?.let { player ->
-                        val progressManager = QuestProgressManager(database.characterQuestProgressDao())
-                        val activeLocationIds = progressManager.getActiveQuestLocations(player.name)
+                        val progressManager = QuestProgressManager(database.characterQuestProgressDao(),database.questDao())
+                        val activeLocationIds = progressManager.getActiveQuestLocations(player.id)
 
                         loadQuestMarkers(
                             ids = activeLocationIds,

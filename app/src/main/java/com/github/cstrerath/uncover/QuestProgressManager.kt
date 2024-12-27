@@ -1,6 +1,14 @@
 package com.github.cstrerath.uncover
 
-class QuestProgressManager(private val progressDao: CharacterQuestProgressDao) {
+import android.util.Log
+import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+class QuestProgressManager(
+    private val progressDao: CharacterQuestProgressDao,
+    private val questDao: QuestDao
+    ) {
     suspend fun progressQuest(characterId: String, questId: Int) {
         val currentProgress = progressDao.getQuestProgress(characterId, questId)
             ?: CharacterQuestProgress(characterId, questId, QuestStage.NOT_STARTED)
@@ -37,7 +45,7 @@ class QuestProgressManager(private val progressDao: CharacterQuestProgressDao) {
         progressDao.updateProgress(currentProgress.copy(stage = newStage))
     }
 
-    suspend fun getActiveQuestLocations(characterId: String): List<Int> {
+    /*suspend fun getActiveQuestLocations(characterId: String): List<Int> {
         return progressDao.getActiveQuestIds(characterId).map { questId ->
             val progress = progressDao.getQuestProgress(characterId, questId)
             when (progress?.stage) {
@@ -47,5 +55,35 @@ class QuestProgressManager(private val progressDao: CharacterQuestProgressDao) {
                 else -> questId
             }
         }
+    }*/
+
+    suspend fun getActiveQuestLocations(characterId: String): List<Int> = withContext(Dispatchers.IO) {
+        val listOfQuestLocations = ArrayList<Int>()
+        val openProgressQuest = progressDao.getFirstIncompleteQuest(characterId)
+
+        Log.i("Quest Progress:", openProgressQuest.toString())
+        Log.i("Player Id:", characterId)
+
+        if (openProgressQuest != null) {
+            try {
+                val openQuest = questDao.getQuestById(openProgressQuest.questId)
+                Log.i("Quest:", openQuest.toString())
+
+                when (openProgressQuest.stage) {
+                    QuestStage.AT_START -> listOfQuestLocations.add(openQuest.startLocationId)
+                    QuestStage.AT_QUEST_LOCATION -> listOfQuestLocations.add(openQuest.questLocationId)
+                    QuestStage.AT_END -> listOfQuestLocations.add(openQuest.endLocationId)
+                    // Für COMPLETED und NOT_STARTED wird nichts hinzugefügt
+                    else -> { /* Nichts hinzufügen */ }
+                }
+            } catch (e: Exception) {
+                Log.e("QuestMappingError:", "Fehler beim Abrufen der Quest: ${e.message}")
+            }
+        } else {
+            Log.e("QuestMappingError:", "Keine offene Quest gefunden")
+        }
+
+        listOfQuestLocations
     }
+
 }
