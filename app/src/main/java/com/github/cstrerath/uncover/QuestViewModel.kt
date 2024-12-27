@@ -1,9 +1,8 @@
+package com.github.cstrerath.uncover
+
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.cstrerath.uncover.AppDatabase
-import com.github.cstrerath.uncover.Quest
-import com.github.cstrerath.uncover.QuestStep
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

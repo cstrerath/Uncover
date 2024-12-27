@@ -1,8 +1,14 @@
 package com.github.cstrerath.uncover
 
+import android.util.Log
 import java.util.UUID
 
-class PlayerCharacterCreator(private val characterDao: GameCharacterDao) {
+class PlayerCharacterCreator(
+    private val characterDao: GameCharacterDao,
+    private val characterQuestProgressDao: CharacterQuestProgressDao
+) {
+    private val TAG = "PlayerCharacterCreator"
+
     suspend fun createPlayerCharacter(name: String, characterClass: CharacterClass): GameCharacter {
         val character = when(characterClass) {
             CharacterClass.WARRIOR -> GameCharacter(
@@ -40,7 +46,37 @@ class PlayerCharacterCreator(private val characterDao: GameCharacterDao) {
             )
         }
 
-        characterDao.insertCharacter(character)
+        try {
+            characterDao.insertCharacter(character)
+            initializeQuestProgress(character.id)
+            logCharacterCreation(character)
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to create character: ${e.message}", e)
+            throw Exception("Failed to create character: ${e.message}")
+        }
+
         return character
+    }
+
+    private suspend fun initializeQuestProgress(characterId: String) {
+        val initialQuest = CharacterQuestProgress(characterId, 1, QuestStage.NOT_STARTED)
+        characterQuestProgressDao.insertProgress(initialQuest)
+    }
+
+    private suspend fun logCharacterCreation(character: GameCharacter) {
+        val questProgress = characterQuestProgressDao.getCharacterProgress(character.id)
+        Log.i(TAG, """
+            Character created successfully:
+            ID: ${character.id}
+            Name: ${character.name}
+            Class: ${character.characterClass}
+            Level: ${character.level}
+            Health: ${character.health}
+            Mana: ${character.mana}
+            Stamina: ${character.stamina}
+            
+            Quest Progress:
+            ${questProgress.joinToString("\n") { "Quest ID: ${it.questId}, Stage: ${it.stage}" }}
+        """.trimIndent())
     }
 }

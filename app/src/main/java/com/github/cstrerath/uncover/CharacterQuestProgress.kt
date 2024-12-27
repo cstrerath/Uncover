@@ -3,8 +3,12 @@ package com.github.cstrerath.uncover
 import androidx.room.Entity
 import androidx.room.TypeConverters
 
-enum class QuestProgress {
-    NOT_STARTED, INITIAL, SOLUTION, COMPLETION, FINISHED
+enum class QuestStage {
+    NOT_STARTED,      // 0
+    AT_START,         // 1
+    AT_QUEST_LOCATION,// 2
+    AT_END,          // 3
+    COMPLETED        // 4
 }
 
 @Entity(
@@ -15,5 +19,5 @@ enum class QuestProgress {
 data class CharacterQuestProgress(
     val characterId: String,
     val questId: Int,
-    val currentStep: QuestProgress
+    val stage: QuestStage
 )

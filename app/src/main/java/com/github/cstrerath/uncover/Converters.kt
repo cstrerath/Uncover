@@ -12,15 +12,7 @@ class Converters {
     fun toStepType(value: String): StepType {
         return StepType.valueOf(value)
     }
-    @TypeConverter
-    fun fromQuestProgress(value: QuestProgress): String {
-        return value.name
-    }
 
-    @TypeConverter
-    fun toQuestProgress(value: String): QuestProgress {
-        return QuestProgress.valueOf(value)
-    }
 
     @TypeConverter
     fun fromCharacterClass(value: CharacterClass): String {
@@ -30,5 +22,15 @@ class Converters {
     @TypeConverter
     fun toCharacterClass(value: String): CharacterClass {
         return CharacterClass.valueOf(value)
+    }
+
+    @TypeConverter
+    fun fromQuestStage(value: QuestStage): Int {
+        return value.ordinal
+    }
+
+    @TypeConverter
+    fun toQuestStage(value: Int): QuestStage {
+        return QuestStage.entries[value]
     }
 }

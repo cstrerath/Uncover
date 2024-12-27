@@ -18,6 +18,12 @@
         android:theme="@style/Theme.Uncover"
         tools:targetApi="31">
         <activity
+            android:name=".QuestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocationListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainMenuActivity"
             android:exported="false" />
         <activity

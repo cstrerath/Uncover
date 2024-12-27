@@ -24,4 +24,7 @@ interface GameCharacterDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM game_characters WHERE isPlayer = 1)")
     suspend fun hasPlayerCharacter(): Boolean
+
+    @Query("SELECT id FROM game_characters WHERE isPlayer = 1 LIMIT 1")
+    suspend fun getPlayerCharacterId(): String?
 }
