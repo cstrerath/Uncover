@@ -10,6 +10,7 @@ import org.osmdroid.api.IGeoPoint
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Overlay
+import kotlin.math.pow
 
 class QuestMarkerOverlay(
     private val latitude: Double,
@@ -89,7 +90,9 @@ class QuestMarkerOverlay(
             val tappedPoint = projection.fromPixels(e.x.toInt(),e.y.toInt())
             val distance = calculateDistance(tappedPoint,questLocation)
 
-            if (distance <= 50) {
+            val hitboxSize = calculateHitboxSize(mapView.zoomLevelDouble.toFloat())
+
+            if (distance <= hitboxSize) {
                 val playerLocation = playerLocationProvider()
                 if (playerLocation != null && calculateDistance(playerLocation,questLocation) <= visibilityRadiusMeters) {
                     onMarkerClick()
@@ -99,4 +102,22 @@ class QuestMarkerOverlay(
         }
         return super.onSingleTapConfirmed(e, mapView)
     }
+
+    private fun calculateHitboxSize(zoomLevel: Float): Float {
+        val baseSize = 250f
+        val minZoom = 13f
+        val maxZoom = 20f
+
+        // Normalisieren des Zoom-Levels
+        val normalizedZoom = (zoomLevel - minZoom) / (maxZoom - minZoom)
+
+        // Angepasste nicht-lineare Skalierung
+        val scaleFactor = 1 - normalizedZoom.pow(0.3f)
+
+        // Zusätzlicher Boost für niedrige Zoom-Levels
+        val lowZoomBoost = if (normalizedZoom < 0.2) 1.8f else 1f
+
+        return baseSize * scaleFactor * lowZoomBoost
+    }
+
 }
