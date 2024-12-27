@@ -42,6 +42,9 @@ class MainMenuActivity : ComponentActivity() {
                     },
                     onNavigateToLocationList = {
                         startActivity(Intent(this, LocationListActivity::class.java))
+                    },
+                    onNavigateToPlayerStats = {
+                        startActivity(Intent(this, PlayerStatsActivity::class.java))
                     }
                 )
             }
@@ -50,7 +53,13 @@ class MainMenuActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Unit, onNavigateToCharacterInit: () -> Unit, onNavigateToLocationList: () -> Unit) {
+fun MainScreen(
+    onNavigateToMap: () -> Unit,
+    onNavigateToCharacterList: () -> Unit,
+    onNavigateToCharacterInit: () -> Unit,
+    onNavigateToLocationList: () -> Unit,
+    onNavigateToPlayerStats: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -140,6 +149,13 @@ fun MainScreen(onNavigateToMap: () -> Unit, onNavigateToCharacterList: () -> Uni
             Text("Quest-Progress")
         }
 
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = onNavigateToPlayerStats,
+        ) {
+            Text("View Player Stats")
+        }
 
     }
 }
