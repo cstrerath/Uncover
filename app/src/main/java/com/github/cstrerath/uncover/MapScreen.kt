@@ -58,10 +58,10 @@ fun MapScreen() {
                             context = context,
                             mapView = this@apply,
                             locationOverlay = locationOverlay,
-                            onMarkerClick = { questId ->
+                            onMarkerClick = { locationId ->
                                 // Hier starten Sie die QuestActivity
                                 val intent = Intent(context, QuestActivity::class.java).apply {
-                                    putExtra("QUEST_ID", questId)
+                                    putExtra(context.getString(R.string.quest_location_id), locationId)
                                 }
                                 context.startActivity(intent)
                             }
@@ -85,15 +85,15 @@ suspend fun loadQuestMarkers(
         val database = AppDatabase.getInstance(context)
         val locationDao = database.locationDao()
 
-        ids.forEach { id ->
-            val location = locationDao.getLocation(id)
+        ids.forEach { locationId ->
+            val location = locationDao.getLocation(locationId)
             location?.let {
                 withContext(Dispatchers.Main) {
                     val marker = QuestMarkerOverlay(
                         latitude = it.latitude,
                         longitude = it.longitude,
                         playerLocationProvider = { locationOverlay.myLocation },
-                        onMarkerClick = { onMarkerClick(id) },
+                        onMarkerClick = { onMarkerClick(locationId) },
                         context = context
                     )
                     mapView.overlays.add(marker)

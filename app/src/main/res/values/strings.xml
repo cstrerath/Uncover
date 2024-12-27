@@ -130,5 +130,6 @@
     <string name="quest_10_warrior_completion">Der letzte Kampf wurde gewonnen und das Königreich ist gerettet!</string>
     <string name="quest_10_thief_completion">Der Dieb hat den Endgegner überlistet und seine Beute gesichert!</string>
     <string name="quest_10_mage_completion">Die Dunkelheit wurde besiegt und das Gleichgewicht der Magie wiederhergestellt!</string>
+    <string name="quest_location_id">QUEST_LOCATION_ID</string>
 
 </resources>
