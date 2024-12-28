@@ -33,8 +33,8 @@ class MapActivity : BaseActivity() {
         questLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { _ ->
-            // Nach Rückkehr von der Quest die Marker neu laden
-            setContent { MapScreen(questLauncher) }
+            finish()
+            startActivity(intent)
         }
 
         checkLocationPermissions()
