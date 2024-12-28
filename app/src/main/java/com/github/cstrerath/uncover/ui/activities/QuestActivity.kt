@@ -32,7 +32,7 @@ import com.github.cstrerath.uncover.QuestDao
 import com.github.cstrerath.uncover.QuestProgressManager
 import com.github.cstrerath.uncover.QuestResources
 import com.github.cstrerath.uncover.QuestStage
-import com.github.cstrerath.uncover.QuestStepDao
+import com.github.cstrerath.uncover.data.database.dao.QuestStepDao
 import com.github.cstrerath.uncover.R
 import com.github.cstrerath.uncover.StepType
 import kotlinx.coroutines.Dispatchers

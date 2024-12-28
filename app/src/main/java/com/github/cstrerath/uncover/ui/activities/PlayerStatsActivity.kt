@@ -1,7 +1,6 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.ui.activities
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -32,13 +31,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.github.cstrerath.uncover.AppDatabase
+import com.github.cstrerath.uncover.CharacterProgression
+import com.github.cstrerath.uncover.GameCharacter
+import com.github.cstrerath.uncover.ui.base.BaseActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class PlayerStatsActivity : ComponentActivity() {
+class PlayerStatsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

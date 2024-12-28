@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 import androidx.room.TypeConverters
+import com.github.cstrerath.uncover.data.database.dao.QuestStepDao
 
 @Database(entities = [
     GameCharacter::class,

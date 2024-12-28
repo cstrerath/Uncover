@@ -1,16 +1,16 @@
 package com.github.cstrerath.uncover.ui.activities
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import org.osmdroid.config.Configuration
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.github.cstrerath.uncover.MapScreen
+import com.github.cstrerath.uncover.ui.base.BaseActivity
+import org.osmdroid.config.Configuration
 
-class MapActivity : ComponentActivity() {
+class MapActivity : BaseActivity() {
     private lateinit var questLauncher: ActivityResultLauncher<Intent>
 
     private val locationPermissionRequest = registerForActivityResult(
