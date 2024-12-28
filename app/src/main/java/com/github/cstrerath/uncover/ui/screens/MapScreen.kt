@@ -1,132 +1,46 @@
 package com.github.cstrerath.uncover.ui.screens
 
-import android.content.Context
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
-import com.github.cstrerath.uncover.R
-import com.github.cstrerath.uncover.data.database.AppDatabase
-import com.github.cstrerath.uncover.data.database.entities.GameCharacter
-import com.github.cstrerath.uncover.domain.map.config.MapConfiguration
-import com.github.cstrerath.uncover.domain.map.overlays.FogOfWarOverlay
-import com.github.cstrerath.uncover.domain.map.overlays.NonPlayableAreasOverlay
-import com.github.cstrerath.uncover.domain.map.overlays.PlayerLocationOverlay
-import com.github.cstrerath.uncover.domain.map.overlays.QuestMarkerOverlay
-import com.github.cstrerath.uncover.domain.quest.QuestProgressHandler
-import com.github.cstrerath.uncover.ui.activities.QuestActivity
+import com.github.cstrerath.uncover.domain.map.managers.MapManager
+import com.github.cstrerath.uncover.domain.map.managers.QuestMarkerHandler
+import com.github.cstrerath.uncover.ui.factories.MapViewFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.osmdroid.views.MapView
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 @Composable
 fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
-    var playerCharacter by remember { mutableStateOf<GameCharacter?>(null) }
-    var mapView by remember { mutableStateOf<MapView?>(null) }
+    val mapViewState = remember { mutableStateOf<MapView?>(null) }
+    val mapManager = remember { MapManager(context) }
+    val markerHandler = remember { QuestMarkerHandler(context) }
+
+    fun refreshMapData() {
+        scope.launch {
+            withContext(Dispatchers.IO) {
+                markerHandler.loadPlayerAndQuestData(mapViewState.value, questLauncher)
+            }
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        refreshMapData()
+    }
 
     AndroidView(
-        factory = { context ->
-            MapView(context).apply {
-                mapView = this
-                // Konfiguriere Grundeinstellungen
-                MapConfiguration(this).configure()
-
-                // Füge Player Location Overlay hinzu
-                val playerLocation = PlayerLocationOverlay(context, this)
-                val locationOverlay = playerLocation.getOverlay()
-                overlays.add(0, locationOverlay)
-
-                // Füge Fog of War hinzu
-                overlays.add(FogOfWarOverlay(
-                    playerLocationProvider = { locationOverlay.myLocation },
-                    visibilityRadiusMeters = 200f
-                ))
-
-                // Füge Non-Playable Areas hinzu
-                overlays.addAll(NonPlayableAreasOverlay().createOverlays())
-
-                // Lade Quest Marker wenn Player Character verfügbar
-                scope.launch {
-                    val database = AppDatabase.getInstance(context)
-                    playerCharacter = database.gameCharacterDao().getPlayerCharacter()
-
-                    playerCharacter?.let { player ->
-                        val progressManager = QuestProgressHandler(database.characterQuestProgressDao(),database.questDao())
-                        val activeLocationIds = progressManager.getActiveQuestLocations(player.id)
-
-                        loadQuestMarkers(
-                            ids = activeLocationIds,
-                            context = context,
-                            mapView = this@apply,
-                            locationOverlay = locationOverlay,
-                            onMarkerClick = { locationId ->
-                                val intent = Intent(context, QuestActivity::class.java).apply {
-                                    putExtra(context.getString(R.string.quest_location_id), locationId)
-                                }
-                                questLauncher.launch(intent)
-                            }
-                        )
-                    }
-                }
-            }
-        },
+        factory = { MapViewFactory.create(context, mapViewState, mapManager) },
         modifier = Modifier.fillMaxSize()
     )
 }
-
-
-
-
-
-
-suspend fun loadQuestMarkers(
-    ids: List<Int>,
-    context: Context,
-    mapView: MapView,
-    locationOverlay: MyLocationNewOverlay,
-    onMarkerClick: (Int) -> Unit
-) {
-    withContext(Dispatchers.IO) {
-        val database = AppDatabase.getInstance(context)
-        val locationDao = database.locationDao()
-
-        // Bestehende Quest-Marker entfernen
-        withContext(Dispatchers.Main) {
-            mapView.overlays.removeAll { it is QuestMarkerOverlay }
-        }
-
-        ids.forEach { locationId ->
-            val location = locationDao.getLocation(locationId)
-            location?.let {
-                withContext(Dispatchers.Main) {
-                    val marker = QuestMarkerOverlay(
-                        latitude = it.latitude,
-                        longitude = it.longitude,
-                        playerLocationProvider = { locationOverlay.myLocation },
-                        onMarkerClick = { onMarkerClick(locationId) },
-                        context = context
-                    )
-                    mapView.overlays.add(marker)
-                }
-            }
-        }
-        withContext(Dispatchers.Main) {
-            mapView.invalidate()
-        }
-    }
-}
-
-
-
