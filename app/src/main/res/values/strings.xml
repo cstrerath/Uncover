@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">Uncover</string>
 
+    <string name="loading">Laden…</string>
+
+    <!-- Quest Names -->
+    <string name="quest_1">Der erste Auftrag</string>
+    <string name="quest_2">Der Wald der Geheimnisse</string>
+    <string name="quest_3">Die Höhle der Prüfungen</string>
+    <string name="quest_4">Der Angriff auf das Schloss</string>
+    <string name="quest_5">Die Ruinen der Vergangenheit</string>
+    <string name="quest_6">Der Sumpf der Schatten</string>
+    <string name="quest_7">Der Berg der Prüfungen</string>
+    <string name="quest_8">Die alten Ruinen</string>
+    <string name="quest_9">Der dunkle Wald</string>
+    <string name="quest_10">Der letzte Kampf</string>
+
+
     <!-- Quest 1: Der erste Auftrag -->
     <string name="quest_1_warrior_initial">Der Hauptmann der Wache benötigt Hilfe bei einem Banditenproblem</string>
     <string name="quest_1_thief_initial">Ein Händler sucht jemanden für einen delikaten Auftrag</string>

@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -22,6 +23,7 @@ import kotlin.jvm.Throws
 class QuestActivity : ComponentActivity() {
     private lateinit var questProgressManager: QuestProgressManager
     private lateinit var questDao: QuestDao
+    private lateinit var questStepDao: QuestStepDao
     private lateinit var locationDao: LocationDao
     private lateinit var characterDao: GameCharacterDao
     private lateinit var characterProgressDao: CharacterQuestProgressDao
@@ -33,6 +35,7 @@ class QuestActivity : ComponentActivity() {
         val database = AppDatabase.getInstance(this)
         questProgressManager = QuestProgressManager(database.characterQuestProgressDao(), database.questDao())
         questDao = database.questDao()
+        questStepDao = database.questStepDao()
         locationDao = database.locationDao()
         characterDao = database.gameCharacterDao()
         characterProgressDao = database.characterQuestProgressDao()
@@ -55,7 +58,7 @@ class QuestActivity : ComponentActivity() {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = questInfo ?: "Loading...",
+                text = questInfo ?: stringResource(R.string.loading),
                 fontSize = 24.sp
             )
         }
@@ -64,14 +67,37 @@ class QuestActivity : ComponentActivity() {
     private suspend fun getQuestInfo(locationId: Int): String {
         return withContext(Dispatchers.IO) {
             val player = characterDao.getPlayerCharacter()
+            val playerClass = player?.characterClass
             val activeQuest = player?.id?.let { characterProgressDao.getFirstIncompleteQuest(it) }
 
             if (activeQuest != null) {
                 val quest = questDao.getQuestById(activeQuest.questId)
-                "Main Quest: ${quest.resourceKey} at $locationId"
+
+                val questStep = when (activeQuest.stage) {
+                    QuestStage.AT_START -> questStepDao.getStepForQuestAndType(activeQuest.questId, StepType.INITIAL)
+                    QuestStage.AT_QUEST_LOCATION -> questStepDao.getStepForQuestAndType(activeQuest.questId, StepType.SOLUTION)
+                    QuestStage.AT_END -> questStepDao.getStepForQuestAndType(activeQuest.questId, StepType.COMPLETION)
+                    else -> throw IllegalStateException("Unbekannte Quest-Stage: ${activeQuest.stage}")
+                }
+
+                val questTextKey = when (playerClass) {
+                    CharacterClass.MAGE -> questStep.mageVariantKey
+                    CharacterClass.THIEF -> questStep.thiefVariantKey
+                    CharacterClass.WARRIOR -> questStep.warriorVariantKey
+                    else -> throw IllegalStateException("Unbekannte Charakterklasse: $playerClass")
+                }
+
+                val questTextId = QuestResources.getQuestTextId(questTextKey)
+                val questNameId = QuestResources.getQuestTextId(quest.resourceKey)
+
+                "Quest: ${getString(questNameId)} - ${getString(questTextId)}"
             } else {
-                "Location: $locationId (No active quest)"
+                "Location: $locationId (Keine aktive Quest)"
             }
         }
     }
+
+
+
+
 }
