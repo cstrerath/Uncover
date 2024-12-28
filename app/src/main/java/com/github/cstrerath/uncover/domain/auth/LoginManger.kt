@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.domain.managers
+package com.github.cstrerath.uncover.domain.auth
 
 import android.content.Context
 import com.github.cstrerath.uncover.data.database.AppDatabase

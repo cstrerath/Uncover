@@ -2,8 +2,8 @@
 package com.github.cstrerath.uncover.ui.base
 
 import androidx.activity.ComponentActivity
-import com.github.cstrerath.uncover.domain.managers.LoginManager
-import com.github.cstrerath.uncover.domain.managers.QuestManager
+import com.github.cstrerath.uncover.domain.auth.LoginManager
+import com.github.cstrerath.uncover.domain.quest.QuestManager
 import com.github.cstrerath.uncover.utils.navigation.NavigationManager
 
 abstract class BaseActivity : ComponentActivity() {

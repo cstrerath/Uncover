@@ -29,7 +29,7 @@ import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao
 import com.github.cstrerath.uncover.data.database.dao.GameCharacterDao
 import com.github.cstrerath.uncover.data.database.dao.LocationDao
 import com.github.cstrerath.uncover.data.database.dao.QuestDao
-import com.github.cstrerath.uncover.QuestProgressManager
+import com.github.cstrerath.uncover.domain.quest.QuestProgressHandler
 import com.github.cstrerath.uncover.QuestResources
 import com.github.cstrerath.uncover.data.database.entities.QuestStage
 import com.github.cstrerath.uncover.data.database.dao.QuestStepDao
@@ -41,7 +41,7 @@ import kotlinx.coroutines.withContext
 
 
 class QuestActivity : ComponentActivity() {
-    private lateinit var questProgressManager: QuestProgressManager
+    private lateinit var questProgressHandler: QuestProgressHandler
     private lateinit var questDao: QuestDao
     private lateinit var questStepDao: QuestStepDao
     private lateinit var locationDao: LocationDao
@@ -53,7 +53,7 @@ class QuestActivity : ComponentActivity() {
         val locationId = intent.getIntExtra(getString(R.string.quest_location_id), -1)
 
         val database = AppDatabase.getInstance(this)
-        questProgressManager = QuestProgressManager(database.characterQuestProgressDao(), database.questDao())
+        questProgressHandler = QuestProgressHandler(database.characterQuestProgressDao(), database.questDao())
         questDao = database.questDao()
         questStepDao = database.questStepDao()
         locationDao = database.locationDao()
@@ -100,7 +100,7 @@ class QuestActivity : ComponentActivity() {
                     Button(
                         onClick = {
                             coroutineScope.launch(Dispatchers.IO) {
-                                questProgressManager.progressQuest(pid, quest.questId)
+                                questProgressHandler.handleQuestProgress(pid, quest.questId)
                                 // Quest-Info nach Progress aktualisieren
                                 withContext(Dispatchers.Main) {
                                     finish()

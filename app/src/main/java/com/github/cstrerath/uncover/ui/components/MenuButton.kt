@@ -5,7 +5,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import com.github.cstrerath.uncover.domain.managers.QuestManager
+import com.github.cstrerath.uncover.domain.quest.QuestManager
 import kotlinx.coroutines.launch
 
 @Composable

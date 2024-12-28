@@ -1,10 +1,10 @@
-// domain/managers/QuestManager.kt
-package com.github.cstrerath.uncover.domain.managers
+// domain/quest/QuestManager.kt
+package com.github.cstrerath.uncover.domain.quest
 
 import android.content.Context
 import android.util.Log
 import com.github.cstrerath.uncover.data.database.AppDatabase
-import com.github.cstrerath.uncover.QuestProgressManager
+import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
 
 class QuestManager(context: Context) {
     private val database = AppDatabase.getInstance(context)
@@ -12,27 +12,41 @@ class QuestManager(context: Context) {
     private val questProgressDao = database.characterQuestProgressDao()
     private val questDao = database.questDao()
 
+    private val questProgressHandler = QuestProgressHandler(
+        progressDao = questProgressDao,
+        questDao = questDao
+    )
+
     suspend fun processNextQuest() {
         try {
             val playerId = getPlayerId()
             val activeQuest = findActiveQuest(playerId)
-            updateQuestProgress(playerId, activeQuest.questId)
-            logQuestStatus(playerId)
+            handleQuestProgress(playerId, activeQuest)
         } catch (e: Exception) {
             Log.e("QuestManager", "Error processing quest: ${e.message}")
+        }
+    }
+
+    suspend fun getActiveQuestLocations(): List<Int> {
+        return try {
+            val playerId = getPlayerId()
+            questProgressHandler.getActiveQuestLocations(playerId)
+        } catch (e: Exception) {
+            Log.e("QuestManager", "Error getting quest locations: ${e.message}")
+            emptyList()
         }
     }
 
     private suspend fun getPlayerId(): String =
         gameCharDao.getPlayerCharacterId() ?: throw Exception("No player found")
 
-    private suspend fun findActiveQuest(playerId: String) =
+    private suspend fun findActiveQuest(playerId: String): CharacterQuestProgress =
         questProgressDao.getFirstIncompleteQuest(playerId)
             ?: throw Exception("No incomplete quests found")
 
-    private suspend fun updateQuestProgress(playerId: String, questId: Int) {
-        val questProgressManager = QuestProgressManager(questProgressDao, questDao)
-        questProgressManager.progressQuest(playerId, questId)
+    private suspend fun handleQuestProgress(playerId: String, activeQuest: CharacterQuestProgress) {
+        questProgressHandler.handleQuestProgress(playerId, activeQuest.questId)
+        logQuestStatus(playerId)
     }
 
     private suspend fun logQuestStatus(playerId: String) {
