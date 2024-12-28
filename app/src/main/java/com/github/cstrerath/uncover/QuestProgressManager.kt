@@ -13,6 +13,13 @@ class QuestProgressManager(
         val currentProgress = progressDao.getQuestProgress(characterId, questId)
             ?: CharacterQuestProgress(characterId, questId, QuestStage.NOT_STARTED)
 
+        when (currentProgress.stage) {
+            QuestStage.AT_START -> ExperienceManager.addExperience(100)
+            QuestStage.AT_QUEST_LOCATION -> ExperienceManager.addExperience(300)
+            QuestStage.AT_END -> ExperienceManager.addExperience(600)
+            else -> {}
+        }
+
         val newStage = when {
             // Erste Quest starten
             questId == 1 && currentProgress.stage == QuestStage.NOT_STARTED ->
