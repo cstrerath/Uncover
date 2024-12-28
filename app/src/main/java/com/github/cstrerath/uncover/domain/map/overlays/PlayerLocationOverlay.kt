@@ -1,8 +1,9 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.domain.map.overlays
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import com.github.cstrerath.uncover.R
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay

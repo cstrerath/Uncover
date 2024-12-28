@@ -4,7 +4,6 @@ package com.github.cstrerath.uncover.utils.navigation
 import android.app.Activity
 import android.content.Intent
 import com.github.cstrerath.uncover.ui.activities.MapActivity
-import com.github.cstrerath.uncover.ui.activities.DatabaseActivity
 import com.github.cstrerath.uncover.ui.activities.CharacterCreationActivity
 import com.github.cstrerath.uncover.ui.activities.LocationListActivity
 import com.github.cstrerath.uncover.ui.activities.PlayerStatsActivity
@@ -18,10 +17,6 @@ class NavigationManager(private val activity: Activity) {
 
     fun navigateToMap() {
         navigate(MapActivity::class.java)
-    }
-
-    fun navigateToCharacterList() {
-        navigate(DatabaseActivity::class.java)
     }
 
     fun navigateToCharacterCreation() {

@@ -1,15 +1,8 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.domain.map.config
 
 import org.osmdroid.util.BoundingBox
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
-
-data class MapBounds(
-    val north: Double,
-    val east: Double,
-    val south: Double,
-    val west: Double
-)
 
 class MapConfiguration(private val mapView: MapView) {
     fun configure() {

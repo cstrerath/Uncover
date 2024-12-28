@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import com.github.cstrerath.uncover.MapScreen
+import com.github.cstrerath.uncover.ui.screens.MapScreen
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 import org.osmdroid.config.Configuration
 

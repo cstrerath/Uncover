@@ -1,28 +1,33 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.ui.screens
 
 import android.content.Context
 import android.content.Intent
+import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.viewinterop.AndroidView
-import org.osmdroid.views.MapView
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
-import androidx.compose.runtime.*
-import kotlinx.coroutines.Dispatchers
-
-import androidx.activity.result.ActivityResultLauncher
+import androidx.compose.ui.viewinterop.AndroidView
+import com.github.cstrerath.uncover.R
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.entities.GameCharacter
+import com.github.cstrerath.uncover.domain.map.config.MapConfiguration
+import com.github.cstrerath.uncover.domain.map.overlays.FogOfWarOverlay
+import com.github.cstrerath.uncover.domain.map.overlays.NonPlayableAreasOverlay
+import com.github.cstrerath.uncover.domain.map.overlays.PlayerLocationOverlay
+import com.github.cstrerath.uncover.domain.map.overlays.QuestMarkerOverlay
 import com.github.cstrerath.uncover.domain.quest.QuestProgressHandler
 import com.github.cstrerath.uncover.ui.activities.QuestActivity
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 @Composable
 fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
@@ -80,6 +85,11 @@ fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
         modifier = Modifier.fillMaxSize()
     )
 }
+
+
+
+
+
 
 suspend fun loadQuestMarkers(
     ids: List<Int>,

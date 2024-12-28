@@ -1,5 +1,6 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.domain.map.overlays
 
+import com.github.cstrerath.uncover.domain.map.models.MapBounds
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.overlay.Polygon
 

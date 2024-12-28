@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.domain.map.overlays
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.view.MotionEvent
 import androidx.core.content.ContextCompat
+import com.github.cstrerath.uncover.R
 import org.osmdroid.api.IGeoPoint
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -28,7 +29,9 @@ class QuestMarkerOverlay(
     }
 
     private val activeMarker: Bitmap = getBitmapFromVectorDrawable(context, R.drawable.quest_marker)
-    private val inactiveMarker: Bitmap = getBitmapFromVectorDrawable(context, R.drawable.inactive_quest_marker)
+    private val inactiveMarker: Bitmap = getBitmapFromVectorDrawable(context,
+        R.drawable.inactive_quest_marker
+    )
 
     private fun getBitmapFromVectorDrawable(context: Context, drawableId: Int): Bitmap {
         val drawable = ContextCompat.getDrawable(context, drawableId)

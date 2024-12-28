@@ -1,10 +1,9 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.domain.map.overlays
 
 import android.graphics.*
 import org.osmdroid.views.overlay.Overlay
 import org.osmdroid.views.MapView
 import org.osmdroid.util.GeoPoint
-import org.osmdroid.views.Projection
 import kotlin.math.cos
 import kotlin.math.PI
 

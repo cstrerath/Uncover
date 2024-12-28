@@ -5,7 +5,6 @@
 
     <!-- Menu Items -->
     <string name="menu_map">Zur Karte</string>
-    <string name="menu_character_list">Character Liste</string>
     <string name="menu_character_creation">Character Erstellung</string>
     <string name="menu_locations">Orte</string>
     <string name="menu_player_stats">Spieler Statistiken</string>
