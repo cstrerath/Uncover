@@ -27,7 +27,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.entities.CharacterClass
-import com.github.cstrerath.uncover.PlayerCharacterCreator
+import com.github.cstrerath.uncover.domain.character.creation.CharacterCreationLogger
+import com.github.cstrerath.uncover.domain.character.creation.PlayerCharacterCreator
+import com.github.cstrerath.uncover.domain.character.models.CharacterStatsProvider
+import com.github.cstrerath.uncover.domain.quest.QuestProgressInitializer
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import kotlinx.coroutines.launch
@@ -39,7 +42,19 @@ class CharacterCreationActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         val db = AppDatabase.getInstance(applicationContext)
-        characterCreator = PlayerCharacterCreator(db.gameCharacterDao(),db.characterQuestProgressDao())
+
+        // Initialisiere alle benötigten Dependencies
+        val questProgressInitializer = QuestProgressInitializer(db.characterQuestProgressDao())
+        val statsProvider = CharacterStatsProvider()
+        val logger = CharacterCreationLogger(db.characterQuestProgressDao())
+
+        // Erstelle PlayerCharacterCreator mit allen Dependencies
+        characterCreator = PlayerCharacterCreator(
+            characterDao = db.gameCharacterDao(),
+            questProgressInitializer = questProgressInitializer,
+            statsProvider = statsProvider,
+            logger = logger
+        )
 
         setContent {
             UncoverTheme {
@@ -48,7 +63,6 @@ class CharacterCreationActivity : BaseActivity() {
                         lifecycleScope.launch {
                             characterClass?.let {
                                 characterCreator.createPlayerCharacter(name, it)
-                                // Nach erfolgreicher Erstellung zur MainActivity
                                 startActivity(Intent(this@CharacterCreationActivity, MainMenuActivity::class.java))
                                 finish()
                             }
@@ -59,6 +73,7 @@ class CharacterCreationActivity : BaseActivity() {
         }
     }
 }
+
 
 @Composable
 fun CharacterCreationScreen(
