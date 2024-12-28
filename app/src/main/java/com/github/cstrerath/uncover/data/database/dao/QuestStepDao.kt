@@ -3,8 +3,8 @@ package com.github.cstrerath.uncover.data.database.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.github.cstrerath.uncover.QuestStep
-import com.github.cstrerath.uncover.StepType
+import com.github.cstrerath.uncover.data.database.entities.QuestStep
+import com.github.cstrerath.uncover.data.database.entities.StepType
 
 @Dao
 interface QuestStepDao {

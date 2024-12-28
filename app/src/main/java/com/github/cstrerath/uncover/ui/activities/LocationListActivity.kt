@@ -21,8 +21,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.github.cstrerath.uncover.AppDatabase
-import com.github.cstrerath.uncover.Location
+import com.github.cstrerath.uncover.data.database.AppDatabase
+import com.github.cstrerath.uncover.data.database.entities.Location
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 
 

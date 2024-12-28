@@ -1,7 +1,8 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.TypeConverters
+import com.github.cstrerath.uncover.data.database.DatabaseConverters
 
 enum class QuestStage {
     NOT_STARTED,      // 0
@@ -15,7 +16,7 @@ enum class QuestStage {
     tableName = "character_quest_progress",
     primaryKeys = ["characterId", "questId"]
 )
-@TypeConverters(Converters::class)
+@TypeConverters(DatabaseConverters::class)
 data class CharacterQuestProgress(
     val characterId: String,
     val questId: Int,

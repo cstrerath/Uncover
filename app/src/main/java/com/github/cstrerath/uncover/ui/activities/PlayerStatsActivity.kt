@@ -31,9 +31,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.github.cstrerath.uncover.AppDatabase
+import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.CharacterProgression
-import com.github.cstrerath.uncover.GameCharacter
+import com.github.cstrerath.uncover.data.database.entities.GameCharacter
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

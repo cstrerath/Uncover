@@ -1,9 +1,10 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.github.cstrerath.uncover.data.database.entities.GameCharacter
 
 @Dao
 interface GameCharacterDao {

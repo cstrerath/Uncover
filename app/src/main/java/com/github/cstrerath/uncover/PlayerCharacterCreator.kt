@@ -1,6 +1,12 @@
 package com.github.cstrerath.uncover
 
 import android.util.Log
+import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao
+import com.github.cstrerath.uncover.data.database.dao.GameCharacterDao
+import com.github.cstrerath.uncover.data.database.entities.CharacterClass
+import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
+import com.github.cstrerath.uncover.data.database.entities.GameCharacter
+import com.github.cstrerath.uncover.data.database.entities.QuestStage
 import java.util.UUID
 
 class PlayerCharacterCreator(

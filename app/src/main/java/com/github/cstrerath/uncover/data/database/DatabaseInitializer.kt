@@ -3,13 +3,12 @@ package com.github.cstrerath.uncover.data.database
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import com.github.cstrerath.uncover.AppDatabase
-import com.github.cstrerath.uncover.CharacterClass
-import com.github.cstrerath.uncover.GameCharacter
-import com.github.cstrerath.uncover.Location
-import com.github.cstrerath.uncover.Quest
-import com.github.cstrerath.uncover.QuestStep
-import com.github.cstrerath.uncover.StepType
+import com.github.cstrerath.uncover.data.database.entities.CharacterClass
+import com.github.cstrerath.uncover.data.database.entities.GameCharacter
+import com.github.cstrerath.uncover.data.database.entities.Location
+import com.github.cstrerath.uncover.data.database.entities.Quest
+import com.github.cstrerath.uncover.data.database.entities.QuestStep
+import com.github.cstrerath.uncover.data.database.entities.StepType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

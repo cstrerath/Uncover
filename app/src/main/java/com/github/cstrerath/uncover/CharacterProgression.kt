@@ -2,6 +2,8 @@ package com.github.cstrerath.uncover
 
 import android.content.Context
 import android.util.Log
+import com.github.cstrerath.uncover.data.database.AppDatabase
+import com.github.cstrerath.uncover.data.database.entities.CharacterClass
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

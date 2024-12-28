@@ -1,7 +1,7 @@
 package com.github.cstrerath.uncover.domain.managers
 
 import android.content.Context
-import com.github.cstrerath.uncover.AppDatabase
+import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.DatabaseInitializer
 
 class LoginManager(private val context: Context) {

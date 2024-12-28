@@ -1,7 +1,10 @@
 package com.github.cstrerath.uncover
 
 import android.util.Log
-import androidx.compose.ui.platform.LocalContext
+import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao
+import com.github.cstrerath.uncover.data.database.dao.QuestDao
+import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
+import com.github.cstrerath.uncover.data.database.entities.QuestStage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -39,11 +42,13 @@ class QuestProgressManager(
                 progressDao.updateProgress(currentProgress.copy(stage = QuestStage.COMPLETED))
                 // Nächste Quest initialisieren
                 val nextQuestId = questId + 1
-                progressDao.updateProgress(CharacterQuestProgress(
+                progressDao.updateProgress(
+                    CharacterQuestProgress(
                     characterId = characterId,
                     questId = nextQuestId,
                     stage = QuestStage.AT_START
-                ))
+                )
+                )
                 return
             }
             else -> currentProgress.stage

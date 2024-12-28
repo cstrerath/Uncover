@@ -25,8 +25,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
-import com.github.cstrerath.uncover.AppDatabase
-import com.github.cstrerath.uncover.CharacterClass
+import com.github.cstrerath.uncover.data.database.AppDatabase
+import com.github.cstrerath.uncover.data.database.entities.CharacterClass
 import com.github.cstrerath.uncover.PlayerCharacterCreator
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 import com.github.cstrerath.uncover.ui.theme.UncoverTheme

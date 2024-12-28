@@ -1,8 +1,11 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.data.database
 
 import androidx.room.TypeConverter
+import com.github.cstrerath.uncover.data.database.entities.CharacterClass
+import com.github.cstrerath.uncover.data.database.entities.QuestStage
+import com.github.cstrerath.uncover.data.database.entities.StepType
 
-class Converters {
+class DatabaseConverters {
     @TypeConverter
     fun fromStepType(value: StepType): String {
         return value.name

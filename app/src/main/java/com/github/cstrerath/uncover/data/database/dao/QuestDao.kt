@@ -1,8 +1,9 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.github.cstrerath.uncover.data.database.entities.Quest
 
 @Dao
 interface QuestDao {

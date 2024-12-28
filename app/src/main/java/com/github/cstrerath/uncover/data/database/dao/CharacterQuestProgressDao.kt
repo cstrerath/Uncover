@@ -1,9 +1,11 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
+import com.github.cstrerath.uncover.data.database.entities.QuestStage
 
 @Dao
 interface CharacterQuestProgressDao {

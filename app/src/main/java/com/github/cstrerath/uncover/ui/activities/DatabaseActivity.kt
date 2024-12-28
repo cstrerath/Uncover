@@ -25,11 +25,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.github.cstrerath.uncover.AppDatabase
-import com.github.cstrerath.uncover.CharacterClass
-import com.github.cstrerath.uncover.GameCharacter
+import com.github.cstrerath.uncover.data.database.AppDatabase
+import com.github.cstrerath.uncover.data.database.entities.CharacterClass
+import com.github.cstrerath.uncover.data.database.entities.GameCharacter
 import com.github.cstrerath.uncover.QuestViewModel
-import com.github.cstrerath.uncover.StepType
+import com.github.cstrerath.uncover.data.database.entities.StepType
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 
 
