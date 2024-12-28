@@ -4,20 +4,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import org.osmdroid.config.Configuration
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 
 class MapActivity : ComponentActivity() {
+    private lateinit var questLauncher: ActivityResultLauncher<Intent>
+
     private val locationPermissionRequest = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { permissions ->
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-                // Berechtigung erteilt, zeige Karte
-                setContent { MapScreen() }
+                setContent { MapScreen(questLauncher) }
             }
             else -> {
-                // Berechtigung verweigert, beende Activity
                 finish()
             }
         }
@@ -27,7 +29,13 @@ class MapActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         Configuration.getInstance().load(this, getPreferences(MODE_PRIVATE))
 
-        // Prüfe Berechtigungen vor dem Setzen des Contents
+        questLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { _ ->
+            // Nach Rückkehr von der Quest die Marker neu laden
+            setContent { MapScreen(questLauncher) }
+        }
+
         checkLocationPermissions()
     }
 
@@ -35,17 +43,14 @@ class MapActivity : ComponentActivity() {
         when {
             checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
                     PackageManager.PERMISSION_GRANTED -> {
-                // Berechtigungen vorhanden, zeige Karte
-                setContent { MapScreen() }
+                setContent { MapScreen(questLauncher) }
             }
             shouldShowRequestPermissionRationale(
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) -> {
-                // Optional: Hier später Erklärung anzeigen
                 requestLocationPermissions()
             }
             else -> {
-                // Frage Berechtigungen an
                 requestLocationPermissions()
             }
         }
@@ -58,3 +63,4 @@ class MapActivity : ComponentActivity() {
         ))
     }
 }
+

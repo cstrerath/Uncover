@@ -16,17 +16,21 @@ import kotlinx.coroutines.withContext
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import androidx.compose.runtime.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
+
+import androidx.activity.result.ActivityResultLauncher
+
 
 @Composable
-fun MapScreen() {
+fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     var playerCharacter by remember { mutableStateOf<GameCharacter?>(null) }
+    var mapView by remember { mutableStateOf<MapView?>(null) }
 
     AndroidView(
         factory = { context ->
             MapView(context).apply {
+                mapView = this
                 // Konfiguriere Grundeinstellungen
                 MapConfiguration(this).configure()
 
@@ -59,11 +63,10 @@ fun MapScreen() {
                             mapView = this@apply,
                             locationOverlay = locationOverlay,
                             onMarkerClick = { locationId ->
-                                // Hier starten Sie die QuestActivity
                                 val intent = Intent(context, QuestActivity::class.java).apply {
                                     putExtra(context.getString(R.string.quest_location_id), locationId)
                                 }
-                                context.startActivity(intent)
+                                questLauncher.launch(intent)
                             }
                         )
                     }
@@ -85,6 +88,11 @@ suspend fun loadQuestMarkers(
         val database = AppDatabase.getInstance(context)
         val locationDao = database.locationDao()
 
+        // Bestehende Quest-Marker entfernen
+        withContext(Dispatchers.Main) {
+            mapView.overlays.removeAll { it is QuestMarkerOverlay }
+        }
+
         ids.forEach { locationId ->
             val location = locationDao.getLocation(locationId)
             location?.let {
@@ -105,5 +113,6 @@ suspend fun loadQuestMarkers(
         }
     }
 }
+
 
 
