@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class QuestViewModel(application: Application) : AndroidViewModel(application) {
+class QuestViewModelOLD(application: Application) : AndroidViewModel(application) {
     private val _quests = MutableStateFlow<List<Quest>>(emptyList())
     val quests = _quests.asStateFlow()
 

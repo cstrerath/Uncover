@@ -28,7 +28,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.entities.CharacterClass
 import com.github.cstrerath.uncover.data.database.entities.GameCharacter
-import com.github.cstrerath.uncover.QuestViewModel
+import com.github.cstrerath.uncover.QuestViewModelOLD
 import com.github.cstrerath.uncover.data.database.entities.StepType
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 
@@ -63,7 +63,7 @@ fun CharacterListScreen() {
 }
 
 @Composable
-fun CharacterItem(character: GameCharacter, viewModel: QuestViewModel = viewModel()) {
+fun CharacterItem(character: GameCharacter, viewModel: QuestViewModelOLD = viewModel()) {
     var showQuests by remember { mutableStateOf(false) }
     val quests by viewModel.quests.collectAsState()
     val questSteps by viewModel.questSteps.collectAsState()

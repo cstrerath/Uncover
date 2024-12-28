@@ -39,6 +39,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.AlertDialogDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+
 
 
 class PlayerStatsActivity : BaseActivity() {
@@ -137,18 +141,30 @@ fun PlayerStatsScreen() {
         }
 
         if (showDialog) {
-            AlertDialog(
-                onDismissRequest = { showDialog = false },
-                title = { Text("Level-Up Information") },
-                text = { Text(dialogMessage) },
-                confirmButton = {
-                    Button(onClick = { showDialog = false }) {
-                        Text("OK")
-                    }
-                }
+            LevelUpDialog(
+                message = dialogMessage,
+                onDismiss = { showDialog = false }
             )
         }
+
     }
+}
+
+@Composable
+private fun LevelUpDialog(
+    message: String,
+    onDismiss: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Level-Up Information") },
+        text = { Text(message) },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text("OK")
+            }
+        }
+    )
 }
 
 @Composable
