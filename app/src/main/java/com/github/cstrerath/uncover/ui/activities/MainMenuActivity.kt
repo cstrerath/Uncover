@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -18,9 +18,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.lifecycleScope
 import androidx.compose.runtime.rememberCoroutineScope
+import com.github.cstrerath.uncover.AppDatabase
+import com.github.cstrerath.uncover.PlayerStatsActivity
+import com.github.cstrerath.uncover.QuestProgressManager
+import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import kotlinx.coroutines.launch
 
 

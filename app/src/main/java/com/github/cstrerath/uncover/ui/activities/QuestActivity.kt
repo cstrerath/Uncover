@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.ui.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -22,6 +22,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.github.cstrerath.uncover.AppDatabase
+import com.github.cstrerath.uncover.CharacterClass
+import com.github.cstrerath.uncover.CharacterQuestProgress
+import com.github.cstrerath.uncover.CharacterQuestProgressDao
+import com.github.cstrerath.uncover.GameCharacterDao
+import com.github.cstrerath.uncover.LocationDao
+import com.github.cstrerath.uncover.QuestDao
+import com.github.cstrerath.uncover.QuestProgressManager
+import com.github.cstrerath.uncover.QuestResources
+import com.github.cstrerath.uncover.QuestStage
+import com.github.cstrerath.uncover.QuestStepDao
+import com.github.cstrerath.uncover.R
+import com.github.cstrerath.uncover.StepType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -121,9 +134,15 @@ class QuestActivity : ComponentActivity() {
                 val quest = questDao.getQuestById(activeQuest.questId)
 
                 val questStep = when (activeQuest.stage) {
-                    QuestStage.AT_START -> questStepDao.getStepForQuestAndType(activeQuest.questId, StepType.INITIAL)
-                    QuestStage.AT_QUEST_LOCATION -> questStepDao.getStepForQuestAndType(activeQuest.questId, StepType.SOLUTION)
-                    QuestStage.AT_END -> questStepDao.getStepForQuestAndType(activeQuest.questId, StepType.COMPLETION)
+                    QuestStage.AT_START -> questStepDao.getStepForQuestAndType(activeQuest.questId,
+                        StepType.INITIAL
+                    )
+                    QuestStage.AT_QUEST_LOCATION -> questStepDao.getStepForQuestAndType(activeQuest.questId,
+                        StepType.SOLUTION
+                    )
+                    QuestStage.AT_END -> questStepDao.getStepForQuestAndType(activeQuest.questId,
+                        StepType.COMPLETION
+                    )
                     else -> throw IllegalStateException("Unbekannte Quest-Stage: ${activeQuest.stage}")
                 }
 

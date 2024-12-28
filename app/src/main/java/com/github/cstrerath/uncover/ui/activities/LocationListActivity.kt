@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.ui.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,7 +16,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.platform.LocalContext
-
+import com.github.cstrerath.uncover.AppDatabase
+import com.github.cstrerath.uncover.Location
 
 
 class LocationListActivity : ComponentActivity() {

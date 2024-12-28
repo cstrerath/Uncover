@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -26,6 +26,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
+import com.github.cstrerath.uncover.AppDatabase
+import com.github.cstrerath.uncover.CharacterClass
+import com.github.cstrerath.uncover.PlayerCharacterCreator
+import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import kotlinx.coroutines.launch
 
 class CharacterCreationActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover
+package com.github.cstrerath.uncover.ui.activities
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.github.cstrerath.uncover.MapScreen
 
 class MapActivity : ComponentActivity() {
     private lateinit var questLauncher: ActivityResultLauncher<Intent>

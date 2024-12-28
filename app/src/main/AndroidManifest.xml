@@ -22,25 +22,25 @@
             android:name=".PlayerStatsActivity"
             android:exported="false" />
         <activity
-            android:name=".QuestActivity"
+            android:name=".ui.activities.QuestActivity"
             android:exported="false" />
         <activity
-            android:name=".LocationListActivity"
+            android:name=".ui.activities.LocationListActivity"
             android:exported="false" />
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".ui.activities.MainMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".CharacterCreationActivity"
+            android:name=".ui.activities.CharacterCreationActivity"
             android:exported="false" />
         <activity
-            android:name=".DatabaseActivity"
+            android:name=".ui.activities.DatabaseActivity"
             android:exported="false" />
         <activity
-            android:name=".MapActivity"
+            android:name=".ui.activities.MapActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
