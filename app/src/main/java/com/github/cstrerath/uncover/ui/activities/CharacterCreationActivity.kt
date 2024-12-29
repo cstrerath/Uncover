@@ -34,6 +34,7 @@ class CharacterCreationActivity : BaseActivity() {
     private fun createCharacterCreator(): PlayerCharacterCreator {
         val db = AppDatabase.getInstance(applicationContext)
         return PlayerCharacterCreator(
+            context = applicationContext,
             characterDao = db.gameCharacterDao(),
             questProgressInitializer = QuestProgressInitializer(db.characterQuestProgressDao()),
             statsProvider = CharacterStatsProvider(),

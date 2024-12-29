@@ -1,13 +1,18 @@
 package com.github.cstrerath.uncover.domain.character.creation
 
+import android.content.Context
+import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.dao.GameCharacterDao
 import com.github.cstrerath.uncover.data.database.entities.CharacterClass
 import com.github.cstrerath.uncover.data.database.entities.GameCharacter
+import com.github.cstrerath.uncover.data.database.entities.RandQuestDatabase
 import com.github.cstrerath.uncover.domain.character.models.CharacterStatsProvider
 import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressInitializer
+import com.github.cstrerath.uncover.domain.quest.randquest.generators.RandQuestGenerator
 import java.util.UUID
 
 class PlayerCharacterCreator(
+    private val context: Context,
     private val characterDao: GameCharacterDao,
     private val questProgressInitializer: QuestProgressInitializer,
     private val statsProvider: CharacterStatsProvider,
@@ -35,6 +40,8 @@ class PlayerCharacterCreator(
 
     private suspend fun saveCharacter(character: GameCharacter): GameCharacter {
         try {
+            val randQuestGenerator = RandQuestGenerator(context)
+            randQuestGenerator.generateQuest(11)
             characterDao.insertCharacter(character)
             questProgressInitializer.initializeMainQuestProgress(character.id)
             questProgressInitializer.initializeRandQuestProgress(character.id)

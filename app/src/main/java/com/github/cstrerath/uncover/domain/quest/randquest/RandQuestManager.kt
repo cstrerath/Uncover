@@ -9,9 +9,11 @@ import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgres
 import com.github.cstrerath.uncover.data.database.entities.QuestStage
 import com.github.cstrerath.uncover.data.repository.CharacterRepository
 import com.github.cstrerath.uncover.domain.character.progression.XpManager
+import com.github.cstrerath.uncover.domain.quest.randquest.generators.RandQuestGenerator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -22,6 +24,7 @@ class RandQuestManager(context: Context) {
     private val randQuestDatabaseDao = database.randomQuestDatabaseDao()
 
     private val randQuestProgressHandler = RandQuestProgressHandler(
+        context = context,
         progressDao = questProgressDao,
         randQuestDatabaseDao = randQuestDatabaseDao,
         XpManager(CharacterRepository(context))
@@ -58,16 +61,22 @@ class RandQuestManager(context: Context) {
 }
 
 class RandQuestProgressHandler(
+    private val context: Context,
     private val progressDao: CharacterQuestProgressDao,
     private val randQuestDatabaseDao: RandQuestDatabaseDao,
     private val xpManager: XpManager
 ) {
     private val coroutineScope = CoroutineScope(Dispatchers.IO + Job())
+    private val randQuestGenerator = RandQuestGenerator(context)
 
     suspend fun handleQuestProgress(characterId: String, questId: Int) {
         val currentProgress = getCurrentProgress(characterId, questId)
-        completeCurrentQuest(currentProgress)
-        startNextQuest(characterId, questId + 1)
+        Log.d("Debug", currentProgress.toString())
+        when (currentProgress.stage) {
+            QuestStage.NOT_STARTED -> startQuest(currentProgress)
+            QuestStage.AT_QUEST_LOCATION -> completeCurrentQuest(currentProgress)
+            else -> {}
+        }
     }
 
     private suspend fun getCurrentProgress(characterId: String, questId: Int): CharacterQuestProgress {
@@ -75,9 +84,14 @@ class RandQuestProgressHandler(
             ?: CharacterQuestProgress(characterId, questId, QuestStage.NOT_STARTED)
     }
 
+    private suspend fun startQuest(progress: CharacterQuestProgress) {
+        progressDao.updateProgress(progress.copy(stage = QuestStage.AT_QUEST_LOCATION))
+    }
+
     private suspend fun completeCurrentQuest(progress: CharacterQuestProgress) {
         progressDao.updateProgress(progress.copy(stage = QuestStage.COMPLETED))
         handleExperienceReward(progress.questId)
+        startNextQuest(progress.characterId, progress.questId + 1)
     }
 
     private fun handleExperienceReward(questId: Int) {
@@ -88,17 +102,32 @@ class RandQuestProgressHandler(
     }
 
     private fun calculateXpReward(questId: Int): Int {
-        return (200 * kotlin.math.sqrt(questId.toDouble() * 25)).toInt()
+        return (200 + kotlin.math.sqrt(questId.toDouble() * 25)).toInt()
     }
 
-    private suspend fun startNextQuest(characterId: String, nextQuestId: Int) {
-        progressDao.updateProgress(
-            CharacterQuestProgress(
-                characterId = characterId,
-                questId = nextQuestId,
-                stage = QuestStage.AT_QUEST_LOCATION
-            )
-        )
+    private suspend fun startNextQuest(characterId: String, nextQuestId: Int): Boolean {
+        val newQuest = randQuestGenerator.generateQuest(nextQuestId)
+        if (newQuest.isSuccess) {
+            delay(100)
+
+            val savedQuest = randQuestDatabaseDao.getRandQuestById(nextQuestId)
+            if (savedQuest != null) {
+                progressDao.updateProgress(
+                    CharacterQuestProgress(
+                        characterId = characterId,
+                        questId = nextQuestId,
+                        stage = QuestStage.AT_QUEST_LOCATION
+                    )
+                )
+                Log.d("RandQuestProgressHandler", "New quest started: ID $nextQuestId")
+                return true
+            } else {
+                Log.e("RandQuestProgressHandler", "Generated quest not found in database: ID $nextQuestId")
+            }
+        } else {
+            Log.e("RandQuestProgressHandler", "Failed to generate next quest: ID $nextQuestId")
+        }
+        return false
     }
 
     suspend fun getActiveRandQuestLocation(characterId: String): Int? = withContext(Dispatchers.IO) {

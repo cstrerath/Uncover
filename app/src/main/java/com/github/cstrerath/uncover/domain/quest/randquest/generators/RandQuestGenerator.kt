@@ -13,18 +13,16 @@ class RandQuestGenerator(context: Context) {
     private val randActionGenerator = QuestActionGenerator(context)
     private val database = AppDatabase.getInstance(context)
     private val locationDao = database.locationDao()
-    private val randQuestDao = database.randomQuestDatabaseDao()
+    private val randQuestDatabaseDao = database.randomQuestDatabaseDao()
 
     suspend fun generateQuest(questId: Int): Result<RandQuest> {
         return withContext(Dispatchers.IO) {
             try {
-                // Versuche zuerst, eine existierende Quest zu finden
-                val existingQuest = randQuestDao.getRandQuestById(questId)
+                val existingQuest = randQuestDatabaseDao.getRandQuestById(questId)
                 if (existingQuest != null) {
                     return@withContext Result.success(existingQuest.randQuest)
                 }
 
-                // Wenn keine existiert, generiere eine neue
                 val locations = locationDao.getAllRandQuestLocations()
                 if (locations.isEmpty()) {
                     Log.e(TAG, "No locations available for quest generation")
@@ -35,7 +33,7 @@ class RandQuestGenerator(context: Context) {
                 val questText = createQuestText()
 
                 val newQuest = RandQuest(questId, randomLocation, questText)
-                randQuestDao.insertRandQuest(RandQuestDatabase(questId, newQuest))
+                randQuestDatabaseDao.insertRandQuest(RandQuestDatabase(questId, newQuest))
 
                 Log.i(TAG, "Generated quest: id=$questId, location=${randomLocation}, text='$questText'")
                 Result.success(newQuest)

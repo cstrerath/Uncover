@@ -34,9 +34,6 @@
             android:name=".ui.activities.CharacterCreationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.DatabaseActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.activities.MapActivity"
             android:exported="false" />
         <activity
