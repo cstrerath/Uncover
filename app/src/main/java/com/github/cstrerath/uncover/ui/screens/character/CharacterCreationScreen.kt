@@ -1,8 +1,8 @@
 package com.github.cstrerath.uncover.ui.screens.character
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,24 +20,26 @@ fun CharacterCreationScreen(
     var characterName by remember { mutableStateOf("") }
     var selectedClass by remember { mutableStateOf<CharacterClass?>(null) }
 
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CharacterCreationHeader()
-        CharacterNameInput(
-            characterName = characterName,
-            onNameChange = { if (it.length <= 20) characterName = it }
-        )
-        CharacterClassSelection(
-            selectedClass = selectedClass,
-            onClassSelected = { selectedClass = it }
-        )
-        CreateCharacterButton(
-            enabled = characterName.isNotBlank() && selectedClass != null,
-            onClick = { onCharacterCreated(characterName, selectedClass) }
-        )
+        item {
+            CharacterCreationHeader()
+            CharacterNameInput(
+                characterName = characterName,
+                onNameChange = { if (it.length <= 20) characterName = it }
+            )
+            CharacterClassSelection(
+                selectedClass = selectedClass,
+                onClassSelected = { selectedClass = it }
+            )
+            CreateCharacterButton(
+                enabled = characterName.isNotBlank() && selectedClass != null,
+                onClick = { onCharacterCreated(characterName, selectedClass) }
+            )
+        }
     }
 }
