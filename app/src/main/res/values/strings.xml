@@ -161,5 +161,6 @@
     <string name="quest_action_button">Ich stelle mich der Aufgabe!</string>
     <string name="quest_finish_button">Mission erfolgreich abgeschlossen!</string>
     <string name="quest_unknown_button">Weiter</string>
+    <string name="dhbw_mannheim">DHBW Mannheim</string>
 
 </resources>
