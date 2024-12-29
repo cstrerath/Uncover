@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.view.MotionEvent
 import androidx.core.content.ContextCompat
 import com.github.cstrerath.uncover.R
+import com.github.cstrerath.uncover.data.database.entities.Location
 import org.osmdroid.api.IGeoPoint
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -14,11 +15,12 @@ import org.osmdroid.views.overlay.Overlay
 import kotlin.math.pow
 
 class QuestMarkerOverlay(
+    private val location: Location,
     latitude: Double,
     longitude: Double,
     private val playerLocationProvider: () -> GeoPoint?,
     private val visibilityRadiusMeters: Float = 200f,
-    private val onMarkerClick: () -> Unit,
+    private val onMarkerClick: (Int,Boolean) -> Unit,
     context: Context
 ) : Overlay() {
 
@@ -29,9 +31,12 @@ class QuestMarkerOverlay(
     }
 
     private val activeMarker: Bitmap = getBitmapFromVectorDrawable(context, R.drawable.quest_marker)
-    private val inactiveMarker: Bitmap = getBitmapFromVectorDrawable(context,
-        R.drawable.inactive_quest_marker
-    )
+    private val inactiveMarker: Bitmap = getBitmapFromVectorDrawable(context, R.drawable.inactive_quest_marker)
+
+    private val activeRandMarker: Bitmap = getBitmapFromVectorDrawable(context, R.drawable.rand_quest_marker)
+    private val inactiveRandMarker: Bitmap = getBitmapFromVectorDrawable(context, R.drawable.inactive_rand_quest_marker)
+
+
 
     private fun getBitmapFromVectorDrawable(context: Context, drawableId: Int): Bitmap {
         val drawable = ContextCompat.getDrawable(context, drawableId)
@@ -71,7 +76,8 @@ class QuestMarkerOverlay(
             calculateDistance(playerPos, questLocation) <= visibilityRadiusMeters
         } ?: false
 
-        val marker = if (isVisible) activeMarker else inactiveMarker
+        //val marker = if (isVisible) activeMarker else inactiveMarker
+        val marker = if (location.id < 100) if (isVisible) activeMarker else inactiveMarker else if (isVisible) activeRandMarker else inactiveRandMarker
 
         canvas.drawBitmap(
             marker,
@@ -84,6 +90,8 @@ class QuestMarkerOverlay(
     override fun onDetach(mapView: MapView?) {
         activeMarker.recycle()
         inactiveMarker.recycle()
+        activeRandMarker.recycle()
+        inactiveRandMarker.recycle()
         super.onDetach(mapView)
     }
 
@@ -92,13 +100,14 @@ class QuestMarkerOverlay(
             val projection = mapView.projection
             val tappedPoint = projection.fromPixels(e.x.toInt(),e.y.toInt())
             val distance = calculateDistance(tappedPoint,questLocation)
+            val isRandomQuest = location.id < 100
 
             val hitboxSize = calculateHitboxSize(mapView.zoomLevelDouble.toFloat())
 
             if (distance <= hitboxSize) {
                 val playerLocation = playerLocationProvider()
                 if (playerLocation != null && calculateDistance(playerLocation,questLocation) <= visibilityRadiusMeters) {
-                    onMarkerClick()
+                    onMarkerClick(location.id,isRandomQuest)
                     return true
                 }
             }

@@ -14,6 +14,7 @@ import kotlinx.coroutines.withContext
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressHandler
+import com.github.cstrerath.uncover.domain.quest.randquest.RandQuestProgressHandler
 import com.github.cstrerath.uncover.ui.activities.QuestActivity
 
 class QuestMarkerHandler(private val context: Context) {
@@ -30,33 +31,57 @@ class QuestMarkerHandler(private val context: Context) {
             XpManager(CharacterRepository(context))
         )
 
-        val activeLocationIds = progressManager.getActiveQuestLocations(player.id)
+        val randQuestProgressHandler = RandQuestProgressHandler(
+            context,
+            database.characterQuestProgressDao(),
+            database.randomQuestDatabaseDao(),
+            XpManager(CharacterRepository(context))
+        )
+
+        val activeMainLocationIds = progressManager.getActiveQuestLocations(player.id)
+        val activeRandLocationId = randQuestProgressHandler.getActiveRandQuestLocation(player.id)
+
+        val activeLocationIds = activeMainLocationIds.toMutableList().apply {
+            activeRandLocationId?.let { add(it) }
+        }
+
         mapView?.let { map ->
             handleQuestMarkers(
                 ids = activeLocationIds,
                 mapView = map,
                 locationOverlay = map.overlays.filterIsInstance<MyLocationNewOverlay>().firstOrNull()
                     ?: return,
-                onMarkerClick = { createAndLaunchQuestIntent( questLauncher, it) }
+                onMarkerClick = { locationId, isRandomQuest ->
+                    createAndLaunchQuestIntent(questLauncher, locationId, isRandomQuest)
+                }
             )
         }
+
     }
 
     private fun createAndLaunchQuestIntent(
         questLauncher: ActivityResultLauncher<Intent>,
-        locationId: Int
+        locationId: Int,
+        isRandomQuest: Boolean
     ) {
-        val intent = Intent(context, QuestActivity::class.java).apply {
-            putExtra(context.getString(R.string.quest_location_id), locationId)
+        val intent = if (isRandomQuest) {
+            Intent(context, QuestActivity::class.java).apply {
+                putExtra(context.getString(R.string.quest_location_id), locationId)
+            }
+        } else {
+            Intent(context, QuestActivity::class.java).apply {
+                putExtra(context.getString(R.string.quest_location_id), locationId)
+            }
         }
         questLauncher.launch(intent)
     }
+
 
     private suspend fun handleQuestMarkers(
         ids: List<Int>,
         mapView: MapView,
         locationOverlay: MyLocationNewOverlay,
-        onMarkerClick: (Int) -> Unit
+        onMarkerClick: (Int,Boolean) -> Unit
     ) {
         withContext(Dispatchers.IO) {
             removeExistingMarkers(mapView)
@@ -75,7 +100,7 @@ class QuestMarkerHandler(private val context: Context) {
         ids: List<Int>,
         mapView: MapView,
         locationOverlay: MyLocationNewOverlay,
-        onMarkerClick: (Int) -> Unit
+        onMarkerClick: (Int,Boolean) -> Unit
     ) {
         val database = AppDatabase.getInstance(context)
         val locationDao = database.locationDao()
@@ -90,14 +115,15 @@ class QuestMarkerHandler(private val context: Context) {
         location: Location,
         mapView: MapView,
         locationOverlay: MyLocationNewOverlay,
-        onMarkerClick: (Int) -> Unit
+        onMarkerClick: (Int,Boolean) -> Unit
     ) {
         withContext(Dispatchers.Main) {
             val marker = QuestMarkerOverlay(
+                location = location,
                 latitude = location.latitude,
                 longitude = location.longitude,
                 playerLocationProvider = { locationOverlay.myLocation },
-                onMarkerClick = { onMarkerClick(location.id) },
+                onMarkerClick =  onMarkerClick ,
                 context = context
             )
             mapView.overlays.add(marker)
