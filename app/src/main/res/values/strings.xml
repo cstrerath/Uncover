@@ -167,5 +167,7 @@
     <string name="character_test_add_250_xp_message">250 XP hinzugefügt!</string>
     <string name="level_up_information">Level-Up Information</string>
     <string name="max_level_reached">Maximallevel erreicht!</string>
+    <string name="add_test_xp_button">Add 250 XP</string>
+    <string name="try_level_up_button">Level-Up-Try</string>
 
 </resources>
