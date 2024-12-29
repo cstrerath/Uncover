@@ -152,5 +152,9 @@
     <string name="quest_10_thief_completion">Der Dieb hat den Endgegner überlistet und seine Beute gesichert!</string>
     <string name="quest_10_mage_completion">Die Dunkelheit wurde besiegt und das Gleichgewicht der Magie wiederhergestellt!</string>
     <string name="quest_location_id">QUEST_LOCATION_ID</string>
+    <string name="choose_your_class">Wähle deine Klasse:</string>
+    <string name="create_your_character">Erstelle deinen Charakter</string>
+    <string name="character_name">Charaktername</string>
+    <string name="create_character">Charakter erstellen</string>
 
 </resources>
