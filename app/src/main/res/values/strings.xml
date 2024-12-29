@@ -1,6 +1,27 @@
 <resources>
     <string name="app_name">Uncover</string>
 
+    <string name="loading">Laden…</string>
+
+    <!-- Menu Items -->
+    <string name="menu_map">Zur Karte</string>
+    <string name="menu_character_creation">Character Erstellung</string>
+    <string name="menu_locations">Orte</string>
+    <string name="menu_player_stats">Spieler Statistiken</string>
+
+    <!-- Quest Names -->
+    <string name="quest_1">Der erste Auftrag</string>
+    <string name="quest_2">Der Wald der Geheimnisse</string>
+    <string name="quest_3">Die Höhle der Prüfungen</string>
+    <string name="quest_4">Der Angriff auf das Schloss</string>
+    <string name="quest_5">Die Ruinen der Vergangenheit</string>
+    <string name="quest_6">Der Sumpf der Schatten</string>
+    <string name="quest_7">Der Berg der Prüfungen</string>
+    <string name="quest_8">Die alten Ruinen</string>
+    <string name="quest_9">Der dunkle Wald</string>
+    <string name="quest_10">Der letzte Kampf</string>
+
+
     <!-- Quest 1: Der erste Auftrag -->
     <string name="quest_1_warrior_initial">Der Hauptmann der Wache benötigt Hilfe bei einem Banditenproblem</string>
     <string name="quest_1_thief_initial">Ein Händler sucht jemanden für einen delikaten Auftrag</string>
@@ -131,5 +152,64 @@
     <string name="quest_10_thief_completion">Der Dieb hat den Endgegner überlistet und seine Beute gesichert!</string>
     <string name="quest_10_mage_completion">Die Dunkelheit wurde besiegt und das Gleichgewicht der Magie wiederhergestellt!</string>
     <string name="quest_location_id">QUEST_LOCATION_ID</string>
+    <string name="choose_your_class">Wähle deine Klasse:</string>
+    <string name="create_your_character">Erstelle deinen Charakter</string>
+    <string name="character_name">Charaktername</string>
+    <string name="create_character">Charakter erstellen</string>
+    <string name="quest_progress">Quest-Progress</string>
+    <string name="quest_accept_button">Ich nehme die Herausforderung an!</string>
+    <string name="quest_action_button">Ich stelle mich der Aufgabe!</string>
+    <string name="quest_finish_button">Mission erfolgreich abgeschlossen!</string>
+    <string name="quest_unknown_button">Weiter</string>
+    <string name="dhbw_mannheim">DHBW Mannheim</string>
+    <string name="level_up_sucessful">Levelaufstieg erfolgreich! Du bist nun Level %1$d</string>
+    <string name="level_up_failed">Levelaufstieg nicht möglich! Dir fehlen noch %1$d XP bis zum nächsten Level.</string>
+    <string name="character_test_add_250_xp_message">250 XP hinzugefügt!</string>
+    <string name="level_up_information">Level-Up Information</string>
+    <string name="max_level_reached">Maximallevel erreicht!</string>
+    <string name="add_test_xp_button">Add 250 XP</string>
+    <string name="try_level_up_button">Level-Up-Try</string>
+    <string name="random_character_1">Thoren der Schmied</string>
+    <string name="random_character_2">Elara die Kräuterkundige</string>
+    <string name="random_character_3">Garrick der Waffenhändler</string>
+    <string name="random_character_4">Lyra die Schneider</string>
+    <string name="random_character_5">Brutus der Metzger</string>
+    <string name="random_character_6">Fabian der Geistliche</string>
+    <string name="random_character_7">Meister Aldrich</string>
+    <string name="random_character_8">Seherin Moira</string>
+    <string name="random_character_9">Hauptmann Darius</string>
+    <string name="random_character_10">Sylvia die Weise</string>
+    <string name="random_character_11">Pater Hans</string>
+    <string name="random_character_12">Finn der Fischer</string>
+    <string name="random_character_13">Runa die Wirtin</string>
+    <string name="random_character_14">Cedric der Stallbursche</string>
+    <string name="random_character_15">Iris die Bäckerin</string>
+    <string name="random_character_16">Horst der Nichtsnutz</string>
+    <string name="random_character_17">Ihre Heiligkeit Sofia</string>
+    <string name="random_character_18">Erzmagier Thalion</string>
+    <string name="random_character_19">Waldläufer Rowan</string>
+    <string name="random_character_20">Heilerin Senna</string>
+    <string name="random_character_21">Schmiedin Kira</string>
+    <string name="random_character_22">Erzmagister Arundil</string>
+    <string name="random_character_23">Großmeister Perio</string>
+    <string name="random_character_24">Seherin Paula</string>
+    <string name="random_character_25">Pius der Landstreicher</string>
+    <string name="rand_quest_story_1">" wurde in einer dunklen Höhle vershüttet. Du kamst zum Glück rechtszeitig zur Rettung vorbei."</string>
+    <string name="rand_quest_story_2">" hat sich mal wieder mit dem falschen Gegner angelegt. Gegen dich hatte der Riesenskorpion dann keine Chance."</string>
+    <string name="rand_quest_story_3">" wollte wieder mit dem Kopf durch die Wand. Naja, du hast ja immer etwas Verbandszeug dabei und konntest helfen."</string>
+    <string name="rand_quest_story_4">" freut sich unheimlich, dich zu sehen. Die gefundene Schatztruhe zeigt sich schwer knackbar . Deine Hilfe soll sich auszahlen!"</string>
+    <string name="rand_quest_story_5">" testet eine recht wilde Erfindung von Peter dem Erfinder. Wärst du nicht zufällig vorbeigekommen, hätte es sich für immer ausgetestet. Er sollte besser aufpassen"</string>
+    <string name="rand_quest_story_6">" ist in Begriff in eine dunkle Höhle zu gehen. Darin sei ein Schatz versteckt! Du appelierst an die Vernunft, als dann noch Trollgeräusche zu hören sind, wird du reich beschenkt."</string>
+    <string name="rand_quest_story_7">" wurde von einer Gruppe Kobolde umzingelt. Dein beherztes Eingreifen rettete die Situation und brachte dir einen dankbaren Verbündeten ein."</string>
+    <string name="rand_quest_story_8">" experimentierte mit einem seltsamen Trank und verwandelte sich versehentlich in einen Frosch. Dein Wissen über Gegenzauber kam gerade rechtzeitig."</string>
+    <string name="rand_quest_story_9">" steckte kopfüber in einem magischen Portal fest. Mit deiner Hilfe gelang die Befreiung, und ihr entdecktet gemeinsam eine verborgene Dimension."</string>
+    <string name="rand_quest_story_10">" wurde von einem verzauberten Baum gefangen gehalten. Deine sanfte Überredungskunst überzeugte den Baum, loszulassen, und du erhieltest ein seltenes Samenkorn."</string>
+    <string name="rand_quest_story_11">" jagte einem Irrlicht hinterher und verirrte sich im Nebelwald. Dein Orientierungssinn führte euch beide sicher hinaus und zu einem versteckten Elfendorf."</string>
+    <string name="rand_quest_story_12">" versuchte, eine antike Rune zu entziffern, und löste dabei versehentlich einen Fluch aus. Deine schnelle Reaktion und dein magisches Wissen bannten die dunkle Energie."</string>
+    <string name="rand_quest_story_13">" wurde von einem Schwarm wütender Pixies verfolgt. Deine Kenntnis ihrer Sprache beruhigte die aufgebrachten Wesen und brachte dir einen Beutel Feenstaub ein."</string>
+    <string name="rand_quest_story_14">" stürzte in eine Fallgrube voller Schlingpflanzen. Deine botanischen Kenntnisse halfen bei der Befreiung und führten zur Entdeckung einer seltenen Heilpflanze."</string>
+    <string name="rand_quest_story_15">" wurde von einem Gestaltwandler getäuscht und in einen Käfig gesperrt. Dein scharfer Verstand durchschaute die List und befreite den dankbaren Gefangenen."</string>
+    <string name="rand_quest_story_16">" geriet in einen Zeitwirbel und drohte, aus der Existenz gelöscht zu werden. Dein beherzter Sprung in den Wirbel rettete beide und brachte euch in eine faszinierende Zukunft."</string>
+    <string name="rand_quest_progress">Rand_Quest_Progress</string>
 
 </resources>
