@@ -36,7 +36,8 @@ class PlayerCharacterCreator(
     private suspend fun saveCharacter(character: GameCharacter): GameCharacter {
         try {
             characterDao.insertCharacter(character)
-            questProgressInitializer.initializeQuestProgress(character.id)
+            questProgressInitializer.initializeMainQuestProgress(character.id)
+            questProgressInitializer.initializeRandQuestProgress(character.id)
             logger.logCharacterCreation(character)
             return character
         } catch (e: Exception) {

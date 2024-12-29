@@ -2,7 +2,6 @@ package com.github.cstrerath.uncover.ui.screens
 
 import androidx.compose.runtime.*
 import com.github.cstrerath.uncover.domain.auth.LoginManager
-import com.github.cstrerath.uncover.ui.components.SplashScreen
 import com.github.cstrerath.uncover.utils.navigation.NavigationManager
 import kotlinx.coroutines.delay
 
