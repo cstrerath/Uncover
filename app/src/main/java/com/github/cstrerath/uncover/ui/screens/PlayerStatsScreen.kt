@@ -1,7 +1,5 @@
 package com.github.cstrerath.uncover.ui.screens
 
-import android.os.Bundle
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,29 +17,21 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.github.cstrerath.uncover.data.database.AppDatabase
-import com.github.cstrerath.uncover.domain.character.progression.CharacterProgression
-import com.github.cstrerath.uncover.data.database.entities.GameCharacter
+import com.github.cstrerath.uncover.R
 import com.github.cstrerath.uncover.data.repository.CharacterRepository
-import com.github.cstrerath.uncover.ui.base.BaseActivity
+import com.github.cstrerath.uncover.domain.character.progression.CharacterProgression
 import com.github.cstrerath.uncover.ui.viewmodels.PlayerStatsViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import kotlinx.coroutines.withContext
 
 @Composable
 fun PlayerStatsScreen() {
@@ -50,6 +40,7 @@ fun PlayerStatsScreen() {
     val scope = rememberCoroutineScope()
     val viewModel = remember {
         PlayerStatsViewModel(
+            context,
             CharacterRepository(context),
             CharacterProgression(context)
         )
@@ -121,7 +112,7 @@ private fun LevelUpDialog(
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Level-Up Information") },
+        title = { Text(text = stringResource(R.string.level_up_information)) },
         text = { Text(message) },
         confirmButton = {
             Button(onClick = onDismiss) {
@@ -186,7 +177,7 @@ private fun ExperienceBar(experience: Int, requiredXp: Int, level: Int) {
     Column {
         if (level >= 25) {
             Text(
-                text = "Maximallevel erreicht!",
+                text = stringResource(R.string.max_level_reached),
                 style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.primary
             )

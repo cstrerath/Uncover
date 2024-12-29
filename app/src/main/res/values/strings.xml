@@ -162,5 +162,10 @@
     <string name="quest_finish_button">Mission erfolgreich abgeschlossen!</string>
     <string name="quest_unknown_button">Weiter</string>
     <string name="dhbw_mannheim">DHBW Mannheim</string>
+    <string name="level_up_sucessful">Levelaufstieg erfolgreich! Du bist nun Level %1$d</string>
+    <string name="level_up_failed">Levelaufstieg nicht möglich! Dir fehlen noch %1$d XP bis zum nächsten Level.</string>
+    <string name="character_test_add_250_xp_message">250 XP hinzugefügt!</string>
+    <string name="level_up_information">Level-Up Information</string>
+    <string name="max_level_reached">Maximallevel erreicht!</string>
 
 </resources>
