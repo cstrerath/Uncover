@@ -6,6 +6,9 @@ import androidx.activity.result.ActivityResultLauncher
 import com.github.cstrerath.uncover.R
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.entities.Location
+import com.github.cstrerath.uncover.data.repository.CharacterRepository
+import com.github.cstrerath.uncover.domain.character.calculator.XpCalculator
+import com.github.cstrerath.uncover.domain.character.progression.XpManager
 import com.github.cstrerath.uncover.domain.map.overlays.QuestMarkerOverlay
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -24,7 +27,8 @@ class QuestMarkerHandler(private val context: Context) {
 
         val progressManager = QuestProgressHandler(
             database.characterQuestProgressDao(),
-            database.questDao()
+            database.questDao(),
+            XpManager(CharacterRepository(context), XpCalculator())
         )
 
         val activeLocationIds = progressManager.getActiveQuestLocations(player.id)

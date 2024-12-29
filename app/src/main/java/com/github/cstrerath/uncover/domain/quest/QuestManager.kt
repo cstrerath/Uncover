@@ -5,6 +5,9 @@ import android.content.Context
 import android.util.Log
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
+import com.github.cstrerath.uncover.data.repository.CharacterRepository
+import com.github.cstrerath.uncover.domain.character.calculator.XpCalculator
+import com.github.cstrerath.uncover.domain.character.progression.XpManager
 
 class QuestManager(context: Context) {
     private val database = AppDatabase.getInstance(context)
@@ -14,7 +17,8 @@ class QuestManager(context: Context) {
 
     private val questProgressHandler = QuestProgressHandler(
         progressDao = questProgressDao,
-        questDao = questDao
+        questDao = questDao,
+        XpManager(CharacterRepository(context), XpCalculator())
     )
 
     suspend fun processNextQuest() {

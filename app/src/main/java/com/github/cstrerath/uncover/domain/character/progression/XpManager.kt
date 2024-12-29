@@ -9,21 +9,22 @@ class XpManager(
     private val xpCalculator: XpCalculator
 ) {
     companion object {
-        private const val TEST_XP_AMOUNT = 250
         private const val TAG = "XpManager"
     }
 
-    suspend fun addTestXp() {
+    suspend fun addXp(xpAmount: Int) {
         try {
-            updatePlayerXp()
+            updatePlayerXp(xpAmount)
         } catch (e: Exception) {
             Log.e(TAG, "Error adding XP", e)
         }
     }
 
-    private suspend fun updatePlayerXp() {
+    suspend fun addTestXp() = addXp(250)
+
+    private suspend fun updatePlayerXp(xpAmount: Int) {
         val player = repository.getPlayer() ?: return
-        val updatedPlayer = player.copy(experience = player.experience + TEST_XP_AMOUNT)
+        val updatedPlayer = player.copy(experience = player.experience + xpAmount)
 
         repository.updateCharacter(updatedPlayer)
         Log.i(TAG, "XP added: ${player.experience} -> ${updatedPlayer.experience}")

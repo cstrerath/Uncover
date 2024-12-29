@@ -1,19 +1,26 @@
 package com.github.cstrerath.uncover.domain.quest
 
 import android.util.Log
-import com.github.cstrerath.uncover.ExperienceManager
 import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao
 import com.github.cstrerath.uncover.data.database.dao.QuestDao
 import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
 import com.github.cstrerath.uncover.data.database.entities.QuestStage
+import com.github.cstrerath.uncover.domain.character.progression.XpManager
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
 class QuestProgressHandler(
     private val progressDao: CharacterQuestProgressDao,
-    private val questDao: QuestDao
+    private val questDao: QuestDao,
+    private val xpManager: XpManager
 ) {
+
+    private val coroutineScope = CoroutineScope(Dispatchers.IO + Job())
+
     suspend fun handleQuestProgress(characterId: String, questId: Int) {
         val currentProgress = getCurrentProgress(characterId, questId)
         handleExperienceReward(currentProgress.stage)
@@ -27,11 +34,13 @@ class QuestProgressHandler(
     }
 
     private fun handleExperienceReward(stage: QuestStage) {
-        when (stage) {
-            QuestStage.AT_START -> ExperienceManager.addExperience(100)
-            QuestStage.AT_QUEST_LOCATION -> ExperienceManager.addExperience(300)
-            QuestStage.AT_END -> ExperienceManager.addExperience(600)
-            else -> {}
+        coroutineScope.launch {
+            when (stage) {
+                QuestStage.AT_START -> xpManager.addXp(100)
+                QuestStage.AT_QUEST_LOCATION -> xpManager.addXp(300)
+                QuestStage.AT_END -> xpManager.addXp(600)
+                else -> {}
+            }
         }
     }
 

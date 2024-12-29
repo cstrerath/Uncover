@@ -5,6 +5,5 @@ import android.app.Application
 class UncoverApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        ExperienceManager.initialize(this)
     }
 }
