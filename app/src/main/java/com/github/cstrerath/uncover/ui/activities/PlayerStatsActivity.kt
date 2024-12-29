@@ -32,17 +32,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.github.cstrerath.uncover.data.database.AppDatabase
-import com.github.cstrerath.uncover.CharacterProgression
+import com.github.cstrerath.uncover.domain.character.progression.CharacterProgression
 import com.github.cstrerath.uncover.data.database.entities.GameCharacter
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.AlertDialogDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-
 
 
 class PlayerStatsActivity : BaseActivity() {
