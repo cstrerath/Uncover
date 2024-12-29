@@ -4,7 +4,7 @@ import com.github.cstrerath.uncover.data.database.dao.GameCharacterDao
 import com.github.cstrerath.uncover.data.database.entities.CharacterClass
 import com.github.cstrerath.uncover.data.database.entities.GameCharacter
 import com.github.cstrerath.uncover.domain.character.models.CharacterStatsProvider
-import com.github.cstrerath.uncover.domain.quest.QuestProgressInitializer
+import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressInitializer
 import java.util.UUID
 
 class PlayerCharacterCreator(

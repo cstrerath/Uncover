@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
-import com.github.cstrerath.uncover.domain.quest.QuestProgressHandler
+import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressHandler
 import com.github.cstrerath.uncover.ui.activities.QuestActivity
 
 class QuestMarkerHandler(private val context: Context) {

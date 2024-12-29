@@ -43,7 +43,7 @@ fun LocationListScreen() {
     LaunchedEffect(Unit) {
         val database = AppDatabase.getInstance(context.applicationContext)
         val locationDao = database.locationDao()
-        locations.value = locationDao.getAllLocations()
+        locations.value = locationDao.getAllMainQuestLocations()
     }
 
     Column(

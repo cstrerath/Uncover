@@ -9,7 +9,7 @@ import com.github.cstrerath.uncover.data.database.entities.CharacterClass
 import com.github.cstrerath.uncover.domain.character.creation.CharacterCreationLogger
 import com.github.cstrerath.uncover.domain.character.creation.PlayerCharacterCreator
 import com.github.cstrerath.uncover.domain.character.models.CharacterStatsProvider
-import com.github.cstrerath.uncover.domain.quest.QuestProgressInitializer
+import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressInitializer
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 import com.github.cstrerath.uncover.ui.screens.character.CharacterCreationScreen
 import com.github.cstrerath.uncover.ui.theme.UncoverTheme

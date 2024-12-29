@@ -12,8 +12,11 @@ interface LocationDao {
     @Query("SELECT * FROM locations WHERE id = :id")
     suspend fun getLocation(id: Int): Location?
 
-    @Query("SELECT * FROM locations")
-    suspend fun getAllLocations(): List<Location>
+    @Query("SELECT * FROM locations WHERE id < 100")
+    suspend fun getAllMainQuestLocations(): List<Location>
+
+    @Query("SELECT * FROM locations WHERE id > 100")
+    suspend fun getAllRandQuestLocations(): List<Location>
 
     @Insert
     suspend fun addLocation(location: Location)

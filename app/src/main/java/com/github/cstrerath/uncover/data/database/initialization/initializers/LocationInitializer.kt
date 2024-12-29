@@ -18,7 +18,7 @@ class LocationInitializer(database: AppDatabase) {
     }
 
     private suspend fun logInitializationComplete() {
-        val count = locationDao.getAllLocations().size
+        val count = locationDao.getAllMainQuestLocations().size
         Log.d("DatabaseInit", "Initialization complete. Total locations: $count")
     }
 }

@@ -1,5 +1,5 @@
 // domain/quest/QuestManager.kt
-package com.github.cstrerath.uncover.domain.quest
+package com.github.cstrerath.uncover.domain.quest.mainquest
 
 import android.content.Context
 import android.util.Log

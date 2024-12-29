@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.domain.quest
+package com.github.cstrerath.uncover.domain.quest.mainquest
 
 import android.util.Log
 import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao

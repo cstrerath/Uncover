@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.res.stringResource
 import com.github.cstrerath.uncover.R
-import com.github.cstrerath.uncover.domain.quest.QuestManager
+import com.github.cstrerath.uncover.domain.quest.mainquest.QuestManager
 import kotlinx.coroutines.launch
 
 @Composable

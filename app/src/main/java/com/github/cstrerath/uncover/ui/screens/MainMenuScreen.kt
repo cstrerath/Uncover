@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.github.cstrerath.uncover.domain.quest.QuestManager
+import com.github.cstrerath.uncover.domain.quest.mainquest.QuestManager
 import com.github.cstrerath.uncover.ui.components.QuestProgressButton
 import com.github.cstrerath.uncover.ui.navigation.MenuItems
 import com.github.cstrerath.uncover.utils.navigation.NavigationManager

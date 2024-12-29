@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.domain.quest
+package com.github.cstrerath.uncover.domain.quest.mainquest
 
 import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao
 import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress

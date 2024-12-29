@@ -10,7 +10,7 @@ import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgres
 import com.github.cstrerath.uncover.data.database.entities.QuestStage
 import com.github.cstrerath.uncover.data.database.entities.QuestStep
 import com.github.cstrerath.uncover.data.database.entities.StepType
-import com.github.cstrerath.uncover.domain.quest.QuestProgressHandler
+import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressHandler
 import com.github.cstrerath.uncover.ui.states.QuestUIState
 import com.github.cstrerath.uncover.utils.resources.ResourceProvider
 
