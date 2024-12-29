@@ -4,22 +4,22 @@ import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.initialization.data.QuestData
 import com.github.cstrerath.uncover.data.database.initialization.data.QuestStepData
 
-class MainQuestInitializer(private val database: AppDatabase) {
+class MainQuestInitializer(database: AppDatabase) {
     private val questDao = database.questDao()
     private val questStepDao = database.questStepDao()
 
-    suspend fun initialize() {
+    fun initialize() {
         initializeQuests()
         initializeQuestSteps()
     }
 
-    private suspend fun initializeQuests() {
+    private fun initializeQuests() {
         QuestData.getAllQuests().forEach { quest ->
             questDao.insertQuest(quest)
         }
     }
 
-    private suspend fun initializeQuestSteps() {
+    private fun initializeQuestSteps() {
         QuestStepData.getAllQuestSteps().forEach { step ->
             questStepDao.insertQuestStep(step)
         }

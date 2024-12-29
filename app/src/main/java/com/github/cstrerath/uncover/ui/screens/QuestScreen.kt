@@ -27,7 +27,7 @@ fun QuestScreen(
 
     LaunchedEffect(locationId) {
         withContext(Dispatchers.IO) {
-            questState = viewModel.loadQuestInfo(locationId)
+            questState = viewModel.loadQuestInfo()
         }
     }
 

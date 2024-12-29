@@ -3,7 +3,6 @@ package com.github.cstrerath.uncover.data.database.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-// Enum für Charakterklassen
 enum class CharacterClass(val displayName: String) {
     MAGE("Magier"),
     THIEF("Dieb"),
@@ -13,7 +12,7 @@ enum class CharacterClass(val displayName: String) {
 @Entity(tableName = "game_characters")
 data class GameCharacter(
     @PrimaryKey val id: String,
-    val name: String,        // String ist hier völlig ausreichend
+    val name: String,
     val level: Int,
     val experience: Int,
     val health: Int,

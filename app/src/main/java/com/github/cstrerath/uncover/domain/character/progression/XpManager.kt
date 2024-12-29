@@ -2,11 +2,9 @@ package com.github.cstrerath.uncover.domain.character.progression
 
 import android.util.Log
 import com.github.cstrerath.uncover.data.repository.CharacterRepository
-import com.github.cstrerath.uncover.domain.character.calculator.XpCalculator
 
 class XpManager(
-    private val repository: CharacterRepository,
-    private val xpCalculator: XpCalculator
+    private val repository: CharacterRepository
 ) {
     companion object {
         private const val TAG = "XpManager"

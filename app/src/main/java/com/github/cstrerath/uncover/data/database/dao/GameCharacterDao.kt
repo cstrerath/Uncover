@@ -8,9 +8,6 @@ import com.github.cstrerath.uncover.data.database.entities.GameCharacter
 
 @Dao
 interface GameCharacterDao {
-    @Query("SELECT * FROM game_characters")
-    suspend fun getAllCharacters(): List<GameCharacter>
-
     @Insert
     suspend fun insertCharacter(character: GameCharacter)
 

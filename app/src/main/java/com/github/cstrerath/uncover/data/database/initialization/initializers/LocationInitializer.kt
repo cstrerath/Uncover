@@ -4,7 +4,7 @@ import android.util.Log
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.initialization.data.QuestLocationData
 
-class LocationInitializer(private val database: AppDatabase) {
+class LocationInitializer(database: AppDatabase) {
     private val locationDao = database.locationDao()
 
     suspend fun initialize() {

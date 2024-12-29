@@ -22,7 +22,7 @@ class QuestViewModel(
     private val characterDao: GameCharacterDao,
     private val characterProgressDao: CharacterQuestProgressDao
 ) {
-    suspend fun loadQuestInfo(locationId: Int): QuestUIState {
+    suspend fun loadQuestInfo(): QuestUIState {
         return try {
             val player = characterDao.getPlayerCharacter() ?: return QuestUIState.Error("Player not found")
             val activeQuest = characterProgressDao.getFirstIncompleteQuest(player.id)
@@ -43,7 +43,7 @@ class QuestViewModel(
         questProgressHandler.handleQuestProgress(quest.characterId, quest.questId)
     }
 
-    private suspend fun getQuestInfo(
+    private fun getQuestInfo(
         activeQuest: CharacterQuestProgress,
         playerClass: CharacterClass
     ): String {
@@ -54,7 +54,7 @@ class QuestViewModel(
         return buildQuestText(quest.resourceKey, questTextKey)
     }
 
-    private suspend fun getQuestStep(quest: CharacterQuestProgress) =
+    private fun getQuestStep(quest: CharacterQuestProgress) =
         when (quest.stage) {
             QuestStage.AT_START -> questStepDao.getStepForQuestAndType(quest.questId, StepType.INITIAL)
             QuestStage.AT_QUEST_LOCATION -> questStepDao.getStepForQuestAndType(quest.questId, StepType.SOLUTION)

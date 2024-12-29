@@ -14,8 +14,8 @@ import org.osmdroid.views.overlay.Overlay
 import kotlin.math.pow
 
 class QuestMarkerOverlay(
-    private val latitude: Double,
-    private val longitude: Double,
+    latitude: Double,
+    longitude: Double,
     private val playerLocationProvider: () -> GeoPoint?,
     private val visibilityRadiusMeters: Float = 200f,
     private val onMarkerClick: () -> Unit,
@@ -111,13 +111,10 @@ class QuestMarkerOverlay(
         val minZoom = 13f
         val maxZoom = 20f
 
-        // Normalisieren des Zoom-Levels
         val normalizedZoom = (zoomLevel - minZoom) / (maxZoom - minZoom)
 
-        // Angepasste nicht-lineare Skalierung
         val scaleFactor = 1 - normalizedZoom.pow(0.3f)
 
-        // Zusätzlicher Boost für niedrige Zoom-Levels
         val lowZoomBoost = if (normalizedZoom < 0.2) 1.8f else 1f
 
         return baseSize * scaleFactor * lowZoomBoost

@@ -6,6 +6,7 @@ import org.osmdroid.views.MapView
 import org.osmdroid.util.GeoPoint
 import kotlin.math.cos
 import kotlin.math.PI
+import kotlin.math.pow
 
 class FogOfWarOverlay(
     private val playerLocationProvider: () -> GeoPoint?,
@@ -22,10 +23,6 @@ class FogOfWarOverlay(
         xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
         style = Paint.Style.FILL
         isAntiAlias = true
-    }
-
-    fun setVisibilityRadius(radiusMeters: Float) {
-        visibilityRadiusMeters = radiusMeters
     }
 
     override fun draw(canvas: Canvas?, mapView: MapView?, shadow: Boolean) {
@@ -74,10 +71,11 @@ class FogOfWarOverlay(
         latitude: Double,
         zoom: Double
     ): Float {
-        // Berechnung der Pixel pro Meter basierend auf Zoom und Latitude
         val pixelsPerTile = 256
         val circumference = 40075016.686
-        val metersPerPixel = circumference * cos(latitude * PI / 180.0) / (pixelsPerTile * Math.pow(2.0, zoom))
+        val metersPerPixel = circumference * cos(latitude * PI / 180.0) / (pixelsPerTile * 2.0.pow(
+            zoom
+        ))
         return (meters / metersPerPixel).toFloat()
     }
 }

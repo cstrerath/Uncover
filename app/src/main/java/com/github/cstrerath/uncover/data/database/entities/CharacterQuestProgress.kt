@@ -5,11 +5,11 @@ import androidx.room.TypeConverters
 import com.github.cstrerath.uncover.data.database.DatabaseConverters
 
 enum class QuestStage {
-    NOT_STARTED,      // 0
-    AT_START,         // 1
-    AT_QUEST_LOCATION,// 2
-    AT_END,          // 3
-    COMPLETED        // 4
+    NOT_STARTED,
+    AT_START,
+    AT_QUEST_LOCATION,
+    AT_END,
+    COMPLETED
 }
 
 @Entity(

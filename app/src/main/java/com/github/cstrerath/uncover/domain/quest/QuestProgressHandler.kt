@@ -108,7 +108,7 @@ class QuestProgressHandler(
                 else -> emptyList()
             }
         } catch (e: Exception) {
-            Log.e("QuestMappingError", "Fehler beim Abrufen der Quest: ${e.message}")
+            Log.e("QuestMappingError", "Lookup of quest not possible: ${e.message}")
             return@withContext emptyList()
         }
     }

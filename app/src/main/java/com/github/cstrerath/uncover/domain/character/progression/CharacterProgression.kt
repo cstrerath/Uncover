@@ -16,7 +16,7 @@ class CharacterProgression(context: Context) {
     private val statCalculator = StatCalculator()
     private val coroutineScope = CoroutineScope(Dispatchers.IO + Job())
 
-    private val xpManager = XpManager(repository, xpCalculator)
+    private val xpManager = XpManager(repository)
     private val levelUpManager = LevelUpManager(repository, xpCalculator, statCalculator)
 
     fun getRequiredXpForNextLevel(currentLevel: Int): Int =

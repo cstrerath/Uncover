@@ -6,7 +6,6 @@ import android.util.Log
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
 import com.github.cstrerath.uncover.data.repository.CharacterRepository
-import com.github.cstrerath.uncover.domain.character.calculator.XpCalculator
 import com.github.cstrerath.uncover.domain.character.progression.XpManager
 
 class QuestManager(context: Context) {
@@ -18,7 +17,7 @@ class QuestManager(context: Context) {
     private val questProgressHandler = QuestProgressHandler(
         progressDao = questProgressDao,
         questDao = questDao,
-        XpManager(CharacterRepository(context), XpCalculator())
+        XpManager(CharacterRepository(context))
     )
 
     suspend fun processNextQuest() {
@@ -28,16 +27,6 @@ class QuestManager(context: Context) {
             handleQuestProgress(playerId, activeQuest)
         } catch (e: Exception) {
             Log.e("QuestManager", "Error processing quest: ${e.message}")
-        }
-    }
-
-    suspend fun getActiveQuestLocations(): List<Int> {
-        return try {
-            val playerId = getPlayerId()
-            questProgressHandler.getActiveQuestLocations(playerId)
-        } catch (e: Exception) {
-            Log.e("QuestManager", "Error getting quest locations: ${e.message}")
-            emptyList()
         }
     }
 
