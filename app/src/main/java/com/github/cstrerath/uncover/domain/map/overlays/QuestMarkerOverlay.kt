@@ -76,8 +76,12 @@ class QuestMarkerOverlay(
             calculateDistance(playerPos, questLocation) <= visibilityRadiusMeters
         } ?: false
 
-        //val marker = if (isVisible) activeMarker else inactiveMarker
-        val marker = if (location.id < 100) if (isVisible) activeMarker else inactiveMarker else if (isVisible) activeRandMarker else inactiveRandMarker
+        val marker = when {
+            location.id < 100 && isVisible -> activeMarker
+            location.id < 100 -> inactiveMarker
+            isVisible -> activeRandMarker
+            else -> inactiveRandMarker
+        }
 
         canvas.drawBitmap(
             marker,
@@ -100,7 +104,7 @@ class QuestMarkerOverlay(
             val projection = mapView.projection
             val tappedPoint = projection.fromPixels(e.x.toInt(),e.y.toInt())
             val distance = calculateDistance(tappedPoint,questLocation)
-            val isRandomQuest = location.id < 100
+            val isRandomQuest = location.id >= 100
 
             val hitboxSize = calculateHitboxSize(mapView.zoomLevelDouble.toFloat())
 

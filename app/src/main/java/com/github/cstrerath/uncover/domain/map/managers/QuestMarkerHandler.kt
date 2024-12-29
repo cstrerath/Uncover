@@ -2,6 +2,7 @@ package com.github.cstrerath.uncover.domain.map.managers
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import com.github.cstrerath.uncover.R
 import com.github.cstrerath.uncover.data.database.AppDatabase
@@ -16,6 +17,7 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressHandler
 import com.github.cstrerath.uncover.domain.quest.randquest.RandQuestProgressHandler
 import com.github.cstrerath.uncover.ui.activities.QuestActivity
+import com.github.cstrerath.uncover.ui.activities.RandQuestActivity
 
 class QuestMarkerHandler(private val context: Context) {
     suspend fun loadPlayerAndQuestData(
@@ -65,10 +67,12 @@ class QuestMarkerHandler(private val context: Context) {
         isRandomQuest: Boolean
     ) {
         val intent = if (isRandomQuest) {
-            Intent(context, QuestActivity::class.java).apply {
+            Log.i("MAP_HANDLER","Value of isRandomQuest: $isRandomQuest.toString()")
+            Intent(context, RandQuestActivity::class.java).apply {
                 putExtra(context.getString(R.string.quest_location_id), locationId)
             }
         } else {
+            Log.i("MAP_HANDLER", "Value of isRandomQuest: $isRandomQuest.toString()")
             Intent(context, QuestActivity::class.java).apply {
                 putExtra(context.getString(R.string.quest_location_id), locationId)
             }
