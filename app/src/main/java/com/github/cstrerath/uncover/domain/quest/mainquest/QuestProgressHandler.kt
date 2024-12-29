@@ -96,7 +96,7 @@ class QuestProgressHandler(
 
 
     suspend fun getActiveQuestLocations(characterId: String): List<Int> = withContext(Dispatchers.IO) {
-        val openProgressQuest = progressDao.getFirstIncompleteQuest(characterId)
+        val openProgressQuest = progressDao.getFirstIncompleteMainQuest(characterId)
             ?: return@withContext emptyList()
 
         try {

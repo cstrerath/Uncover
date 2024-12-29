@@ -15,7 +15,8 @@ class MainMenuActivity : BaseActivity() {
             UncoverTheme {
                 MainMenuScreen(
                     navigationManager = navigationManager,
-                    questManager = questManager
+                    questManager = questManager,
+                    randQuestManager = randQuestManager
                 )
             }
         }

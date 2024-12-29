@@ -15,6 +15,8 @@ import com.github.cstrerath.uncover.data.database.entities.Quest
 import com.github.cstrerath.uncover.data.database.dao.QuestDao
 import com.github.cstrerath.uncover.data.database.entities.QuestStep
 import com.github.cstrerath.uncover.data.database.dao.QuestStepDao
+import com.github.cstrerath.uncover.data.database.entities.RandQuestDatabase
+import com.github.cstrerath.uncover.data.database.dao.RandQuestDatabaseDao
 
 @Database(
     entities = [
@@ -22,9 +24,10 @@ import com.github.cstrerath.uncover.data.database.dao.QuestStepDao
         Quest::class,
         QuestStep::class,
         CharacterQuestProgress::class,
-        Location::class
+        Location::class,
+        RandQuestDatabase::class
     ],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 @TypeConverters(DatabaseConverters::class)
@@ -34,6 +37,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun questStepDao(): QuestStepDao
     abstract fun characterQuestProgressDao(): CharacterQuestProgressDao
     abstract fun locationDao(): LocationDao
+    abstract fun randomQuestDatabaseDao(): RandQuestDatabaseDao
 
     companion object {
         private const val DATABASE_NAME = "app_database"

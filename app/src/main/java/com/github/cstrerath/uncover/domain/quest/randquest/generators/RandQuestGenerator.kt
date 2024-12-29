@@ -3,20 +3,28 @@ package com.github.cstrerath.uncover.domain.quest.randquest.generators
 import android.content.Context
 import android.util.Log
 import com.github.cstrerath.uncover.data.database.AppDatabase
+import com.github.cstrerath.uncover.data.database.entities.RandQuestDatabase
 import com.github.cstrerath.uncover.domain.quest.randquest.RandQuest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.util.UUID
 
 class RandQuestGenerator(context: Context) {
     private val randNameGenerator = NameGenerator(context)
     private val randActionGenerator = QuestActionGenerator(context)
     private val database = AppDatabase.getInstance(context)
     private val locationDao = database.locationDao()
+    private val randQuestDao = database.randomQuestDatabaseDao()
 
-    suspend fun generateQuest(): Result<RandQuest> {
+    suspend fun generateQuest(questId: Int): Result<RandQuest> {
         return withContext(Dispatchers.IO) {
             try {
+                // Versuche zuerst, eine existierende Quest zu finden
+                val existingQuest = randQuestDao.getRandQuestById(questId)
+                if (existingQuest != null) {
+                    return@withContext Result.success(existingQuest.randQuest)
+                }
+
+                // Wenn keine existiert, generiere eine neue
                 val locations = locationDao.getAllRandQuestLocations()
                 if (locations.isEmpty()) {
                     Log.e(TAG, "No locations available for quest generation")
@@ -25,11 +33,12 @@ class RandQuestGenerator(context: Context) {
 
                 val randomLocation = locations.random()
                 val questText = createQuestText()
-                val id = UUID.randomUUID().toString()
 
-                val quest = RandQuest(id, randomLocation, questText)
-                Log.i(TAG, "Generated quest: id=$id, location=${randomLocation}, text='$questText'")
-                Result.success(quest)
+                val newQuest = RandQuest(questId, randomLocation, questText)
+                randQuestDao.insertRandQuest(RandQuestDatabase(questId, newQuest))
+
+                Log.i(TAG, "Generated quest: id=$questId, location=${randomLocation}, text='$questText'")
+                Result.success(newQuest)
             } catch (e: Exception) {
                 Log.e(TAG, "Error generating quest: ${e.message}", e)
                 Result.failure(e)
@@ -47,4 +56,3 @@ class RandQuestGenerator(context: Context) {
         private const val TAG = "RandQuestGenerator"
     }
 }
-

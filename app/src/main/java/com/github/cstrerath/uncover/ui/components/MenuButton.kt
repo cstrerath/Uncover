@@ -8,6 +8,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.res.stringResource
 import com.github.cstrerath.uncover.R
 import com.github.cstrerath.uncover.domain.quest.mainquest.QuestManager
+import com.github.cstrerath.uncover.domain.quest.randquest.RandQuestManager
 import kotlinx.coroutines.launch
 
 @Composable
@@ -29,6 +30,20 @@ fun QuestProgressButton(questManager: QuestManager) {
         onClick = {
             coroutineScope.launch {
                 questManager.processNextQuest()
+            }
+        }
+    )
+}
+
+@Composable
+fun RandQuestProgressButton(randQuestManager: RandQuestManager) {
+    val coroutineScope = rememberCoroutineScope()
+
+    MenuButton(
+        text = stringResource(R.string.rand_quest_progress),
+        onClick = {
+            coroutineScope.launch {
+                randQuestManager.processNextRandQuest()
             }
         }
     )

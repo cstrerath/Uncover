@@ -34,7 +34,7 @@ class QuestManager(context: Context) {
         gameCharDao.getPlayerCharacterId() ?: throw Exception("No player found")
 
     private suspend fun findActiveQuest(playerId: String): CharacterQuestProgress =
-        questProgressDao.getFirstIncompleteQuest(playerId)
+        questProgressDao.getFirstIncompleteMainQuest(playerId)
             ?: throw Exception("No incomplete quests found")
 
     private suspend fun handleQuestProgress(playerId: String, activeQuest: CharacterQuestProgress) {

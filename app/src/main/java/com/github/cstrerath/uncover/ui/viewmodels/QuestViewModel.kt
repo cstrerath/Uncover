@@ -25,7 +25,7 @@ class QuestViewModel(
     suspend fun loadQuestInfo(): QuestUIState {
         return try {
             val player = characterDao.getPlayerCharacter() ?: return QuestUIState.Error("Player not found")
-            val activeQuest = characterProgressDao.getFirstIncompleteQuest(player.id)
+            val activeQuest = characterProgressDao.getFirstIncompleteMainQuest(player.id)
                 ?: return QuestUIState.Error("No active quest")
 
             val questInfo = getQuestInfo(activeQuest, player.characterClass)

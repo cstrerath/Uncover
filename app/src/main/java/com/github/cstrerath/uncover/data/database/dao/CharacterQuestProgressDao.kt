@@ -28,5 +28,8 @@ interface CharacterQuestProgressDao {
     suspend fun insertMultipleProgress(progressList: List<CharacterQuestProgress>)
 
     @Query("SELECT * FROM character_quest_progress WHERE characterId = :characterId AND questId <= 10 ORDER BY questId DESC LIMIT 1")
-    suspend fun getFirstIncompleteQuest(characterId: String): CharacterQuestProgress?
+    suspend fun getFirstIncompleteMainQuest(characterId: String): CharacterQuestProgress?
+
+    @Query("SELECT * FROM character_quest_progress WHERE characterId = :characterId AND questId > 10 ORDER BY questId DESC LIMIT 1")
+    suspend fun getFirstIncompleteRandQuest(characterId: String): CharacterQuestProgress?
 }
