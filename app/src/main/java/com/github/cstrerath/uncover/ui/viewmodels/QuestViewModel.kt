@@ -1,6 +1,6 @@
 package com.github.cstrerath.uncover.ui.viewmodels
 
-import com.github.cstrerath.uncover.QuestResources
+import com.github.cstrerath.uncover.resources.QuestResources
 import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao
 import com.github.cstrerath.uncover.data.database.dao.GameCharacterDao
 import com.github.cstrerath.uncover.data.database.dao.QuestDao

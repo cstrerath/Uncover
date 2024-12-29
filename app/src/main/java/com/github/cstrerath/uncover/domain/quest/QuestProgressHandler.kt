@@ -70,7 +70,7 @@ class QuestProgressHandler(
         newStage: QuestStage,
         characterId: String
     ) {
-        if (shouldStartNextQuest(currentProgress)) {
+        if (shouldStartNextQuest(currentProgress) && !isFinalQuest(currentProgress.questId)) {
             handleNextQuest(currentProgress, characterId)
         } else {
             progressDao.updateProgress(currentProgress.copy(stage = newStage))
@@ -80,9 +80,11 @@ class QuestProgressHandler(
     private fun shouldStartNextQuest(progress: CharacterQuestProgress): Boolean =
         progress.stage == QuestStage.AT_END
 
+    private fun isFinalQuest(questId: Int): Boolean = questId == 10
+
     private suspend fun handleNextQuest(currentProgress: CharacterQuestProgress, characterId: String) {
         progressDao.updateProgress(currentProgress.copy(stage = QuestStage.COMPLETED))
-        val nextQuestId = currentProgress.questId + 1
+        val nextQuestId = (currentProgress.questId + 1).coerceAtMost(10)
         progressDao.updateProgress(
             CharacterQuestProgress(
                 characterId = characterId,
@@ -91,6 +93,7 @@ class QuestProgressHandler(
             )
         )
     }
+
 
     suspend fun getActiveQuestLocations(characterId: String): List<Int> = withContext(Dispatchers.IO) {
         val openProgressQuest = progressDao.getFirstIncompleteQuest(characterId)
