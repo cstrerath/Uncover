@@ -8,6 +8,7 @@ import com.github.cstrerath.uncover.ui.activities.CharacterCreationActivity
 import com.github.cstrerath.uncover.ui.activities.LocationListActivity
 import com.github.cstrerath.uncover.ui.activities.PlayerStatsActivity
 import com.github.cstrerath.uncover.ui.activities.MainMenuActivity
+import com.github.cstrerath.uncover.ui.activities.WelcomeActivity
 
 // utils/navigation/NavigationManager.kt
 class NavigationManager(private val activity: Activity) {
@@ -31,8 +32,13 @@ class NavigationManager(private val activity: Activity) {
         navigate(PlayerStatsActivity::class.java)
     }
 
+    fun navigateToWelcome() {
+        navigate(WelcomeActivity::class.java)
+    }
+
     private fun navigate(targetActivity: Class<*>) {
         activity.startActivity(Intent(activity, targetActivity))
     }
+
 }
 

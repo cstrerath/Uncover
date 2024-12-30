@@ -1,5 +1,6 @@
 package com.github.cstrerath.uncover.ui.screens.welcome
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -21,6 +22,7 @@ fun WelcomeTermsSelector(
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .clickable { onAcceptedChange(!accepted) }
             .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

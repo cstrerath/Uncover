@@ -1,8 +1,7 @@
 package com.github.cstrerath.uncover.ui.activities
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
 import androidx.lifecycle.lifecycleScope
 import com.github.cstrerath.uncover.data.database.AppDatabase
 import com.github.cstrerath.uncover.data.database.entities.CharacterClass
@@ -10,25 +9,20 @@ import com.github.cstrerath.uncover.domain.character.creation.CharacterCreationL
 import com.github.cstrerath.uncover.domain.character.creation.PlayerCharacterCreator
 import com.github.cstrerath.uncover.domain.character.models.CharacterStatsProvider
 import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressInitializer
-import com.github.cstrerath.uncover.ui.base.BaseActivity
+import com.github.cstrerath.uncover.ui.base.NoBackActivity
 import com.github.cstrerath.uncover.ui.screens.character.CharacterCreationScreen
-import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import kotlinx.coroutines.launch
 
-class CharacterCreationActivity : BaseActivity() {
+class CharacterCreationActivity : NoBackActivity() {
     private val characterCreator: PlayerCharacterCreator by lazy {
         createCharacterCreator()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            UncoverTheme {
-                CharacterCreationScreen(
-                    onCharacterCreated = ::handleCharacterCreation
-                )
-            }
-        }
+    @Composable
+    override fun NoBackContent() {
+        CharacterCreationScreen(
+            onCharacterCreated = ::handleCharacterCreation
+        )
     }
 
     private fun createCharacterCreator(): PlayerCharacterCreator {
@@ -46,14 +40,15 @@ class CharacterCreationActivity : BaseActivity() {
         lifecycleScope.launch {
             characterClass?.let {
                 characterCreator.createPlayerCharacter(name, it)
-                navigateToWelcome()
+                questManager.processNextQuest()
+                randQuestManager.processNextRandQuest()
+                navigateToMainMenu()
             }
         }
     }
 
-    private fun navigateToWelcome() {
-        startActivity(Intent(this, WelcomeActivity::class.java))
+    private fun navigateToMainMenu() {
+        startActivity(Intent(this, MainMenuActivity::class.java))
         finish()
     }
 }
-

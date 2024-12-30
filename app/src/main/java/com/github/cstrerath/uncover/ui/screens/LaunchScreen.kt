@@ -1,6 +1,7 @@
 package com.github.cstrerath.uncover.ui.screens
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import com.github.cstrerath.uncover.domain.auth.LoginManager
 import com.github.cstrerath.uncover.utils.navigation.NavigationManager
 import kotlinx.coroutines.delay
@@ -13,47 +14,21 @@ fun LaunchScreen(
     onFinish: () -> Unit
 ) {
     if (isInitialLaunch) {
-        InitialLaunchContent(
-            loginManager = loginManager,
-            navigationManager = navigationManager,
-            onFinish = onFinish
-        )
-    } else {
-        MainMenuRedirect(
-            navigationManager = navigationManager,
-            onFinish = onFinish
-        )
+        SplashScreen()
     }
-}
 
-@Composable
-private fun InitialLaunchContent(
-    loginManager: LoginManager,
-    navigationManager: NavigationManager,
-    onFinish: () -> Unit
-) {
-    SplashScreen()
     LaunchedEffect(Unit) {
-        delay(2000)
-        val hasPlayerCharacter = loginManager.performInitialCheck()
+        if (isInitialLaunch) {
+            delay(2000)
+        }
 
+        val hasPlayerCharacter = loginManager.performInitialCheck()
         if (hasPlayerCharacter) {
             navigationManager.navigateToMainMenu()
         } else {
-            navigationManager.navigateToCharacterCreation()
+            navigationManager.navigateToWelcome()
         }
 
-        onFinish()
-    }
-}
-
-@Composable
-private fun MainMenuRedirect(
-    navigationManager: NavigationManager,
-    onFinish: () -> Unit
-) {
-    LaunchedEffect(Unit) {
-        navigationManager.navigateToMainMenu()
         onFinish()
     }
 }

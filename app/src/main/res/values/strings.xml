@@ -214,5 +214,9 @@
     <string name="accept_terms">Ich bin mindestens 18 Jahre alt und mit den Bedingungen einverstanden.</string>
     <string name="continue_button">Weiter</string>
     <string name="welcome_title">Uncover</string>
+    <string name="no_back_dialog_header">Beenden</string>
+    <string name="no_back_dialog_message">Möchtest du die App wirklich beenden?</string>
+    <string name="no_back_dialog_accept">Ja</string>
+    <string name="no_back_dialog_dismiss">Nein</string>
 
 </resources>
