@@ -18,44 +18,42 @@ import com.github.cstrerath.uncover.R
 import com.github.cstrerath.uncover.data.database.entities.CharacterClass
 
 @Composable
-fun CharacterClassSelection(
+internal fun CharacterClassSelection(
     selectedClass: CharacterClass?,
     onClassSelected: (CharacterClass) -> Unit
 ) {
-    Column {
-        Text(
-            text = stringResource(R.string.choose_your_class),
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
+    Text(
+        text = stringResource(R.string.choose_your_class),
+        style = MaterialTheme.typography.titleMedium,
+        color = MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier.padding(bottom = 8.dp)
+    )
 
-        CharacterClass.entries.forEach { characterClass ->
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .selectable(
-                        selected = characterClass == selectedClass,
-                        onClick = { onClassSelected(characterClass) }
-                    )
-                    .padding(8.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                RadioButton(
+    CharacterClass.entries.forEach { characterClass ->
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .selectable(
                     selected = characterClass == selectedClass,
-                    onClick = { onClassSelected(characterClass) },
-                    colors = RadioButtonDefaults.colors(
-                        selectedColor = MaterialTheme.colorScheme.primary,
-                        unselectedColor = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                    onClick = { onClassSelected(characterClass) }
                 )
-                Text(
-                    text = characterClass.displayName,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(start = 8.dp)
+                .padding(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            RadioButton(
+                selected = characterClass == selectedClass,
+                onClick = { onClassSelected(characterClass) },
+                colors = RadioButtonDefaults.colors(
+                    selectedColor = MaterialTheme.colorScheme.primary,
+                    unselectedColor = MaterialTheme.colorScheme.onSurface
                 )
-            }
+            )
+            Text(
+                text = characterClass.displayName,
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.padding(start = 8.dp)
+            )
         }
     }
 }

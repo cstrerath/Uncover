@@ -9,9 +9,7 @@ class MainMenuActivity : NoBackActivity() {
     @Composable
     override fun NoBackContent() {
         MainMenuScreen(
-            navigationManager = navigationManager,
-            questManager = questManager,
-            randQuestManager = randQuestManager
+            navigationManager = navigationManager
         )
     }
 }

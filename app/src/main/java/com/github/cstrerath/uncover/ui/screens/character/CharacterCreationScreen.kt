@@ -1,9 +1,14 @@
 package com.github.cstrerath.uncover.ui.screens.character
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,14 +35,45 @@ fun CharacterCreationScreen(
     ) {
         item {
             CharacterCreationHeader()
-            CharacterNameInput(
-                characterName = characterName,
-                onNameChange = { if (it.length <= 20) characterName = it }
-            )
-            CharacterClassSelection(
-                selectedClass = selectedClass,
-                onClassSelected = { selectedClass = it }
-            )
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant
+                ),
+                elevation = CardDefaults.cardElevation(4.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
+                    CharacterNameInput(
+                        characterName = characterName,
+                        onNameChange = { if (it.length <= 20) characterName = it }
+                    )
+                }
+            }
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant
+                ),
+                elevation = CardDefaults.cardElevation(4.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
+                    CharacterClassSelection(
+                        selectedClass = selectedClass,
+                        onClassSelected = { selectedClass = it }
+                    )
+                }
+            }
+
             CreateCharacterButton(
                 enabled = characterName.isNotBlank() && selectedClass != null,
                 onClick = { onCharacterCreated(characterName, selectedClass) }

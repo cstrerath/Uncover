@@ -6,10 +6,17 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.github.cstrerath.uncover.ui.screens.map.MapScreen
 import com.github.cstrerath.uncover.ui.base.BaseActivity
 import com.github.cstrerath.uncover.ui.screens.UncoverBaseScreen
 import com.github.cstrerath.uncover.ui.theme.UncoverTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import org.osmdroid.config.Configuration
 
 class MapActivity : BaseActivity() {
@@ -54,7 +61,18 @@ class MapActivity : BaseActivity() {
                     PackageManager.PERMISSION_GRANTED -> {
                 setContent {
                     UncoverTheme {
-                        UncoverBaseScreen {
+                        Surface(
+                            modifier = Modifier.fillMaxSize(),
+                            color = MaterialTheme.colorScheme.background
+                        ) {
+                            val systemUiController = rememberSystemUiController()
+                            SideEffect {
+                                systemUiController.setStatusBarColor(
+                                    color = Color.Black,
+                                    darkIcons = false
+                                )
+                            }
+
                             MapScreen(questLauncher)
                         }
                     }

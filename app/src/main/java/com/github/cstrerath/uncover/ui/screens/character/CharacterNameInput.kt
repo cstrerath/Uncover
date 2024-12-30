@@ -4,6 +4,7 @@ package com.github.cstrerath.uncover.ui.screens.character
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -20,6 +21,13 @@ internal fun CharacterNameInput(
     characterName: String,
     onNameChange: (String) -> Unit
 ) {
+    Text(
+        text = stringResource(R.string.enter_character_name),
+        style = MaterialTheme.typography.titleMedium,
+        color = MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier.padding(bottom = 8.dp)
+    )
+
     OutlinedTextField(
         value = characterName,
         onValueChange = onNameChange,
@@ -30,12 +38,10 @@ internal fun CharacterNameInput(
             unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
             cursorColor = MaterialTheme.colorScheme.primary,
             focusedLabelColor = MaterialTheme.colorScheme.primary,
-            unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            focusedContainerColor = Color.Transparent,
-            unfocusedContainerColor = Color.Transparent
+            unfocusedLabelColor = MaterialTheme.colorScheme.onSurface,
+            focusedBorderColor = MaterialTheme.colorScheme.primary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.onSurface
         ),
         modifier = Modifier.fillMaxWidth()
     )
-    Spacer(modifier = Modifier.height(24.dp))
 }
-
