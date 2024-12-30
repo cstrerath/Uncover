@@ -14,6 +14,7 @@ import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressHandler
 import com.github.cstrerath.uncover.ui.states.QuestUIState
 import com.github.cstrerath.uncover.utils.resources.ResourceProvider
 
+
 class QuestViewModel(
     private val resourceProvider: ResourceProvider,
     private val questProgressHandler: QuestProgressHandler,
@@ -24,13 +25,15 @@ class QuestViewModel(
 ) {
     suspend fun loadQuestInfo(): QuestUIState {
         return try {
-            val player = characterDao.getPlayerCharacter() ?: return QuestUIState.Error("Player not found")
-            val activeQuest = characterProgressDao.getFirstIncompleteMainQuest(player.id)
-                ?: return QuestUIState.Error("No active quest")
+            val player = characterDao.getPlayerCharacter() ?:
+            return QuestUIState.Error("Player not found")
+            val activeQuest = characterProgressDao.getFirstIncompleteMainQuest(player.id) ?:
+            return QuestUIState.Error("No active quest")
 
-            val questInfo = getQuestInfo(activeQuest, player.characterClass)
+            val (title, description) = getQuestInfo(activeQuest, player.characterClass)
             QuestUIState.QuestLoaded(
-                questInfo = questInfo,
+                questTitle = title,
+                questInfo = description,
                 quest = activeQuest,
                 playerId = player.id
             )
@@ -46,7 +49,7 @@ class QuestViewModel(
     private fun getQuestInfo(
         activeQuest: CharacterQuestProgress,
         playerClass: CharacterClass
-    ): String {
+    ): Pair<String, String> {
         val quest = questDao.getQuestById(activeQuest.questId)
         val questStep = getQuestStep(activeQuest)
         val questTextKey = getQuestTextKey(questStep, playerClass)
@@ -54,7 +57,7 @@ class QuestViewModel(
         return buildQuestText(quest.resourceKey, questTextKey)
     }
 
-    private fun getQuestStep(quest: CharacterQuestProgress) =
+    private fun getQuestStep(quest: CharacterQuestProgress): QuestStep =
         when (quest.stage) {
             QuestStage.AT_START -> questStepDao.getStepForQuestAndType(quest.questId, StepType.INITIAL)
             QuestStage.AT_QUEST_LOCATION -> questStepDao.getStepForQuestAndType(quest.questId, StepType.SOLUTION)
@@ -62,17 +65,19 @@ class QuestViewModel(
             else -> throw IllegalStateException("Unknown quest stage: ${quest.stage}")
         }
 
-    private fun getQuestTextKey(questStep: QuestStep, playerClass: CharacterClass): String {
-        return when (playerClass) {
+    private fun getQuestTextKey(questStep: QuestStep, playerClass: CharacterClass): String =
+        when (playerClass) {
             CharacterClass.MAGE -> questStep.mageVariantKey
             CharacterClass.THIEF -> questStep.thiefVariantKey
             CharacterClass.WARRIOR -> questStep.warriorVariantKey
         }
-    }
 
-    private fun buildQuestText(questKey: String, textKey: String): String {
+    private fun buildQuestText(questKey: String, textKey: String): Pair<String, String> {
         val questNameId = QuestResources.getQuestTextId(questKey)
         val questTextId = QuestResources.getQuestTextId(textKey)
-        return "${resourceProvider.getString(questNameId)} - ${resourceProvider.getString(questTextId)}"
+        return Pair(
+            resourceProvider.getString(questNameId),
+            resourceProvider.getString(questTextId)
+        )
     }
 }

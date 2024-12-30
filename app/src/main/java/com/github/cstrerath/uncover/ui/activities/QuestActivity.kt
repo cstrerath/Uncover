@@ -8,7 +8,9 @@ import com.github.cstrerath.uncover.data.repository.CharacterRepository
 import com.github.cstrerath.uncover.domain.character.progression.XpManager
 import com.github.cstrerath.uncover.domain.quest.mainquest.QuestProgressHandler
 import com.github.cstrerath.uncover.ui.base.BaseActivity
+import com.github.cstrerath.uncover.ui.screens.UncoverBaseScreen
 import com.github.cstrerath.uncover.ui.screens.quests.mainquests.QuestScreen
+import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import com.github.cstrerath.uncover.ui.viewmodels.QuestViewModel
 import com.github.cstrerath.uncover.utils.resources.ResourceProvider
 
@@ -22,11 +24,15 @@ class QuestActivity : BaseActivity() {
         initializeViewModel()
 
         setContent {
-            QuestScreen(
-                locationId = locationId,
-                viewModel = questViewModel,
-                onQuestComplete = { finish() }
-            )
+            UncoverTheme {
+                UncoverBaseScreen {
+                    QuestScreen(
+                        locationId = locationId,
+                        viewModel = questViewModel,
+                        onQuestComplete = { finish() }
+                    )
+                }
+            }
         }
     }
 

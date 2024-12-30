@@ -80,16 +80,10 @@ fun MainMenuScreen(
     }
 }
 
-
-
-
-
 @Composable
 fun MenuContent(navigationManager: NavigationManager) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 24.dp),
+        modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -101,11 +95,11 @@ fun MenuContent(navigationManager: NavigationManager) {
                 .height(200.dp)
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(24.dp)
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             MenuTile(
                 text = stringResource(R.string.menu_player_stats),
@@ -125,10 +119,6 @@ fun MenuContent(navigationManager: NavigationManager) {
         }
     }
 }
-
-
-
-
 
 @Composable
 fun MenuTile(

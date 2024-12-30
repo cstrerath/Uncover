@@ -5,6 +5,7 @@ import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgres
 sealed class QuestUIState {
     data object Loading : QuestUIState()
     data class QuestLoaded(
+        val questTitle: String,
         val questInfo: String,
         val quest: CharacterQuestProgress,
         val playerId: String

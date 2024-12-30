@@ -1,14 +1,16 @@
 // ui/screens/QuestScreen.kt
 package com.github.cstrerath.uncover.ui.screens.quests.mainquests
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import com.github.cstrerath.uncover.ui.screens.quests.LoadingIndicator
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import com.github.cstrerath.uncover.ui.screens.quests.ErrorMessage
+import com.github.cstrerath.uncover.ui.screens.quests.LoadingIndicator
 import com.github.cstrerath.uncover.ui.states.QuestUIState
 import com.github.cstrerath.uncover.ui.viewmodels.QuestViewModel
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +25,7 @@ fun QuestScreen(
 ) {
     var questState by remember { mutableStateOf<QuestUIState>(QuestUIState.Loading) }
     val coroutineScope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
 
     LaunchedEffect(locationId) {
         withContext(Dispatchers.IO) {
@@ -30,24 +33,18 @@ fun QuestScreen(
         }
     }
 
-
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        when (val state = questState) {
-            is QuestUIState.Loading -> LoadingIndicator()
-            is QuestUIState.QuestLoaded -> QuestContent(
-                state = state,
-                onProgressQuest = {
-                    coroutineScope.launch {
-                        viewModel.progressQuest(state.quest)
-                        onQuestComplete()
-                    }
+    when (val state = questState) {
+        is QuestUIState.Loading -> LoadingIndicator()
+        is QuestUIState.QuestLoaded -> QuestContent(
+            state = state,
+            scrollState = scrollState,
+            onProgressQuest = {
+                coroutineScope.launch {
+                    viewModel.progressQuest(state.quest)
+                    onQuestComplete()
                 }
-            )
-            is QuestUIState.Error -> ErrorMessage(state.message)
-        }
+            }
+        )
+        is QuestUIState.Error -> ErrorMessage(state.message)
     }
 }
