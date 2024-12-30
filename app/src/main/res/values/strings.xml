@@ -261,6 +261,18 @@
     <string name="player_stats_experience">Erfahrungspunkte: %1d / %2d</string>
     <string name="player_stats_level">Level %1$s</string>
     <string name="button_ok">OK</string>
+    <string name="welcome_text_disclaimer">Alle Spieldaten (Quests, Fortschritt, Charakterentwicklung, Erfolge) werden ausschließlich lokal auf deinem Gerät gespeichert. Kartendaten von OpenStreetMap (OSM) werden zur Reduzierung des Datenverbrauchs zwischengespeichert. Es werden keine persönlichen Standortdaten gespeichert.</string>
+    <string name="welcome_text_data_privacy">"Datenschutz: "</string>
+    <string name="welcome_text_title">Willkommen in Ludwigshafen und Mannheim!</string>
+    <string name="welcome_text_mainquest">Hauptquest</string>
+    <string name="welcome_text_mainquests">" = Hauptquests"</string>
+    <string name="welcome_text_randquest">Nebenquest</string>
+    <string name="welcome_text_randquests">" = Nebenquests"</string>
+    <string name="welcome_text_experience">Sammle Erfahrungspunkte durch das Abschließen von Quests und entwickle deinen Charakter weiter.</string>
+    <string name="welcome_text_info">Wichtige Informationen:</string>
+    <string name="welcome_text_internet">• Internetverbindung wird für das Laden der Karte benötigt</string>
+    <string name="welcome_text_location">• Standortfreigabe ermöglicht das Spielen von Quests in deiner Nähe</string>
+    <string name="welcome_text_fog_of_war">• Quests werden in einem bestimmten Radius um deinen Standort freigeschaltet</string>
 
 
 </resources>

@@ -1,8 +1,15 @@
 package com.github.cstrerath.uncover.ui.screens.welcome
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,29 +20,41 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun WelcomeScreen (
-    onNavigateToNext : () -> Unit
+fun WelcomeScreen(
+    onNavigateToNext: () -> Unit
 ) {
-    var termsAccepted by remember { mutableStateOf(false)}
+    var termsAccepted by remember { mutableStateOf(false) }
 
-    LazyColumn(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        item {
-            WelcomeTextScreen()
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant
+            ),
+            elevation = CardDefaults.cardElevation(4.dp)
+        ) {
+            WelcomeTextScreen(
+                modifier = Modifier.padding(16.dp)
+            )
 
             WelcomeTermsSelector(
                 accepted = termsAccepted,
                 onAcceptedChange = { termsAccepted = it }
             )
 
-            WelcomeAcceptTermsButton(
-                enabled = termsAccepted,
-                onClick = onNavigateToNext
-            )
+
         }
+        WelcomeAcceptTermsButton(
+            enabled = termsAccepted,
+            onClick = onNavigateToNext
+        )
     }
+
 }
