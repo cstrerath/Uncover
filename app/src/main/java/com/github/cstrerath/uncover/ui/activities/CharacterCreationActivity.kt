@@ -46,13 +46,13 @@ class CharacterCreationActivity : BaseActivity() {
         lifecycleScope.launch {
             characterClass?.let {
                 characterCreator.createPlayerCharacter(name, it)
-                navigateToMainMenu()
+                navigateToWelcome()
             }
         }
     }
 
-    private fun navigateToMainMenu() {
-        startActivity(Intent(this, MainMenuActivity::class.java))
+    private fun navigateToWelcome() {
+        startActivity(Intent(this, WelcomeActivity::class.java))
         finish()
     }
 }

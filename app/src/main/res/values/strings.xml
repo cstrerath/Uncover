@@ -211,5 +211,8 @@
     <string name="rand_quest_story_15">" wurde von einem Gestaltwandler getäuscht und in einen Käfig gesperrt. Dein scharfer Verstand durchschaute die List und befreite den dankbaren Gefangenen."</string>
     <string name="rand_quest_story_16">" geriet in einen Zeitwirbel und drohte, aus der Existenz gelöscht zu werden. Dein beherzter Sprung in den Wirbel rettete beide und brachte euch in eine faszinierende Zukunft."</string>
     <string name="rand_quest_progress">Rand_Quest_Progress</string>
+    <string name="accept_terms">Ich bin mindestens 18 Jahre alt und mit den Bedingungen einverstanden.</string>
+    <string name="continue_button">Weiter</string>
+    <string name="welcome_title">Uncover</string>
 
 </resources>
