@@ -219,4 +219,40 @@
     <string name="no_back_dialog_accept">Ja</string>
     <string name="no_back_dialog_dismiss">Nein</string>
 
+
+    <string name="achievement_1">Erste Schritte (Beende die erste Hauptquest)</string>
+    <string name="achievement_2">Questjäger (Beende die zweite Hauptquest)</string>
+    <string name="achievement_3">Questprofi (Beende die dritte Hauptquest)</string>
+    <string name="achievement_4">Questmeister (Beende die vierte Hauptquest)</string>
+    <string name="achievement_5">Questexperte (Beende die fünfte Hauptquest)</string>
+    <string name="achievement_6">Questvirtuose (Beende die sechste Hauptquest)</string>
+    <string name="achievement_7">Questchampion (Beende die siebte Hauptquest)</string>
+    <string name="achievement_8">Questlegende (Beende die achte Hauptquest)</string>
+    <string name="achievement_9">Questheld (Beende die neunte Hauptquest)</string>
+    <string name="achievement_10">Questbezwinger (Beende die zehnte Hauptquest)</string>
+
+    <!-- Nebenquest Achievements -->
+    <string name="achievement_11">Neugieriger Erkunder (Beende 1 Nebenquest)</string>
+    <string name="achievement_12">Fleißiger Helfer (Beende 3 Nebenquests)</string>
+    <string name="achievement_13">Engagierter Abenteurer (Beende 5 Nebenquests)</string>
+    <string name="achievement_14">Questsammler (Beende 10 Nebenquests)</string>
+    <string name="achievement_15">Questkönig (Beende 25 Nebenquests)</string>
+
+    <!-- Level Achievements -->
+    <string name="achievement_16">Anfänger (Erreiche Level 5)</string>
+    <string name="achievement_17">Fortgeschrittener (Erreiche Level 10)</string>
+    <string name="achievement_18">Experte (Erreiche Level 15)</string>
+    <string name="achievement_19">Meister (Erreiche Level 20)</string>
+    <string name="achievement_20">Großmeister (Erreiche Level 25)</string>
+
+    <!-- XP Achievements -->
+    <string name="achievement_21">XP-Sammler (Sammle 100 XP)</string>
+    <string name="achievement_22">XP-Jäger (Sammle 1000 XP)</string>
+    <string name="achievement_23">XP-Meister (Sammle 5000 XP)</string>
+    <string name="achievement_24">XP-Champion (Sammle 10000 XP)</string>
+
+    <!-- Finale Achievement -->
+    <string name="achievement_25">Uncover-Legende (Schalte alle anderen Erfolge frei)</string>
+
+
 </resources>

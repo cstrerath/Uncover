@@ -3,6 +3,7 @@ package com.github.cstrerath.uncover.data.database.initialization
 import android.content.Context
 import android.content.SharedPreferences
 import com.github.cstrerath.uncover.data.database.AppDatabase
+import com.github.cstrerath.uncover.data.database.initialization.initializers.AchievementInitializer
 import com.github.cstrerath.uncover.data.database.initialization.initializers.LocationInitializer
 import com.github.cstrerath.uncover.data.database.initialization.initializers.MainQuestInitializer
 import com.github.cstrerath.uncover.data.database.initialization.initializers.TestCharacterInitializer
@@ -29,6 +30,7 @@ class DatabaseInitializer(private val context: Context) {
         LocationInitializer(database).initialize()
         TestCharacterInitializer(database).initialize()
         MainQuestInitializer(database).initialize()
+        AchievementInitializer(database).initialize()
     }
 
     private fun isDatabaseInitialized(): Boolean {
