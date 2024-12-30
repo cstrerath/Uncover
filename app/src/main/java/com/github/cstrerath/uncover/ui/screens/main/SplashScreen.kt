@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.ui.screens
+package com.github.cstrerath.uncover.ui.screens.main
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.LinearProgressIndicator

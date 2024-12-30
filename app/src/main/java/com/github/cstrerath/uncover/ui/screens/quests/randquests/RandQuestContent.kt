@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.ui.components
+package com.github.cstrerath.uncover.ui.screens.quests.randquests
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

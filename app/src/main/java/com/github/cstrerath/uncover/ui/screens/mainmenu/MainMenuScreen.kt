@@ -1,5 +1,5 @@
 // ui/screens/MainMenuScreen.kt
-package com.github.cstrerath.uncover.ui.screens
+package com.github.cstrerath.uncover.ui.screens.mainmenu
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
@@ -13,11 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.github.cstrerath.uncover.data.database.entities.Achievement
 import com.github.cstrerath.uncover.domain.quest.mainquest.QuestManager
 import com.github.cstrerath.uncover.domain.quest.randquest.RandQuestManager
-import com.github.cstrerath.uncover.ui.components.QuestProgressButton
-import com.github.cstrerath.uncover.ui.components.RandQuestProgressButton
+import com.github.cstrerath.uncover.ui.screens.quests.QuestProgressButton
+import com.github.cstrerath.uncover.ui.screens.quests.RandQuestProgressButton
 import com.github.cstrerath.uncover.ui.navigation.MenuItems
 import com.github.cstrerath.uncover.utils.navigation.NavigationManager
 

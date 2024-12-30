@@ -1,5 +1,5 @@
 // ui/components/MenuButton.kt
-package com.github.cstrerath.uncover.ui.components
+package com.github.cstrerath.uncover.ui.screens.quests
 
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text

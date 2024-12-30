@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.ui.screens
+package com.github.cstrerath.uncover.ui.screens.map
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher

@@ -8,7 +8,7 @@ import com.github.cstrerath.uncover.data.repository.CharacterRepository
 import com.github.cstrerath.uncover.domain.character.progression.XpManager
 import com.github.cstrerath.uncover.domain.quest.randquest.RandQuestProgressHandler
 import com.github.cstrerath.uncover.ui.base.BaseActivity
-import com.github.cstrerath.uncover.ui.screens.RandQuestScreen
+import com.github.cstrerath.uncover.ui.screens.quests.randquests.RandQuestScreen
 import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import com.github.cstrerath.uncover.ui.viewmodels.RandQuestViewModel
 import com.github.cstrerath.uncover.utils.resources.ResourceProvider

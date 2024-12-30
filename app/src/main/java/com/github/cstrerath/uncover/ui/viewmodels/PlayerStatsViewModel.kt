@@ -25,6 +25,15 @@ class PlayerStatsViewModel(
 
     suspend fun tryLevelUp() {
         val currentPlayer = _player.value ?: return
+
+        if (currentPlayer.level >= 25) {
+            _dialogState.value = DialogState(
+                show = true,
+                message = context.getString(R.string.level_up_max_reached)
+            )
+            return
+        }
+
         val remainingXp = characterProgression.getRemainingXp(
             currentPlayer.level,
             currentPlayer.experience

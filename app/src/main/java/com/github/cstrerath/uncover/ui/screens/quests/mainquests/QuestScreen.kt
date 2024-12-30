@@ -1,5 +1,5 @@
 // ui/screens/QuestScreen.kt
-package com.github.cstrerath.uncover.ui.screens
+package com.github.cstrerath.uncover.ui.screens.quests.mainquests
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,9 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.github.cstrerath.uncover.ui.components.LoadingIndicator
-import com.github.cstrerath.uncover.ui.components.ErrorMessage
-import com.github.cstrerath.uncover.ui.components.QuestContent
+import com.github.cstrerath.uncover.ui.screens.quests.LoadingIndicator
+import com.github.cstrerath.uncover.ui.screens.quests.ErrorMessage
 import com.github.cstrerath.uncover.ui.states.QuestUIState
 import com.github.cstrerath.uncover.ui.viewmodels.QuestViewModel
 import kotlinx.coroutines.Dispatchers

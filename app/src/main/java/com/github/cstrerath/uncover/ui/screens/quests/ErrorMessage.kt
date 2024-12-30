@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.ui.components
+package com.github.cstrerath.uncover.ui.screens.quests
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
