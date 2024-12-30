@@ -35,7 +35,6 @@ fun RandQuestScreen(
         }
     }
 
-
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,

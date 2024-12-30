@@ -6,10 +6,8 @@ import com.github.cstrerath.uncover.data.database.dao.RandQuestDatabaseDao
 import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
 import com.github.cstrerath.uncover.domain.quest.randquest.RandQuestProgressHandler
 import com.github.cstrerath.uncover.ui.states.RandQuestUIState
-import com.github.cstrerath.uncover.utils.resources.ResourceProvider
 
 class RandQuestViewModel(
-    private val resourceProvider: ResourceProvider,
     private val randQuestProgressHandler: RandQuestProgressHandler,
     private val characterDao: GameCharacterDao,
     private val characterProgressDao: CharacterQuestProgressDao,

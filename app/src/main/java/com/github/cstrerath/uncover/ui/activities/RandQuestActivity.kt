@@ -8,6 +8,7 @@ import com.github.cstrerath.uncover.data.repository.CharacterRepository
 import com.github.cstrerath.uncover.domain.character.progression.XpManager
 import com.github.cstrerath.uncover.domain.quest.randquest.RandQuestProgressHandler
 import com.github.cstrerath.uncover.ui.base.BaseActivity
+import com.github.cstrerath.uncover.ui.screens.UncoverBaseScreen
 import com.github.cstrerath.uncover.ui.screens.quests.randquests.RandQuestScreen
 import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import com.github.cstrerath.uncover.ui.viewmodels.RandQuestViewModel
@@ -23,11 +24,13 @@ class RandQuestActivity : BaseActivity() {
 
         setContent {
             UncoverTheme {
-                RandQuestScreen(
-                    locationId = locationId,
-                    viewModel = randQuestViewModel,
-                    onQuestComplete = { finish() }
-                )
+                UncoverBaseScreen {
+                    RandQuestScreen(
+                        locationId = locationId,
+                        viewModel = randQuestViewModel,
+                        onQuestComplete = { finish() }
+                    )
+                }
             }
         }
     }
@@ -37,7 +40,6 @@ class RandQuestActivity : BaseActivity() {
         val resourceProvider = ResourceProvider(this)
 
         randQuestViewModel = RandQuestViewModel(
-            resourceProvider = resourceProvider,
             randQuestProgressHandler = RandQuestProgressHandler(
                 this,
                 database.characterQuestProgressDao(),

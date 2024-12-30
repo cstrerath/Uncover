@@ -275,6 +275,9 @@
     <string name="welcome_text_fog_of_war">• Quests werden in einem bestimmten Radius um deinen Standort freigeschaltet</string>
     <string name="enter_character_name">Gib den Namen deines Spielcharacters ein:</string>
     <string name="start_game">Spiel starten (Zur Karte)</string>
+    <string name="rand_quest_title">Nebenquest</string>
+    <string name="rand_quest_subtitle">Ein mysteriöses Ereignis am Wegesrand...</string>
+    <string name="rand_quest_finish">Quest abschließen</string>
 
 
 </resources>
