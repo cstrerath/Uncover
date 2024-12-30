@@ -253,6 +253,7 @@
 
     <!-- Finale Achievement -->
     <string name="achievement_25">Uncover-Legende (Schalte alle anderen Erfolge frei)</string>
+    <string name="menu_achievements">Erfolge</string>
 
 
 </resources>

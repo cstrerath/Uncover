@@ -3,6 +3,8 @@ package com.github.cstrerath.uncover.utils.navigation
 
 import android.app.Activity
 import android.content.Intent
+import com.github.cstrerath.uncover.data.database.entities.Achievement
+import com.github.cstrerath.uncover.ui.activities.AchievementActivity
 import com.github.cstrerath.uncover.ui.activities.MapActivity
 import com.github.cstrerath.uncover.ui.activities.CharacterCreationActivity
 import com.github.cstrerath.uncover.ui.activities.LocationListActivity
@@ -34,6 +36,10 @@ class NavigationManager(private val activity: Activity) {
 
     fun navigateToWelcome() {
         navigate(WelcomeActivity::class.java)
+    }
+
+    fun navigateToAchievement() {
+        navigate(AchievementActivity::class.java)
     }
 
     private fun navigate(targetActivity: Class<*>) {

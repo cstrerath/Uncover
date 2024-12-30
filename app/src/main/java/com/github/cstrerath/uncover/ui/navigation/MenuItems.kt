@@ -13,5 +13,6 @@ enum class MenuItems(
     MAP(R.string.menu_map, { it.navigateToMap() }),
     CHARACTER_CREATION(R.string.menu_character_creation, { it.navigateToCharacterCreation() }),
     LOCATIONS(R.string.menu_locations, { it.navigateToLocations() }),
-    PLAYER_STATS(R.string.menu_player_stats, { it.navigateToPlayerStats() })
+    PLAYER_STATS(R.string.menu_player_stats, { it.navigateToPlayerStats() }),
+    ACHIEVEMENT(R.string.menu_achievements, { it.navigateToAchievement()})
 }
