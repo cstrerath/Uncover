@@ -3,6 +3,7 @@ package com.github.cstrerath.uncover.ui.base
 import android.os.Bundle
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -13,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import com.github.cstrerath.uncover.R
+import com.github.cstrerath.uncover.ui.screens.UncoverBaseScreen
 import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 
 abstract class NoBackActivity : BaseActivity() {
@@ -21,20 +23,23 @@ abstract class NoBackActivity : BaseActivity() {
 
         setContent {
             var showExitDialog by remember { mutableStateOf(false) }
+            isSystemInDarkTheme()
 
             BackHandler {
                 showExitDialog = true
             }
 
             UncoverTheme {
-                if (showExitDialog) {
-                    ExitConfirmationDialog(
-                        onDismiss = { showExitDialog = false },
-                        onConfirm = { finishAffinity() }
-                    )
-                }
+                UncoverBaseScreen {
+                    if (showExitDialog) {
+                        ExitConfirmationDialog(
+                            onDismiss = { showExitDialog = false },
+                            onConfirm = { finishAffinity() }
+                        )
+                    }
 
-                NoBackContent()
+                    NoBackContent()
+                }
             }
         }
     }

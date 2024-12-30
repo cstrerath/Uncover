@@ -18,7 +18,7 @@ internal fun LevelUpDialog(
         text = { Text(message) },
         confirmButton = {
             Button(onClick = onDismiss) {
-                Text("OK")
+                Text(stringResource(R.string.button_ok))
             }
         }
     )

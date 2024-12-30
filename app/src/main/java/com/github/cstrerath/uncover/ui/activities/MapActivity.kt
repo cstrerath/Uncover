@@ -8,6 +8,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.github.cstrerath.uncover.ui.screens.map.MapScreen
 import com.github.cstrerath.uncover.ui.base.BaseActivity
+import com.github.cstrerath.uncover.ui.screens.UncoverBaseScreen
+import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 import org.osmdroid.config.Configuration
 
 class MapActivity : BaseActivity() {
@@ -18,7 +20,13 @@ class MapActivity : BaseActivity() {
     ) { permissions ->
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-                setContent { MapScreen(questLauncher) }
+                setContent {
+                    UncoverTheme {
+                        UncoverBaseScreen {
+                            MapScreen(questLauncher)
+                        }
+                    }
+                }
             }
             else -> {
                 finish()
@@ -44,7 +52,13 @@ class MapActivity : BaseActivity() {
         when {
             checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
                     PackageManager.PERMISSION_GRANTED -> {
-                setContent { MapScreen(questLauncher) }
+                setContent {
+                    UncoverTheme {
+                        UncoverBaseScreen {
+                            MapScreen(questLauncher)
+                        }
+                    }
+                }
             }
             shouldShowRequestPermissionRationale(
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -64,4 +78,3 @@ class MapActivity : BaseActivity() {
         ))
     }
 }
-

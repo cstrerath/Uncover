@@ -2,6 +2,8 @@ package com.github.cstrerath.uncover.ui.screens.character
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,8 +18,17 @@ internal fun CreateCharacterButton(
     Button(
         onClick = onClick,
         enabled = enabled,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary,
+            disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+            disabledContentColor = MaterialTheme.colorScheme.onSurfaceVariant
+        ),
         modifier = Modifier.fillMaxWidth()
     ) {
-        Text(stringResource(R.string.create_character))
+        Text(
+            text = stringResource(R.string.create_character),
+            style = MaterialTheme.typography.labelLarge
+        )
     }
 }

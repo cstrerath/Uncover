@@ -168,7 +168,7 @@
     <string name="level_up_information">Level-Up Information</string>
     <string name="max_level_reached">Maximallevel erreicht!</string>
     <string name="add_test_xp_button">Add 250 XP</string>
-    <string name="try_level_up_button">Level-Up-Try</string>
+    <string name="try_level_up_button">Level Up!</string>
     <string name="random_character_1">Thoren der Schmied</string>
     <string name="random_character_2">Elara die Kräuterkundige</string>
     <string name="random_character_3">Garrick der Waffenhändler</string>
@@ -255,6 +255,12 @@
     <string name="achievement_25">Uncover-Legende (Schalte alle anderen Erfolge frei)</string>
     <string name="menu_achievements">Erfolge</string>
     <string name="level_up_max_reached">Du hast das maximale Level bereits erreicht!</string>
+    <string name="player_stats_mana">Mana</string>
+    <string name="player_stats_health">Leben</string>
+    <string name="player_stats_stamina">Ausdauer</string>
+    <string name="player_stats_experience">Erfahrungspunkte: %1d / %2d</string>
+    <string name="player_stats_level">Level %1$s</string>
+    <string name="button_ok">OK</string>
 
 
 </resources>

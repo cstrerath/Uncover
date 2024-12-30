@@ -2,6 +2,7 @@ package com.github.cstrerath.uncover.ui.screens.map
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -26,6 +27,8 @@ fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
     val mapViewState = remember { mutableStateOf<MapView?>(null) }
     val mapManager = remember { MapManager(context) }
     val markerHandler = remember { QuestMarkerHandler(context) }
+    val isDarkMode = isSystemInDarkTheme()
+
 
     fun refreshMapData() {
         scope.launch {
@@ -40,7 +43,7 @@ fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
     }
 
     AndroidView(
-        factory = { MapViewFactory.create(context, mapViewState, mapManager) },
+        factory = { MapViewFactory.create(context, mapViewState, mapManager, isDarkMode) },
         modifier = Modifier.fillMaxSize()
     )
 }

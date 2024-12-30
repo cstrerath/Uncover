@@ -15,6 +15,7 @@ internal fun CharacterCreationHeader() {
     Text(
         text = stringResource(R.string.create_your_character),
         style = MaterialTheme.typography.headlineMedium,
+        color = MaterialTheme.colorScheme.onSurface,
         modifier = Modifier.padding(bottom = 32.dp)
     )
 }

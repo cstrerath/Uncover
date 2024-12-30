@@ -1,5 +1,6 @@
 package com.github.cstrerath.uncover.domain.map.config
 
+
 import org.osmdroid.util.BoundingBox
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -28,8 +29,10 @@ class MapConfiguration(private val mapView: MapView) {
 
     private fun setInitialPosition() {
         mapView.controller.apply {
-            setCenter(GeoPoint(49.4889, 8.4692))
-            setZoom(14.0)
+            setCenter(GeoPoint(49.4836, 8.4753))
+            setZoom(13.0)
         }
     }
 }
+
+
