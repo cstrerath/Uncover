@@ -43,6 +43,7 @@ fun CharacterCreationScreen(
 
     LazyColumn(
         modifier = Modifier
+            .padding(horizontal = 16.dp)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         contentPadding = PaddingValues(vertical = 16.dp)

@@ -46,7 +46,7 @@ class MapActivity : BaseActivity() {
         setContent {
             UncoverTheme {
                 if (isPermissionCheckComplete) {
-                    UncoverBaseScreen(0.dp) {
+                    UncoverBaseScreen() {
                         MapScreen(questLauncher)
                         LocationValidationScreen(
                             locationValidator = locationValidator,
