@@ -1,9 +1,9 @@
 package com.github.cstrerath.uncover.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -20,26 +20,36 @@ import com.github.cstrerath.uncover.ui.theme.UncoverTheme
 abstract class NoBackActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Log.d(TAG, "Creating NoBackActivity")
         setContent {
-            var showExitDialog by remember { mutableStateOf(false) }
-            isSystemInDarkTheme()
+            SetupScreen()
+        }
+    }
 
-            BackHandler {
-                showExitDialog = true
-            }
+    @Composable
+    private fun SetupScreen() {
+        var showExitDialog by remember { mutableStateOf(false) }
 
-            UncoverTheme {
-                UncoverBaseScreen {
-                    if (showExitDialog) {
-                        ExitConfirmationDialog(
-                            onDismiss = { showExitDialog = false },
-                            onConfirm = { finishAffinity() }
-                        )
-                    }
+        BackHandler {
+            Log.d(TAG, "Back button pressed, showing exit dialog")
+            showExitDialog = true
+        }
 
-                    NoBackContent()
+        UncoverTheme {
+            UncoverBaseScreen {
+                if (showExitDialog) {
+                    ExitConfirmationDialog(
+                        onDismiss = {
+                            Log.d(TAG, "Exit dialog dismissed")
+                            showExitDialog = false
+                        },
+                        onConfirm = {
+                            Log.d(TAG, "Exit confirmed, finishing activity")
+                            finishAffinity()
+                        }
+                    )
                 }
+                NoBackContent()
             }
         }
     }
@@ -68,4 +78,8 @@ abstract class NoBackActivity : BaseActivity() {
 
     @Composable
     abstract fun NoBackContent()
+
+    companion object {
+        private const val TAG = "NoBackActivity"
+    }
 }

@@ -12,4 +12,8 @@ abstract class BaseActivity : ComponentActivity() {
     protected val loginManager by lazy { LoginManager(applicationContext) }
     protected val questManager by lazy { QuestManager(applicationContext) }
     protected val randQuestManager by lazy { RandQuestManager(applicationContext) }
+
+    companion object {
+        private const val TAG = "BaseActivity"
+    }
 }
