@@ -1,5 +1,6 @@
 package com.github.cstrerath.uncover.ui.screens.map
 
+import android.content.Context
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -15,22 +16,22 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.github.cstrerath.uncover.domain.map.managers.MapManager
 import com.github.cstrerath.uncover.domain.map.managers.QuestMarkerHandler
 import com.github.cstrerath.uncover.ui.factories.MapViewFactory
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.osmdroid.views.MapView
 
-@Composable
-fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
-    val scope = rememberCoroutineScope()
-    val context = LocalContext.current
-    val mapViewState = remember { mutableStateOf<MapView?>(null) }
-    val mapManager = remember { MapManager(context) }
-    val markerHandler = remember { QuestMarkerHandler(context) }
-    val isDarkMode = isSystemInDarkTheme()
+// app/src/main/java/com/example/uncover/ui/map/screen/MapScreenController.kt
+class MapScreenController(
+    private val context: Context,
+    private val scope: CoroutineScope
+) {
+    private val mapViewState = mutableStateOf<MapView?>(null)
+    private val mapManager = MapManager(context)
+    private val markerHandler = QuestMarkerHandler(context)
 
-
-    fun refreshMapData() {
+    fun refreshMapData(questLauncher: ActivityResultLauncher<Intent>) {
         scope.launch {
             withContext(Dispatchers.IO) {
                 markerHandler.loadPlayerAndQuestData(mapViewState.value, questLauncher)
@@ -38,12 +39,29 @@ fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
         }
     }
 
+    fun createMapView(isDarkMode: Boolean): MapView {
+        return MapViewFactory.create(
+            context = context,
+            mapViewState = mapViewState,
+            mapManager = mapManager,
+            isDarkMode = isDarkMode
+        )
+    }
+}
+
+@Composable
+fun MapScreen(questLauncher: ActivityResultLauncher<Intent>) {
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
+    val isDarkMode = isSystemInDarkTheme()
+    val controller = remember { MapScreenController(context, scope) }
+
     LaunchedEffect(Unit) {
-        refreshMapData()
+        controller.refreshMapData(questLauncher)
     }
 
     AndroidView(
-        factory = { MapViewFactory.create(context, mapViewState, mapManager, isDarkMode) },
+        factory = { controller.createMapView(isDarkMode) },
         modifier = Modifier.fillMaxSize()
     )
 }
