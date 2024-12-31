@@ -1,5 +1,6 @@
 package com.github.cstrerath.uncover.ui.screens.playerDetails
 
+import android.util.Log
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,38 +19,74 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
+private const val TAG = "StatItem"
+private const val MAX_STAT_VALUE = 600f
+private val LABEL_WIDTH = 80.dp
+private val VALUE_WIDTH = 60.dp
+private val BAR_HEIGHT = 40.dp
+private const val DARK_MODE_ALPHA = 0.8f
+private const val LIGHT_MODE_ALPHA = 1f
+
 @Composable
-internal fun StatItem(label: String, value: Int, color: Color) {
+internal fun StatItem(
+    label: String,
+    value: Int,
+    color: Color
+) {
+    Log.d(TAG, "Rendering stat item: $label = $value")
+    val isDarkTheme = isSystemInDarkTheme()
+    val colorAlpha = if (isDarkTheme) DARK_MODE_ALPHA else LIGHT_MODE_ALPHA
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.width(80.dp)
-        )
-
+        StatLabel(label)
         Box(modifier = Modifier.weight(1f)) {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth(value.toFloat() / 600f)
-                    .height(40.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = color.copy(alpha = if (isSystemInDarkTheme()) 0.8f else 1f)
-                ),
-                elevation = CardDefaults.cardElevation(6.dp)
-            ) { }
+            StatBar(value, color, colorAlpha)
         }
-
-        Text(
-            text = value.toString(),
-            style = MaterialTheme.typography.headlineMedium,
-            color = color.copy(alpha = if (isSystemInDarkTheme()) 0.8f else 1f),
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.width(60.dp)
-        )
+        StatValue(value, color, colorAlpha)
     }
+
+}
+
+@Composable
+private fun StatLabel(label: String) {
+    Text(
+        text = label,
+        style = MaterialTheme.typography.titleMedium,
+        color = MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier.width(LABEL_WIDTH)
+    )
+}
+
+@Composable
+private fun StatBar(
+    value: Int,
+    color: Color,
+    alpha: Float,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier
+            .fillMaxWidth(value.toFloat() / MAX_STAT_VALUE)
+            .height(BAR_HEIGHT),
+        colors = CardDefaults.cardColors(
+            containerColor = color.copy(alpha = alpha)
+        ),
+        elevation = CardDefaults.cardElevation(6.dp)
+    ) { }
+}
+
+
+@Composable
+private fun StatValue(value: Int, color: Color, alpha: Float) {
+    Text(
+        text = value.toString(),
+        style = MaterialTheme.typography.headlineMedium,
+        color = color.copy(alpha = alpha),
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier.width(VALUE_WIDTH)
+    )
 }

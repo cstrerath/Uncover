@@ -297,6 +297,8 @@
     <string name="fallback_character_name">Unbekannter Character</string>
     <string name="fallback_quest_story">" in einer unbekannten Mission."</string>
     <string name="error_no_locations_available">No location available: Check location init.</string>
+    <string name="main_quest_content_title">Hauptquest</string>
+    <string name="main_quest_content_progress">Questfortschritt</string>
 
 
 </resources>
