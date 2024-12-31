@@ -8,14 +8,15 @@ Uncover is an Android app that combines exploration with quest-based gameplay us
 - **Fog of War**: The map is initially hidden, revealing itself as the player explores.
 - **Quest System**: Engage in a series of interconnected quests at predefined locations.
 - **Progressive Gameplay**: Quests build upon each other, with hints for upcoming challenges.
+- **Character Progression**: Level up your character and gain stats
+- **Random Quest Generation** Discover dynamically generated quests
+- **Achievements** Complete challenges and unlock special rewards
 
-## Planned Features
+## Future Possibilities
 
-- Character progression system
-- Random quest generation
-- Achievements and trophies
-- Multiplayer functionality
-- Premium services
+- Combat system integration in quests
+- Enhanced character progression impact
+- Extended map regions
 
 ## Technical Details
 
@@ -24,18 +25,29 @@ Uncover is an Android app that combines exploration with quest-based gameplay us
 - **Database**: Room
 - **Map Integration**: OpenStreetMap API
 - **Required Permissions**: Location access
+- **Geographical Coverage**: Currently limited to Ludwigshafen and Mannheim regions
 
 ## Installation
 
-This project is currently in development. Installation instructions will be provided once a working prototype is available.
+- Clone the repository using Git
+- Open the project in Android Studio
+- Build the APK
+- Transfer the APK to your Android Phone
+- Enable "Install from Unknown Sources" in your device settings
+- Install the APK
 
 ## Usage
 
-As the app is still in the development phase, usage instructions are not yet available. Please check back later for updates on how to use the Uncover app.
+The app currently supports German language only. While the codebase is in English and can be localized, database modifications would be required for full translation support.
+
+To get started:
+- Launch the app
+- Accept the Terms
+- Begin exploring the Ludwigshafen/Mannheim area
 
 ## Contributing
 
-**Important Note**: This project is part of a university assignment and is currently not open for external contributions. We appreciate your interest, but we cannot accept any pull requests or external code contributions at this time.
+This project is open source and contributions are welcome. Feel free to fork, modify, and submit pull requests.
 
 ## License
 
@@ -47,9 +59,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Project Status
 
-This project is currently in active development as part of a university course. Features and documentation will be updated as the project progresses.
-
+Version 1.0.0 released. The project is considered complete with no planned future updates.
 
 ## Contact
 
-For any queries regarding this project, please open an issue on GitHub. Please note that while we appreciate your interest, we may not be able to respond to all inquiries due to the academic nature of this project.
+For any queries regarding this project, please open an issue on GitHub. 
