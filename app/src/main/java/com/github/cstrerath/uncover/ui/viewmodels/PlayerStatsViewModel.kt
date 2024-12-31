@@ -55,16 +55,6 @@ class PlayerStatsViewModel(
         loadPlayer()
     }
 
-    suspend fun addTestXp() {
-        characterProgression.addTestXp()
-        _dialogState.value = DialogState(
-            show = true,
-            message = context.getString(R.string.character_test_add_250_xp_message)
-        )
-        delay(100)
-        loadPlayer()
-    }
-
     fun dismissDialog() {
         _dialogState.value = DialogState(show = false)
     }
