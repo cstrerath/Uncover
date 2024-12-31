@@ -1,32 +1,31 @@
 // ui/activities/MainActivity.kt
 package com.github.cstrerath.uncover.ui.activities
 
-import android.os.Bundle
-import androidx.activity.compose.setContent
-import com.github.cstrerath.uncover.ui.base.BaseActivity
-import com.github.cstrerath.uncover.ui.screens.LaunchScreen
-import com.github.cstrerath.uncover.ui.theme.UncoverTheme
+import android.util.Log
+import androidx.compose.runtime.Composable
+import com.github.cstrerath.uncover.ui.base.NoBackActivity
+import com.github.cstrerath.uncover.ui.screens.main.LaunchScreen
 
-class MainActivity : BaseActivity() {
-    companion object {
-        private var isInitialLaunch = true
+class MainActivity : NoBackActivity() {
+    @Composable
+    override fun NoBackContent() {
+        Log.d(TAG, "Launching main screen with initial launch: $isInitialLaunch")
+        LaunchScreen(
+            isInitialLaunch = isInitialLaunch,
+            loginManager = loginManager,
+            navigationManager = navigationManager,
+            onFinish = ::handleFinish
+        )
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private fun handleFinish() {
+        Log.d(TAG, "Finishing initial launch sequence")
+        isInitialLaunch = false
+        finish()
+    }
 
-        setContent {
-            UncoverTheme {
-                LaunchScreen(
-                    isInitialLaunch = isInitialLaunch,
-                    loginManager = loginManager,
-                    navigationManager = navigationManager,
-                    onFinish = {
-                        isInitialLaunch = false
-                        finish()
-                    }
-                )
-            }
-        }
+    companion object {
+        private const val TAG = "MainActivity"
+        private var isInitialLaunch = true
     }
 }

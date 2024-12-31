@@ -10,147 +10,384 @@
     <string name="menu_player_stats">Spieler Statistiken</string>
 
     <!-- Quest Names -->
-    <string name="quest_1">Der erste Auftrag</string>
-    <string name="quest_2">Der Wald der Geheimnisse</string>
-    <string name="quest_3">Die Höhle der Prüfungen</string>
-    <string name="quest_4">Der Angriff auf das Schloss</string>
-    <string name="quest_5">Die Ruinen der Vergangenheit</string>
-    <string name="quest_6">Der Sumpf der Schatten</string>
-    <string name="quest_7">Der Berg der Prüfungen</string>
-    <string name="quest_8">Die alten Ruinen</string>
-    <string name="quest_9">Der dunkle Wald</string>
-    <string name="quest_10">Der letzte Kampf</string>
+    <string name="quest_1">Ein ganz normaler Tag</string>
+    <string name="quest_2">Schatten über dem Wasserturm</string>
+    <string name="quest_3">Kulturschock mit Folgen</string>
+    <string name="quest_4">Industrielle Revolution der Zeit</string>
+    <string name="quest_5">Sternstunde der Wahrheit</string>
+    <string name="quest_6">Signale aus der Zeitschleife</string>
+    <string name="quest_7">Spielfeld der Realitäten</string>
+    <string name="quest_8">Wasser gegen die Wellen der Zeit</string>
+    <string name="quest_9">Der letzte Tropfen</string>
+    <string name="quest_10">Zurück zur Quelle des Wissens</string>
+
+    <string name="quest_1_warrior_initial">In der stillen Bibliothek der DHBW Mannheim suchst du eigentlich nur nach Taktiklehrbüchern für Marcus\' Magietheorie-Vorlesung, als dir ein schwerer, in dunkles Leder gebundener Foliant regelrecht in die Hände fällt.\n\n
+Dein jahrelanges Kampftraining lässt dich sofort die militärische Präzision der Aufzeichnungen erkennen. Zwischen vergilbten Seiten über historische Truppenbewegungen und geheime Garnisonen entdeckst du detaillierte Karten der Region mit kryptischen Markierungen.\n\n
+Mit jeder gewendeten Seite enthüllt sich mehr: Ein Orden namens \"Custos Rheni\" operiert seit Jahrhunderten aus dem Verborgenen. Ihre taktische Brillanz ist beeindruckend - sie kontrollieren strategische Knotenpunkte entlang des Rheins wie Figuren auf einem Schachbrett.\n\n
+Die neuesten Einträge zeigen verstärkte Aktivitäten rund um die BASF. Dein Kampfinstinkt schlägt Alarm: Hier formiert sich eine Macht, die die gesamte Region bedrohen könnte. Raven hätte sicher eine Idee, wie man dort unbemerkt eindringen könnte - aber erst einmal ist es Zeit zu handeln.</string>
+
+    <string name="quest_1_thief_initial">Eigentlich wolltest du in der DHBW-Bibliothek nur einen ruhigen Platz zum Ausruhen finden, während Viktor seine Kampftechniken trainiert. Doch dein geschultes Auge bleibt an einem unscheinbaren Buch hängen - die abgenutzten Ecken und der präzise Einband schreien förmlich nach einem Geheimversteck.\n\n
+Lautlos gleitest du zwischen den Regalen hindurch und ziehst es heraus. Zwischen den Seiten verbirgt sich ein Netzwerk aus verschlüsselten Botschaften und kodierten Treffpunkten. Namen hochrangiger Persönlichkeiten aus Politik und Wirtschaft säumen die Randnotizen.\n\n
+Ein mysteriöser \"Custos Rheni\" Orden zieht im Verborgenen die Fäden. Die verschlüsselten Nachrichten führen alle zur BASF - Elena hatte letztens von seltsamen Energiesignaturen dort gesprochen.\n\n
+Ein verschmitztes Lächeln huscht über dein Gesicht: Hier winkt nicht nur eine große Geschichte, sondern auch die Art von Geheimnis, die einen fürstlichen Preis wert sein könnte.</string>
+
+    <string name="quest_1_mage_initial">Während deiner arkanen Studien in der DHBW-Bibliothek durchströmt dich plötzlich eine Welle magischer Energie. Shadow, der wie üblich die Schatten der Bibliothek nach \'Interessantem\' durchsucht, bemerkt sofort deine angespannte Haltung.\n\n
+Zwischen verstaubten Lehrbüchern pulsiert ein unscheinbarer Band mit magischer Kraft. Bei deiner Berührung erwachen verborgene Runen zum Leben - ein Schauspiel, das nur magisch Begabte wahrnehmen können. Die enthüllten Seiten offenbaren die Existenz des \"Custos Rheni\", eines uralten Ordens von Magiern und Weisen.\n\n
+Sie haben über Jahrhunderte ein komplexes Netz aus Ley-Linien unter der Region gewoben. Sofia hatte bei ihren Patrouillen schon von seltsamen Energiemustern berichtet - jetzt ergibt alles Sinn. Alle Linien konvergieren an einem Punkt: der BASF.\n\n
+Die arkane Energie, die dort gebündelt wird, lässt selbst deine erfahrenen Sinne erbeben. Die Verschiebungen in der magischen Matrix deuten auf ein bevorstehendes Ereignis von erschreckender Tragweite hin.</string>
+
+    <string name="quest_1_warrior_solution">Nach deiner Untersuchung der BASF-Anlage wird klar: Der \"Custos Rheni\" nutzt die gewaltigen Industrieanlagen als raffinierte Tarnung. Marcus\' magische Analysen führen dich zu einem versteckten Archivraum, wo Dokumente von einem noch größeren Geheimnis in der Universitätsbibliothek Mannheim sprechen.\n\n
+Die Wachmannschaft, die du ausschalten musstest, trug beunruhigende Symbole an ihren Uniformen. Deine jahrelange Kampferfahrung sagt dir: Dies war nur ein Außenposten. Raven hätte die Symbole sicher deuten können - sie erinnern an alte Diebesgildenzeichen. Die wahre Kommandozentrale muss sich in der Universitätsbibliothek befinden.\n\n
+Ein erbeuteter Zugangscode und eine mysteriöse Karte weisen den Weg. Der Griff deines Schwertes vibriert leicht - als würde es den kommenden Kampf bereits spüren. Zeit, dem Orden in ihrem Hauptquartier einen Besuch abzustatten.</string>
+
+    <string name="quest_1_thief_solution">Die nächtliche Infiltration der BASF enthüllt mehr als erwartet. Viktor hätte seinen Augen nicht getraut - in einem hochgesicherten Büro findest du Unterlagen des \"Custos Rheni\", die von einem geheimen Archiv in der Universitätsbibliothek Mannheim berichten.\n\n
+Geschmeidig bewegst du dich zwischen Überwachungskameras und Wachpersonal, während du Hinweise auf ein Netzwerk aufdeckst, das weit über die BASF hinausgeht. Elena hatte Recht - die verschlüsselten Dokumente deuten auf einen verborgenen Raum in der Uni-Bibliothek hin.\n\n
+Mit einem elegant entwendeten Schlüssel und einer meisterhaft kopierten Zugangskarte in der Tasche spürst du das vertraute Kribbeln der Vorfreude: Der wahre Schatz - und die wahren Antworten - warten in der Universitätsbibliothek auf dich.</string>
+
+    <string name="quest_1_mage_solution">Die magischen Energien in der BASF enthüllen ein komplexeres Muster als erwartet. Shadow pfiff anerkennend, als er die versteckten Zugänge entdeckte - der \"Custos Rheni\" nutzt die industriellen Energien nur als Ablenkung. Deine arkanen Sinne spüren eine noch stärkere magische Präsenz - sie führt zur Universitätsbibliothek Mannheim.\n\n
+In einem von magischen Siegeln geschützten Raum findest du uralte Aufzeichnungen. Sofia hatte von ähnlichen Siegeln in alten Militärarchiven berichtet. Die Ley-Linien, die du hier aufgespürt hast, sind nur Nebenstränge eines größeren Netzes. Das Zentrum der mystischen Energie liegt eindeutig in der Uni-Bibliothek.\n\n
+Mit einem magisch aktivierten Schlüsselstein und neu entdeckten Runenformeln pulsiert die Macht in deinen Fingerspitzen. Das wahre Mysterium des Ordens wartet in den verborgenen Hallen der Universitätsbibliothek.</string>
+
+    <string name="quest_1_warrior_completion">In der Universitätsbibliothek findest du den geheimen Versammlungsraum des Ordens. Nach einem harten Kampf gegen die Elite-Wachen des \"Custos Rheni\" steht dir der Weg zu ihrem Archiv offen. Marcus\' magische Barrieren haben dir dabei den entscheidenden Vorteil verschafft.\n\n
+Zwischen den erbeuteten Dokumenten entdeckst du Alarmsignale: Der Orden plant etwas Großes am Ludwigshafener Hauptbahnhof. Die Truppenbewegungen der letzten Wochen ergeben plötzlich einen bedrohlichen Sinn. Ravens Expertise in Geheimcodes wäre jetzt Gold wert.\n\n
+Dein Schwert vibriert leicht in deiner Hand - als würde es die kommende Schlacht bereits spüren. Ein geheimer Nachschubzug soll heute Nacht eintreffen. Was auch immer der Orden plant - es muss am Hauptbahnhof gestoppt werden.</string>
+
+    <string name="quest_1_thief_completion">Lautlos dringst du in die geheimen Kammern unter der Universitätsbibliothek ein. Im Herzstück des Ordensarchivs wartet ein Safe auf dich - eine Herausforderung, die selbst deine geschulten Finger zum Schwitzen bringt. Viktor hätte seine Freude an dieser Festung.\n\n
+Die Beute übertrifft alle Erwartungen: Detaillierte Pläne des \"Custos Rheni\" für eine nächtliche Operation am Ludwigshafener Hauptbahnhof. Elena hatte Recht - die mysteriösen Energiesignaturen deuten auf etwas Großes hin. Ein streng bewachter Zug, wertvolle Fracht, beträchtliche Geldsummen.\n\n
+Ein verschmitztes Lächeln huscht über dein Gesicht. Was auch immer heute Nacht am Hauptbahnhof übergeben werden soll - du wirst als Erste dort sein.</string>
+
+    <string name="quest_1_mage_completion">In den verborgenen Hallen der Universitätsbibliothek findest du endlich das magische Zentrum des Ordens. Die arkanen Energien sind überwältigend, doch deine Macht ist gewachsen. Shadow hätte seine Freude an den verborgenen Zugängen.\n\n
+In einem kristallinen Fokus manifestieren sich beunruhigende Visionen: Der \"Custos Rheni\" bereitet am Ludwigshafener Hauptbahnhof ein gewaltiges Ritual vor. Sofia hatte diese Entwicklung vorausgesehen - die magischen Schwingungen deuten auf die Ankunft eines mächtigen Artefakts.\n\n
+Die arkanen Energien am Hauptbahnhof nehmen bereits bedrohlich zu. Was auch immer der Orden plant - es muss aufgehalten werden, bevor das magische Gleichgewicht der Region für immer zerstört wird.</string>
+
+    <string name="quest_2_warrior_initial">In einer verlassenen Lagerhalle am Hauptbahnhof findest du einen geheimen Übungsraum des Ordens. Die Trainingspuppen und Waffenständer sind noch warm, aber die Kämpfer sind bereits fort. Marcus hätte die magischen Residuen analysieren können.\n\n
+Als du frustriert deine Wasserflasche auf einer Holzbank abstellen willst, fällt dir eine lose Diele auf. Darunter: Eine Liste von Koordinaten, eingeritzt in altes Leder. Ravens Expertise wäre jetzt Gold wert.\n\n
+Die militärische Präzision der Markierungen ist unverkennbar: Dies sind weitere Außenposten des \"Custos Rheni\". Der nächstgelegene Punkt führt zum Wasserturm...</string>
+
+    <string name="quest_2_thief_initial">Im Untergeschoss des Hauptbahnhofs entdeckst du einen perfekt getarnten Unterschlupf. Die versteckten Tresore und Dokumente-Vernichter sind noch in Gebrauch, aber die Agenten des Ordens sind verschwunden. Viktor würde die taktische Bedeutung sofort erkennen.\n\n
+Während du genüsslich einen erbeuteten Apfel isst und den Kern in einen unscheinbaren Papierkorb werfen willst, bemerkst du einen doppelten Boden. Dahinter: Eine verschlüsselte Liste mit Treffpunkten. Elena könnte die magischen Signaturen sicher deuten.\n\n
+Dein jahrelang geschärfter Instinkt meldet sich: Dies sind weitere Verstecke des \"Custos Rheni\". Der vielversprechendste Ort scheint der Wasserturm zu sein...</string>
+
+    <string name="quest_2_mage_initial">In einem magisch verborgenen Raum unter den Gleisen findest du ein verlassenes Ritual-Zentrum des Ordens. Die arkanen Kreise glühen noch schwach, aber die Magier sind bereits weitergezogen. Shadow hätte die versteckten Zugänge sicher schon erkundet.\n\n
+Als du erschöpft deinen magischen Fokuskristall auf einem alten Lesepult ablegen willst, aktivierst du versehentlich einen verborgenen Mechanismus. Eine geheime Schublade öffnet sich: Darin eine Liste magischer Konvergenzpunkte. Sofia würde die strategische Bedeutung sofort erfassen.\n\n
+Die arkanen Signaturen sind eindeutig: Dies sind weitere Kraft-Nexus des \"Custos Rheni\". Die stärkste magische Signatur führt zum Wasserturm...</string>
+
+    <string name="quest_2_warrior_solution">Von deiner erhöhten Position aus erkennst du sofort die taktische Falle: Drei Ordenskrieger haben sich im Café des Wasserturms verschanzt. Ihre Formation ist amateurhaft - eindeutig ein überhasteter Hinterhalt.\n\n
+Marcus macht dich nachdenklich: \'Die zufällig gefundene Liste am Hauptbahnhof - war sie vielleicht gar nicht so zufällig dort?\' Der Orden scheint euch immer einen Schritt voraus zu sein. Für eine Jahrhunderte alte Organisation wirkt das alles zu ungeschickt, zu offensichtlich.\n\n
+Raven und Marcus müssen davon erfahren. Irgendetwas läuft hier gewaltig schief. Entweder wird der Orden unvorsichtig, oder - was wahrscheinlicher ist - ihr tappt gerade in einen viel größeren Plan.\n\n
+Dein Kampfinstinkt rät zur Vorsicht: Alleine ist das zu riskant. Zeit, zum Lidl bei der DHBW zurückzukehren, wo deine Gefährten normalerweise ihre Mittagspause verbringen. Dieses Mysterium müsst ihr gemeinsam lösen.</string>
+
+    <string name="quest_2_thief_solution">Aus den Schatten beobachtest du die dilettantische Falle: Drei Ordensmitglieder verstecken sich hinter den Säulen der Aussichtsplattform. Viktor schüttelt ungläubig den Kopf - ihre Positionen sind viel zu offensichtlich.\n\n
+Elena hatte Recht - die Liste im Papierkorb, die euch hierher führte, war zu einfach zu finden. Für einen Orden, der seit Jahrhunderten im Verborgenen agiert, ist das alles zu plump, zu durchschaubar.\n\n
+Viktor und Elena müssen gewarnt werden. Hier läuft ein komplexeres Spiel. Entweder verliert der Orden seinen Touch, oder - wahrscheinlicher - ihr seid Teil eines ausgeklügelteren Plans.\n\n
+Dein jahrelanges Diebesgeschick warnt dich: Selbst für einen Meister der Schatten ist das zu heikel. Besser, du kehrst zum Lidl an der DHBW zurück, wo deine Verbündeten um diese Zeit ihre Vorräte aufstocken. Diese Verschwörung braucht mehr Augen.</string>
+
+    <string name="quest_2_mage_solution">Deine arkanen Sinne warnen dich rechtzeitig: Drei Ordensmitglieder haben im Turmrestaurant einen magischen Bannkreis errichtet. Shadow bemerkt sofort die schwachen Energiesignaturen - ein überstürzt vorbereiteter Hinterhalt.\n\n
+Sofia runzelt die Stirn: Der \'zufällige\' Fund der Liste im Hauptbahnhof trägt eine subtile magische Signatur. Für einen Orden, der die Ley-Linien der Region kontrolliert, erscheint das alles zu einfach, zu inszeniert.\n\n
+Shadow und Sofia müssen informiert werden. Ein größeres Muster zeichnet sich ab. Entweder verliert der Orden seine Raffinesse, oder - was deine magische Intuition für wahrscheinlicher hält - ihr seid nur Bauern in einem größeren magischen Komplott.\n\n
+Deine arkane Weisheit mahnt zur Vorsicht: Selbst mit deinen Kräften wäre ein direkter Konflikt unklug. Zeit, zum Lidl bei der DHBW zurückzukehren, wo deine Gefährten traditionell ihre Energie auftanken. Dieses Rätsel erfordert vereinte Kräfte.</string>
+
+    <string name="quest_2_warrior_completion">Der Lidl ist ein Schlachtfeld geworden. Die sonst so friedlichen Kunden greifen wild um sich, die berühmte Mittelreihe ist verwüstet. Marcus versucht verzweifelt, die arkanen Muster zu analysieren, während du die Situation überblickst.\n\n
+Dein Schwertarm zuckt, aber seltsamerweise kannst du deine Kampfkraft nicht abrufen - etwas blockiert deine Fähigkeiten. Die Situation eskaliert, als eine Gruppe Kunden mit Einkaufswagen auf dich zustürmt.\n\n
+In der Ferne siehst du einen Mann in einer seltsamen Robe, der die Szene beobachtet. Er verschwindet in Richtung Feudenheimer Kulturhalle. Während du dich durch die aggressive Menge kämpfst, wird dir klar: Der Orden steckt hinter dieser Massenhypnose. Zeit, den Drahtzieher zu stellen.</string>
+
+    <string name="quest_2_thief_completion">Der Lidl ist nicht wiederzuerkennen. Die berüchtigte Mittelreihe, sonst dein Paradies für \'kreative Aneignung\', ist ein Chaos. Viktor beobachtet alarmiert, wie sich die Kunden wie Marionetten bewegen, ihre Augen seltsam leer.\n\n
+Du versuchst, dich in die Schatten zurückzuziehen, aber deine Schleichkünste versagen auf unerklärliche Weise. Als die Kunden beginnen, dich mit Produkten zu bewerfen, bemerkst du eine verhüllte Gestalt, die alles von der Ferne beobachtet.\n\n
+Der mysteriöse Beobachter macht sich auf den Weg zur Feudenheimer Kulturhalle. Dir wird klar: Der Orden kontrolliert die Menschen. Zeit herauszufinden, wer hier die Fäden zieht.</string>
+
+    <string name="quest_2_mage_completion">Der Lidl ist in ein Chaos aus verdrehter Energie getaucht. Shadow duckt sich instinktiv, während die sonst so geschäftigen Kunden sich wie in einem dunklen Ritual bewegen, die Mittelreihe pulsiert mit unnatürlicher Kraft.\n\n
+Als du versuchst, deine Magie zu kanalisieren, spürst du nur Leere - deine arkanen Kräfte sind blockiert. Zwischen den wild gewordenen Kunden erkennst du eine Gestalt in einem Ordensgewand, die ein komplexes magisches Muster webt.\n\n
+Der Magier bemerkt deinen Blick und flieht Richtung Feudenheimer Kulturhalle. Dir wird klar: Der Orden hat die Menschen mit einem Massenzauber belegt. Zeit, diesem Wahnsinn ein Ende zu setzen.</string>
+
+    <string name="quest_3_warrior_initial">In der Kulturhalle findest du einen alten Zettel voller mysteriöser Hieroglyphen. Dein geschulter Kampfinstinkt ist hier nutzlos - die magischen Symbole ergeben für dich keinen Sinn. Nur zwischen den fremdartigen Zeichen erkennst du ein vertrautes Kriegersymbol.\n\n
+Marcus würde diese Schriftzeichen sofort verstehen. Die magischen Energien in der Stadt werden stärker, und nur sein Expertenwissen kann diese rätselhaften Zeichen entschlüsseln. Sein Versteck liegt in der Nähe des Asia Trade.\n\n
+Die seltsame Kontrolle über die Menschen im Lidl und deine blockierten Kampffähigkeiten - alles deutet auf ein größeres Mysterium hin. Zeit, deinen alten Freund um magischen Rat zu fragen.</string>
+
+    <string name="quest_3_thief_initial">In der Kulturhalle stößt du auf ein vergilbtes Dokument über \'Die gestohlene Schlacht\'. Die Geschichte eines legendären Diebstahls weckt zwar dein Interesse, doch sie wird dir gegen den Orden nicht helfen. Viktor würde in den militärischen Details sicher mehr erkennen.\n\n
+Du musst ihn finden. Seine jahrelange Kampferfahrung wird dringend gebraucht, um dieser übernatürlichen Bedrohung zu begegnen. Sein geheimes Quartier nahe dem Asia Trade ist dein nächstes Ziel.\n\n
+Die unheimliche Kontrolle über die Lidl-Kunden und deine versagenden Schleichkünste - hier verbirgt sich ein tieferes Geheimnis. Elena hatte Recht - ihr braucht mehr als nur List und Tücke.</string>
+
+    <string name="quest_3_mage_initial">In der Kulturhalle entdeckst du ein Dokument voller magischer Formeln und Kampftaktiken. Die militärischen Strategien erscheinen dir zu simpel für die aktuelle Bedrohung. Shadow würde in den verborgenen Details sicher mehr entdecken.\n\n
+Sein Geschick im Verborgenen wird jetzt entscheidend sein. Die Fähigkeit, unentdeckt zu bleiben und Informationen zu sammeln, könnte den Unterschied machen. Sein Versteck nahe dem Asia Trade ist dein nächster Anlaufpunkt.\n\n
+Die Massenkontrolle im Lidl und deine blockierten arkanen Kräfte - Sofia hatte dich vor solch mächtigen Bannkreisen gewarnt. Zeit, die Hilfe eines Meisters der Schatten in Anspruch zu nehmen.</string>
+
+    <string name="quest_3_warrior_solution">Auf dem Weg zum Asia Trade wird die Stadt immer seltsamer. Die Menschen bewegen sich wie Marionetten, besonders auffällig bei den Passanten in der Breiten Straße, die wie ferngesteuert ihre Einkäufe tragen.\n\n
+Marcus macht dich nachdenklich: \'Die Stadt verwandelt sich in ein Schlachtfeld der besonderen Art.\' Ohne deine Kampffähigkeiten fühlst du dich verwundbar, aber dein taktisches Denken ist schärfer denn je. Die erhöhte Aktivität rund um den Marktplatz macht dich besonders misstrauisch.\n\n
+In einer Seitengasse siehst du plötzlich eine weitere Gruppe kontrollierter Menschen. Sie tragen alle das gleiche Symbol wie die Lidl-Kunden und scheinen Waren in Richtung Industriehafen zu transportieren. Der Orden breitet seine Kontrolle aus - du musst Marcus finden, bevor es zu spät ist.</string>
+
+    <string name="quest_3_thief_solution">Der Weg zum Asia Trade gleicht einem Hindernisparcours. Überall Menschen mit leerem Blick, die wie programmiert durch die Einkaufsstraßen wandeln. Viktor beobachtet besorgt, wie viele zwischen den Marktständen patrouillieren.\n\n
+Die Stadt verwandelt sich in ein Labyrinth der Kontrolle. Ohne deine üblichen Schleichfähigkeiten musst du improvisieren, aber dein Gespür für Gefahr ist ungebrochen. Die vielen seltsamen Lieferungen wirken verdächtig koordiniert.\n\n
+An einer Straßenecke entdeckst du weitere Menschen mit dem gleichen leeren Blick wie im Lidl, die Kisten mit seltsamen Symbolen verladen. Elena hatte Recht - der Orden weitet seinen Einfluss aus. Höchste Zeit, Viktor zu finden.</string>
+
+    <string name="quest_3_mage_solution">Auf deinem Weg zum Asia Trade siehst du die Stadt mit anderen Augen. Die arkanen Störungen werden stärker, Menschen wandeln wie Geister durch die Geschäfte. Shadow flüstert besorgt: \'Eine besonders starke magische Anomalie scheint vom Marktplatz auszugehen.\'\n\n
+Die Stadt verwandelt sich in ein Nexus dunkler Energie. Ohne Zugriff auf deine Magie fühlst du dich blind, aber dein Verständnis der arkanen Künste bleibt ungetrübt. Sofia hatte dich vor solchen Energielinien gewarnt - sie scheinen sich alle in Richtung Hafen zu verzerren.\n\n
+Vor einem Geschäft bemerkst du weitere Menschen mit der gleichen magischen Signatur wie im Lidl, die mysteriöse Fracht transportieren. Der Orden verstärkt seinen Bann - du musst schnell Shadow finden.</string>
+
+    <string name="quest_3_warrior_completion">Der Asia Trade ist verwüstet - ein Kampf hat hier stattgefunden. Marcus hat sich gewehrt, aber wurde überwältigt. Zwischen umgeworfenen Regalen mit asiatischen Spezialitäten findest du seinen zerbrochenen Magierstab.\n\n
+Ein zurückgelassener Hafenplan erregt deine Aufmerksamkeit. Darauf markiert: Das große Silo der Großmarkthalle am Industriehafen. Die Markierungen sind frisch, und Blutspuren am Papier zeigen - Marcus hat sie absichtlich hinterlassen.\n\n
+Die kontrollierten Menschen, die du auf dem Weg gesehen hast, die Warenbewegungen zum Hafen - alles ergibt einen bedrohlichen Sinn. Der Orden plant etwas Großes am Hafen, und Marcus ist mittendrin.</string>
+
+    <string name="quest_3_thief_completion">Im Asia Trade herrscht Chaos - hier wurde gekämpft. Dein geschultes Diebesauge erkennt sofort: Viktor wurde überrascht, aber nicht ohne Gegenwehr. Seine charakteristischen taktischen Markierungen an den Wänden erzählen die Geschichte.\n\n
+Zwischen umgestürzten Regalen mit Sojasoßen entdeckst du einen halb verbrannten Hafenplan. Das Silo der Großmarkthalle ist mehrfach eingekreist - eine typische Militärmarkierung von Viktor. Die Position ist perfekt für einen Hinterhalt.\n\n
+Die seltsam agierenden Menschen, die vielen Lieferungen zum Hafen - das Puzzle fügt sich zusammen. Der Orden hat am Hafen seine Basis, und Viktor wurde dorthin gebracht.</string>
+
+    <string name="quest_3_mage_completion">Der Asia Trade strahlt Chaos aus - hier kollidierte rohe Gewalt mit List. Die arkanen Spuren zeigen: Shadow war hier, clever wie immer, aber selbst seine Schattenkünste konnten ihn nicht schützen. Seine magische Signatur ist noch frisch.\n\n
+Ein magisch konservierter Hafenplan schwebt kaum sichtbar zwischen den verwüsteten Regalen. Das Silo der Großmarkthalle pulsiert auf dem Plan in Shadows spezieller Diebestinte. Eine letzte Nachricht von ihm - der Orden hat sein Hauptquartier dort.\n\n
+Die manipulierten Menschen, die Energielinien zum Hafen - jetzt verstehst du das größere Bild. Der Orden braucht den Hafen für etwas Großes, und Shadow wurde in ihre Falle gelockt.</string>
+
+    <string name="quest_4_warrior_initial">Das Silo der Großmarkthalle ragt bedrohlich vor dir auf. Dein Kriegerinstinkt meldet sich sofort - die Wachen bewegen sich zu koordiniert für kontrollierte Zivilisten. Marcus ist nirgends zu sehen, aber seine magische Signatur ist noch frisch.\n\n
+Zwischen den Containern entdeckst du Ausrüstungskisten mit dem Symbol des Ordens. Eine davon ist offen - sie enthält moderne Überwachungsausrüstung. Ein Dokument erwähnt wiederholt das \'Technoseum\'. Raven hätte sicher eine Idee, wie man dort unbemerkt eindringen könnte.\n\n
+Die Energiekristalle am Boden weisen einen klaren Pfad zum Technoseum. Was auch immer der Orden plant, es vereint Technologie und Magie auf eine Weise, die Marcus\' schlimmste Befürchtungen bestätigt.</string>
+
+    <string name="quest_4_thief_initial">Lautlos bewegst du dich zwischen den Containern am Silo der Großmarkthalle. Die Wachposten sind zu professionell für hypnotisierte Bürger - eindeutig Ordensagenten in Verkleidung. Elena würde ihre magischen Signaturen sofort erkennen.\n\n
+In einem verlassenen Wachraum findest du Baupläne des Technoseums. Viktor muss hier gewesen sein - seine charakteristischen taktischen Markierungen sind unverkennbar. Das historische Kraftwerk im Untergeschoss ist mehrfach eingekreist, daneben Notizen über \'Energiekonvergenz\' und \'maximale Leistung\'.\n\n
+Die professionell verwischten Spuren führen zum Technoseum. Der Orden plant etwas Großes, und Viktor wurde dorthin gebracht.</string>
+
+    <string name="quest_4_mage_initial">Die magischen Störungen am Silo der Großmarkthalle sind überwältigend. Die Wachen strahlen eine seltsame Doppelenergie aus - halb kontrolliert, halb freiwillig. Sofia würde in ihrer Ausbildung von solchen Techniken gehört haben.\n\n
+In einer versteckten Kammer entdeckst du Energiemessgeräte und Pläne des Technoseums. Shadow hätte seine helle Freude an den verborgenen Zugängen. Die Diagramme zeigen eine Art magisch-technische Verschmelzung, zentriert auf das alte Kraftwerk der Ausstellung.\n\n
+Shadows Energie-Signatur ist schwach, aber eindeutig: Er wurde zum Technoseum gebracht. Der Orden verbindet hier moderne Technik mit uralter Magie - eine Kombination, die Sofia stets gefürchtet hatte.</string>
+
+    <string name="quest_4_warrior_solution">Der Weg zum Technoseum führt durch ein Netz aus kontrollierten Zivilisten. Die Energiekristalle werden häufiger, und die Luft knistert förmlich vor Spannung. Deine Kampffähigkeiten sind noch immer blockiert.\n\n
+Marcus beobachtet besorgt die getarnten Ordensagenten an der Straßenbahnhaltestelle \'Technoseum\', die Kisten mit seltsamen technischen Geräten entladen. Ein flüchtiger Blick auf die Lieferscheine verrät: Das Planetarium ist auch involviert.\n\n
+Aus dem Untergeschoss des Technoseums dringt ein unheimliches Surren. Der Orden nutzt offenbar das alte Kraftwerk für seine Zwecke. Und dort, zwischen den historischen Maschinen, erkennst du eine vermummte Gestalt - sie trägt Marcus\' zerbrochenen Stab.</string>
+
+    <string name="quest_4_thief_solution">Du schleichst durch die Schatten Richtung Technoseum. Überall siehst du getarnte Überwachungssysteme - eine Mischung aus modernster Technik und altertümlichen Runen. Deine Diebesfähigkeiten bleiben weiter nutzlos.\n\n
+Bei der Straßenbahnhaltestelle beobachtest du mit Viktor die Ordensmitglieder, die mysteriöse Ausrüstung verladen. Ein zurückgelassenes Tablet zeigt Koordinaten - das Planetarium scheint ihr nächstes Ziel zu sein.\n\n
+Das alte Kraftwerk im Technoseum pulsiert unnatürlich. Zwischen den historischen Exponaten huschen vermummte Gestalten umher. Eine von ihnen hält Viktors Schwert - sie wissen, dass du kommst.</string>
+
+    <string name="quest_4_mage_solution">Die magischen Störungen werden auf dem Weg zum Technoseum immer intensiver. Du siehst Energielinien, die sich wie ein Netzwerk durch die Stadt ziehen. Deine eigene Magie bleibt blockiert.\n\n
+Shadow deutet auf getarnte Ordensmagier an der Straßenbahnhaltestelle, die technische Geräte mit Runen versehen. Ein liegengebliebenes Dokument enthüllt weitere Pläne - das Planetarium spielt eine wichtige Rolle.\n\n
+Das historische Kraftwerk strahlt eine unheimliche Mischung aus technischer und magischer Energie aus. Durch die Fenster siehst du Gestalten an seltsamen Apparaturen arbeiten. Eine trägt Shadows Diebesausrüstung - eine offensichtliche Falle.</string>
+
+    <string name="quest_4_warrior_completion">Im historischen Kraftwerk des Technoseums herrscht hektische Aktivität. Ordensmitglieder verbinden die alten Maschinen mit futuristischer Technik. Marcus ist nirgends zu sehen, aber sein zerbrochener Stab liegt provokant auf einer Art Altar.\n\n
+Die Maschinenhalle ist in ein unheimliches Licht getaucht. Zwischen den Turbinen erkennst du weitere Energiekristalle, viel größer als die am Hafen. Ein großer Bildschirm zeigt eine Karte des Planetariums - dort blinkt ein Countdown.\n\n
+Als du nach dem Stab greifen willst, aktiviert sich plötzlich das alte Kraftwerk. Die Turbinen drehen sich rückwärts, Energie fließt in die falsche Richtung. Raven hätte die Anlage sicher unauffällig sabotieren können - doch der Orden nutzt die historische Technik, um etwas im Planetarium vorzubereiten. Und die Zeit drängt.</string>
+
+    <string name="quest_4_thief_completion">Das historische Kraftwerk ist ein Bienenstock der Aktivität. Ordensmitglieder installieren hochmoderne Geräte an den antiken Maschinen. Viktors Schwert liegt herausfordernd auf einem Kontrollpult.\n\n
+Die Luft ist erfüllt von elektrischer Spannung. In einer Ecke stapeln sich Kisten mit dem Logo des Planetariums. Elena würde die arkanen Symbole darauf sofort verstehen. Auf Bildschirmen laufen Berechnungen für eine \'temporale Konvergenz\'.\n\n
+Bei dem Versuch, das Schwert zu erreichen, erwacht das Kraftwerk zum Leben. Die alten Generatoren laufen im Rückwärtsgang, als würden sie Energie nicht erzeugen, sondern absorbieren. Alles deutet auf einen größeren Plan im Planetarium hin - und die Zeit wird knapp.</string>
+
+    <string name="quest_4_mage_completion">Das historische Kraftwerk ist zu einem Nexus aus Technik und Magie geworden. Der Orden verschmilzt moderne Technologie mit den alten Maschinen. Shadows Diebesausrüstung liegt auf einer Art technischem Altar, von arkanen Runen umgeben.\n\n
+Magische Energie durchströmt die historischen Turbinen. An den Wänden hängen Projektionen des Planetariums, überlagert mit magischen Formeln. Sofia hätte die militärische Präzision dieser Operation sofort erkannt - die Berechnungen deuten auf eine Manipulation der Zeitlinien hin.\n\n
+Als du nach der Ausrüstung greifst, erwacht das Kraftwerk zu unheimlichem Leben. Die Maschinen arbeiten in einer impossiblen Konfiguration, saugen Energie aus der Umgebung. Was auch immer im Planetarium geplant ist - es verändert die Grundlagen von Zeit und Raum selbst.</string>
+
+    <string name="quest_5_warrior_initial">Das Planetarium wirkt von außen friedlich, aber dein Kampfinstinkt schlägt Alarm. Die Wachen tragen zwar Uniformen des Sicherheitsdienstes, ihre Haltung verrät jedoch militärisches Training. Marcus würde ihre magischen Signaturen sofort erkennen.\n\n
+Durch ein Fenster siehst du im Vorführraum seltsame Apparaturen. Die historischen Generatoren aus dem Technoseum wurden hier aufgebaut, verbunden mit dem Projektionssystem. In der Mitte steht Marcus - regungslos, wie eingefroren in der Zeit.\n\n
+Ein Wissenschaftler des Ordens spricht von einer \'Zeitanomalie\' und dem \'Luisenpark-Portal\'. Die Energiekristalle pulsieren im Takt mit der Sternenprojektion. Raven hätte sicher einen Plan für eine unauffällige Infiltration - aber was auch immer sie vorhaben, der Höhepunkt soll im Luisenpark stattfinden.</string>
+
+    <string name="quest_5_thief_initial">Das Planetarium ist alles andere als unbewacht. Dein geschärfter Blick erkennt sofort: Die \'Techniker\' sind verkleidete Ordensmitglieder, und die neuen Sicherheitskameras sind mit Runen verziert. Elena hätte die magischen Muster sicher deuten können.\n\n
+Im Vorführsaal haben sie eine bizarre Konstruktion errichtet. Die Projektoren sind mit den Generatoren aus dem Technoseum verbunden. Viktor steht bewegungslos in einem Energie-Käfig, umgeben von tickenden Uhren, die rückwärts laufen.\n\n
+Auf einem Computerbildschirm läuft eine Simulation des Luisenparks. Die Begriffe \'temporale Konvergenz\' und \'Portalöffnung\' blinken in regelmäßigen Abständen. Der Orden plant seinen großen Coup im Park - und nutzt Viktor als Energiequelle.</string>
+
+    <string name="quest_5_mage_initial">Das Planetarium ist in ein Nest arkaner Energie verwandelt worden. Die vermeintlichen Angestellten sind Ordensmagier, getarnt durch komplexe Illusionen. Shadow hätte ihre Tarnung binnen Sekunden durchschaut.\n\n
+Der Vorführraum wurde in ein temporales Labor verwandelt. Die Generatoren aus dem Technoseum speisen Energie in die Projektoren, die statt Sternen nun Zeitlinien zeigen. Shadow schwebt in einer Art Zeitblase, eingefroren zwischen den Sekunden. Sofia hatte vor solch gefährlichen Experimenten gewarnt.\n\n
+Holografische Displays zeigen den Luisenpark, überlagert mit Berechnungen von \'Zeitrissen\' und \'Dimensionsportalen\'. Der Orden will die Realität selbst manipulieren - und der Park soll der Schauplatz sein.</string>
+
+    <string name="quest_5_warrior_solution">Der Weg zum Luisenpark wird von merkwürdigen Zeitphänomenen begleitet. Vögel fliegen rückwärts, Blätter fallen nach oben. Marcus\' Energiekristalle aus dem Planetarium haben eine leuchtende Spur hinterlassen.\n\n
+An der Straßenbahnhaltestelle \'Luisenpark\' scheint die Zeit völlig aus den Fugen. Menschen bewegen sich in Zeitlupe, während andere wie im Zeitraffer handeln. Der Eingang zum Park schimmert unnatürlich. Raven würde hier sicher einen sicheren Weg finden.\n\n
+Durch das Parktor siehst du bereits das Ziel: Der chinesische Garten ist von einem bläulichen Energiefeld umgeben. Ordensmitglieder errichten dort eine massive Konstruktion. Marcus schwebt regungslos über dem Teehaus - sie nutzen ihn als Fokuspunkt.</string>
+
+    <string name="quest_5_thief_solution">Auf dem Weg zum Luisenpark bemerkst du immer mehr temporale Anomalien. Überwachungskameras zeigen Aufnahmen von morgen, während Zeitungen von gestern aus dem Nichts erscheinen. Elena hätte die magischen Muster sofort erkannt.\n\n
+Die Straßenbahnhaltestelle \'Luisenpark\' existiert gleichzeitig in verschiedenen Jahreszeiten. Herbstlaub vermischt sich mit Frühlingsblüten. Das Parktor flackert zwischen verschiedenen Epochen. Viktor würde die taktischen Schwachstellen dieser Zeitverschiebungen sofort erkennen.\n\n
+Im Park führt eine Spur aus zeitlich eingefrorenen Objekten zum chinesischen Garten. Über dem Teehaus schwebt Viktor in einer Zeitblase, während der Orden eine Art Zeitmaschine aufbaut. Die Luft knistert vor temporaler Energie.</string>
+
+    <string name="quest_5_mage_solution">Der Pfad zum Luisenpark ist von Zeitrissen durchzogen. Deine magischen Sinne nehmen multiple Zeitlinien wahr, die sich wie Spinnweben überlagern. Sofia hatte vor solchen temporalen Verwerfungen gewarnt.\n\n
+An der Straßenbahnhaltestelle \'Luisenpark\' konvergieren die Zeitlinien. Menschen existieren in mehreren Versionen gleichzeitig, die Architektur wandelt sich zwischen Vergangenheit und Zukunft. Shadow hätte in diesem Chaos sicher einen sicheren Weg gefunden.\n\n
+Im Park verdichtet sich die temporale Energie zum chinesischen Garten hin. Shadow, gefangen in einer Zeitschleife, dient als Anker für ein gewaltiges Ritual. Der Orden errichtet um das Teehaus eine Maschine zur Zeitmanipulation.</string>
+
+    <string name="quest_5_warrior_completion">Im chinesischen Garten herrscht temporales Chaos. Die Zeitmaschine des Ordens reißt die Realität auseinander - du siehst gleichzeitig den Garten bei seiner Eröffnung, in der Gegenwart und in einer düsteren Zukunft.\n\n
+Marcus, gefangen über dem Teehaus, wird als lebende Batterie missbraucht. Seine magische Energie treibt die Maschine an. Plötzlich spürst du deine Kampfkraft zurückkehren - die Zeitrisse schwächen Ravens Vermutung nach den Bann des Ordens.\n\n
+Ein gewaltiger Energiepuls erschüttert den Park. Die Zeitmaschine beginnt zu überlasten. In der Ferne siehst du weitere Ordensaktivität beim Fernmeldeturm. Was auch immer sie vorhaben, du musst Marcus befreien, bevor die Realität vollends zerbricht.</string>
+
+    <string name="quest_5_thief_completion">Der chinesische Garten ist zu einem Nexus der Zeit geworden. Die Maschine des Ordens lässt verschiedene Zeitebenen kollidieren - du siehst den Garten in allen seinen Epochen gleichzeitig.\n\n
+Viktor schwebt hilflos über dem Teehaus, seine Lebensenergie wird in die Maschine geleitet. Doch die Zeitrisse haben einen unerwarteten Nebeneffekt - Elena bemerkt, wie deine Diebesfähigkeiten langsam zurückkehren.\n\n
+Ein kritischer Alarm ertönt von der Maschine. Die temporale Energie gerät außer Kontrolle. Am Horizont wird der Fernmeldeturm von seltsamen Blitzen umzuckt. Der Orden hat noch einen weiteren Standort - aber erst musst du Viktor retten.</string>
+
+    <string name="quest_5_mage_completion">Der chinesische Garten existiert nun in mehreren Zeitebenen gleichzeitig. Die Zeitmaschine des Ordens zerreißt den Schleier zwischen Vergangenheit, Gegenwart und Zukunft.\n\n
+Shadow, gefangen in einer temporalen Stasis über dem Teehaus, dient als Katalysator. Sofia hatte Recht - die Zeitrisse haben die magischen Barrieren geschwächt. Du spürst, wie deine Kräfte zurückkehren.\n\n
+Die Maschine erreicht einen kritischen Punkt. Temporale Energie schießt unkontrolliert durch die Realität. Ein gewaltiger Energiestrahl trifft den Fernmeldeturm in der Ferne. Der Orden hat dort weitere Pläne - aber zuerst gilt es, Shadow zu befreien.</string>
+
+    <string name="quest_6_warrior_initial">Der Fernmeldeturm ist in ein gespenstisches Licht getaucht. Die temporalen Energien aus dem Luisenpark haben sich hier zu einer Art Leuchtfeuer gebündelt. Mit wiedererlangter Kampfkraft erkennst du: Der Turm ist das finale Ziel des Ordens.\n\n
+Marcus ist erschöpft, aber seine Analysen sind eindeutig - der Orden nutzt den Turm als gigantische Antenne. Die Zeitanomalien sollen über das Fernmeldenetz verbreitet werden. Erste Anzeichen siehst du bereits: Die Mobilfunkmasten der Umgebung pulsieren im gleichen Rhythmus.\n\n
+Am Fuß des Turms haben sie eine Kontrollstation errichtet. Durch dein geschärftes Kampfauge erkennst du das Ziel: Das BASF-Hauptquartier schimmert in der Ferne. Der Kreis schließt sich - dort hat alles begonnen, dort muss es enden.</string>
+
+    <string name="quest_6_thief_initial">Der Fernmeldeturm durchbricht die Nacht wie ein temporaler Leuchtturm. Die Energie aus dem Luisenpark wird hier gebündelt und verstärkt. Mit deinen zurückgekehrten Diebesfähigkeiten siehst du: Dies ist die Kommandozentrale des Ordens.\n\n
+Viktor ist geschwächt, aber kampfbereit. Gemeinsam beobachtet ihr, wie der Orden den Turm in einen temporalen Sender verwandelt. Die Überwachungskameras zeigen: Jeder Mobilfunkmast in der Stadt ist bereits infiziert.\n\n
+Eine getarnte Steuerzentrale am Fuß des Turms koordiniert alles. Auf den Monitoren siehst du das eigentliche Ziel: Das BASF-Hauptquartier, wo diese Jagd begann. Der finale Showdown steht bevor.</string>
+
+    <string name="quest_6_mage_initial">Der Fernmeldeturm ist zu einem Fokuspunkt temporaler Energie geworden. Die Macht aus dem Luisenpark wird hier kanalisiert und transformiert. Mit deiner zurückgewonnenen Magie spürst du: Dies ist das Machtzentrum des Ordens.\n\n
+Shadow ist erschöpft, hat aber trotz seiner Gefangenschaft wichtige Details aufgeschnappt. Der Orden will den Turm als Verstärker nutzen, um ihre Zeitmanipulation über alle Kommunikationsnetze zu verbreiten. Die magischen Signaturen der Mobilfunkmasten sind bereits korrumpiert.\n\n
+Am Fundament des Turms steht ein getarntes Kontrollzentrum. Die arkanen Projektionen zeigen das wahre Ziel: Das BASF-Hauptquartier, Ursprung und Ende dieser Mission. Der finale Kampf steht kurz bevor.</string>
+
+    <string name="quest_6_warrior_solution">Mit vereinten Kräften kämpft ihr euch durch die Verteidigung des Fernmeldeturms. Die temporale Energie wird bereits in alle Richtungen gesendet, aber der Hauptstrahl zielt direkt auf die BASF.\n\n
+Marcus erkennt das Muster: Der Orden nutzt die Sendemasten wie ein Netz - aber die BASF ist nicht nur Ziel, sondern Energiequelle. Die gesamte Anlage pulsiert im Rhythmus der Zeitanomalien. Die gigantischen Kühltürme scheinen in verschiedenen Zeitebenen zu existieren. Raven hätte die Schwachstellen sofort erkannt.\n\n
+Auf dem Weg dorthin seht ihr bereits die Auswirkungen: Industrieanlagen der BASF erscheinen und verschwinden, als würde jemand durch ihre Geschichte zappen. Der Orden will die Kontrolle über die gesamte industrielle Entwicklung der Region - beginnend mit dem größten Chemiekonzern der Welt.</string>
+
+    <string name="quest_6_thief_solution">Nach einer geschickten Infiltration des Fernmeldeturms wird klar: Der Orden verwendet das Sendernetz nur als Ablenkung. Der wahre Plan zielt auf die BASF, wo alles begann.\n\n
+Viktor analysiert die erbeuteten Dokumente: Die BASF ist nicht nur Ziel, sondern Kraftquelle. Der Orden zapft die gewaltigen Energiereserven des Werks an. Elena hatte vor solchen Energiemanipulationen gewarnt - die Produktionsanlagen flackern zwischen verschiedenen Zeitperioden.\n\n
+Während ihr euch nähert, wird das Ausmaß sichtbar: Teile der BASF-Anlagen springen durch die Zeit. Alte, längst abgerissene Gebäude erscheinen neben futuristischen Versionen. Der Orden will die industrielle Macht der BASF durch alle Zeiten hindurch kontrollieren.</string>
+
+    <string name="quest_6_mage_solution">Die magische Analyse des Fernmeldeturms offenbart die Wahrheit: Das Kommunikationsnetz ist nur ein Werkzeug. Das eigentliche Ziel war schon immer die BASF - der größte Nexus industrieller und nun auch temporaler Energie.\n\n
+Shadow entdeckt in den Steuerungssystemen die Verbindung: Die BASF ist Quelle und Ziel zugleich. Der Orden nutzt die gewaltigen Energiereserven des Werks, um ihre Zeitmanipulation zu speisen. Sofia hatte diese Entwicklung vorausgesehen - die Fabrikanlage existiert bereits in mehreren Zeitebenen.\n\n
+Je näher ihr kommt, desto chaotischer wird die temporale Struktur: Die BASF-Werke zeigen sich in allen Epochen gleichzeitig. Vergangenheit, Gegenwart und mögliche Zukunften verschmelzen. Der Orden will nicht nur die BASF kontrollieren - sie wollen ihre Macht durch alle Zeiten hindurch zementieren.</string>
+
+    <string name="quest_6_warrior_completion">Der Kampf im BASF-Hauptquartier erreicht seinen Höhepunkt. Mit vereinter Kraft drängt ihr den Orden zurück, aber der temporale Schaden ist enorm. Die Zeitlinien der gesamten Industrieanlage kollabieren.\n\n
+Plötzlich ein greller Blitz - die Energie des Fernmeldeturms schlägt wie ein Tsunami ein. Die Ordensmagier verlieren die Kontrolle über ihr eigenes Ritual. Marcus versucht verzweifelt, die Energien zu stabilisieren, während Raven nach einem Fluchtweg sucht. Eine gewaltige temporale Explosion baut sich auf.\n\n
+In letzter Sekunde entdeckt ihr eine Notiz: \'Backup-System Carl-Benz-Stadion aktivieren\'. Als die Explosion euch erfasst, seht ihr noch, wie sich ein gewaltiger Energiestrahl in Richtung Stadion entlädt. Der Orden hat einen Notfallplan - und ihr müsst ihm folgen.</string>
+
+    <string name="quest_6_thief_completion">Im Chaos des BASF-Hauptquartiers überschlagen sich die Ereignisse. Gemeinsam sabotiert ihr die Pläne des Ordens, aber die temporalen Störungen sind außer Kontrolle. Viktor kämpft verbissen an vorderster Front, während Elena die magischen Barrieren analysiert.\n\n
+Ein ohrenbetäubender Knall - die gebündelte Energie des Fernmeldeturms trifft ein. Das Ritual des Ordens entgleist, die Zeitmanipulation wird instabil. Eine temporale Kettenreaktion beginnt.\n\n
+Zwischen den Trümmern findet ihr Befehle zur \'Aktivierung Backup-Sequenz: Carl-Benz-Stadion\'. Die folgende Explosion schleudert pure Zeitenergie Richtung Stadion. Der Orden hat vorgesorgt - und ihr müsst herausfinden warum.</string>
+
+    <string name="quest_6_mage_completion">Die magische Schlacht im BASF-Hauptquartier erreicht ihre Klimax. Eure vereinten Kräfte durchbrechen die Verteidigung des Ordens, aber die temporalen Verwerfungen sind nicht mehr zu kontrollieren. Shadow huscht zwischen den Zeitrissen hindurch, während Sofia die Verteidigung koordiniert.\n\n
+Dann die Katastrophe - die kanalisierte Energie des Fernmeldeturms detoniert. Das komplexe Zeitritual des Ordens implodiert, reißt aber die Grenzen zwischen den Zeitebenen endgültig ein. Eine temporale Nova entsteht.\n\n
+In den arkanen Überresten findet ihr einen letzten Befehl: \'Notfallprotokoll Carl-Benz-Stadion initiieren\'. Die temporale Explosion entlädt sich in Richtung des Stadions. Der Orden hatte einen Backup-Plan - und ihr müsst ihn aufhalten.</string>
+
+    <string name="quest_7_warrior_initial">Das Carl-Benz-Stadion ist kaum wiederzuerkennen. Die temporale Energie der BASF hat sich wie ein Netz über die Arena gelegt. Auf dem Rasen stehen seltsame Maschinen, die aussehen wie eine Mischung aus Flutlicht und Tesla-Spulen.\n\n
+Marcus ist besorgt - die Energie sammelt sich in den Maschinen wie in einem Kondensator. In der Luft siehst du Nachbilder vergangener Spiele, Zuschauer aus verschiedenen Jahrzehnten geistern durch die Ränge. Raven beobachtet misstrauisch die flackernden Schatten: \'Das ist eine temporale Falle.\'\n\n
+Im Mittelkreis steht eine Art Kontrollpult. Darauf blinkt eine Warnung: \'Kritische Energieüberlastung - Ausweichprotokoll Rosengarten initiieren\'. Der Orden hat das Stadion in eine gigantische Zeitbombe verwandelt.</string>
+
+    <string name="quest_7_thief_initial">Das Stadion gleicht einem surrealen Albtraum. Temporale Energie wabert wie Nebel über dem Spielfeld. Zwischen den Tribünen haben sie futuristische Apparaturen aufgebaut, die bedrohlich summen.\n\n
+Viktor analysiert die Lage mit militärischer Präzision - die Maschinen sammeln die freigesetzte Energie der BASF. Geisterhafte Bilder historischer Fußballmomente überlagern sich, während Fans aus verschiedenen Epochen durch die Sitze flimmern. Elena studiert die arkanen Muster: \'Sie haben uns genau hierher gelockt.\'\n\n
+Eine zentrale Konsole im Mittelkreis zeigt blinkende Warnungen: \'Energielevel kritisch - Notfall-Umleitung Rosengarten vorbereiten\'. Das ganze Stadion ist zu einer temporalen Zeitbombe umfunktioniert worden.</string>
+
+    <string name="quest_7_mage_initial">Das Stadion ist zu einem Nexus temporaler Energie mutiert. Die Nachwirkungen der BASF-Explosion haben sich hier gesammelt, wo bizarre Maschinen wie temporale Blitzableiter in den Himmel ragen.\n\n
+Shadow huscht zwischen den Schatten umher und bemerkt die Gefahr - die Apparaturen absorbieren und verstärken die Zeitenergie. Durch die Realität schimmern Echos vergangener Spiele, während Zuschauer aus verschiedenen Zeitperioden wie Hologramme durch die Tribünen wandern. Sofia untersucht die Verteidigungsstellungen: \'Das ist eine ausgeklügelte Falle.\'\n\n
+Im Zentrum des Spielfelds pulsiert ein Kontrollzentrum. Die Anzeigen warnen: \'Temporale Überladung - Ausweichziel Rosengarten in Vorbereitung\'. Der Orden hat das Stadion in einen temporalen Sprengkörper verwandelt.</string>
+
+    <string name="quest_7_warrior_solution">Der Versuch, die Maschinen zu zerstören, erweist sich als fataler Fehler. Mit jedem Schlag deines Schwerts werden die temporalen Störungen stärker. Die Tesla-Spulen beginnen wie wild zu zucken.\n\n
+\'Nein, stopp!\' schreit Marcus zu spät - dein letzter Angriff hat eine Kettenreaktion ausgelöst. Die Geister-Zuschauer werden real, hunderte verwirrte Menschen aus verschiedenen Jahrzehnten materialisieren sich. Raven beobachtet entsetzt, wie die Situation außer Kontrolle gerät.\n\n
+Die Kontrollanzeige im Mittelkreis leuchtet rot: \'Kritischer Fehler - Automatische Umleitung zum Rosengarten\'. Eine Säule aus reiner Zeitenergie schießt in den Himmel. Das letzte, was du siehst, ist eine massive Schockwelle, die sich über die Stadt ausbreitet.</string>
+
+    <string name="quest_7_thief_solution">Dein Versuch, die Maschinen zu sabotieren, geht nach hinten los. Jeder manipulierte Schaltkreis verstärkt die temporalen Verwerfungen. Die Apparaturen beginnen unkontrolliert zu pulsieren.\n\n
+\'Das war keine gute Idee!\' ruft Viktor - aber es ist zu spät. Deine Manipulation hat einen Kaskadeneffekt ausgelöst. Elena versucht verzweifelt, die magischen Energien einzudämmen. Überall im Stadion materialisieren sich Menschen aus verschiedenen Zeitperioden. Die Situation eskaliert.\n\n
+Das Kontrollpult blinkt bedrohlich: \'Systemfehler - Automatische Weiterleitung Rosengarten aktiviert\'. Ein Strahl temporaler Energie durchbricht das Stadiondach. Die folgende Schockwelle trifft die Stadt mit voller Wucht.</string>
+
+    <string name="quest_7_mage_solution">Der Versuch, die temporale Energie magisch zu kontrollieren, entpuppt sich als verhängnisvoller Irrtum. Jeder Zauber verstärkt die Instabilität. Die Maschinen beginnen zu überlasten.\n\n
+\'Das verstärkt die Resonanz!\' warnt Shadow zu spät - dein letzter Spell hat eine Kaskade ausgelöst. Sofia versucht vergeblich, eine Verteidigungsstellung aufzubauen. Überall brechen Zeitblasen auf, Menschen aus der Vergangenheit und Zukunft stürzen in die Gegenwart. Das Chaos ist perfekt.\n\n
+Die Hauptkonsole zeigt nur noch Rot: \'Kritische Überlastung - Notfall-Transfer Rosengarten eingeleitet\'. Eine Fontäne aus Zeitenergie explodiert nach oben. Die resultierende temporale Schockwelle erfasst die gesamte Metropolregion.</string>
+
+    <string name="quest_7_warrior_completion">Die temporale Explosion reißt die Realität auseinander. Das Stadion existiert nun in allen Zeitebenen gleichzeitig - du siehst seinen Bau, seine Blütezeit und seinen Verfall in einem einzigen Moment. Marcus wird von dir weggerissen.\n\n
+Die Schockwelle erreicht den Rosengarten. Durch den temporalen Nebel siehst du, wie sich der Turm des Luisenparks in verschiedene Versionen seiner selbst aufspaltet. Die Stadt zerfällt in zeitliche Fragmente. Raven hatte vor solch einer Katastrophe gewarnt.\n\n
+Als sich der erste Schock legt, erreichst du einen Funkspruch: \'Überlebende sammeln sich am Wasserturm... *statisches Rauschen* ...temporale Quarantäne einrichten...\' Der Orden hat gewonnen - vorerst. Aber im Wasserturm formiert sich bereits der Widerstand.</string>
+
+    <string name="quest_7_thief_completion">Das Zeitgefüge kollabiert um dich herum. Das Stadion flackert wie ein kaputter Film - Aufbau, Spiele, Abriss, alles gleichzeitig. In dem Chaos verlierst du Viktor aus den Augen. Elena versucht vergeblich, die Energien einzudämmen.\n\n
+Die temporale Verwerfung breitet sich bis zum Rosengarten aus. Der Luisenpark-Turm erscheint in hundert verschiedenen Versionen seiner Geschichte. Die Realität der Stadt löst sich auf.\n\n
+Durch das Chaos dringt eine brüchige Transmission: \'Alle Überlebenden zum Wasserturm... *Störgeräusche* ...Schutzzone etablieren...\' Der Orden hat die Oberhand gewonnen - für den Moment. Aber am Wasserturm gibt es noch Hoffnung.</string>
+
+    <string name="quest_7_mage_completion">Die temporale Detonation zerreißt das Gewebe der Zeit. Das Stadion oszilliert zwischen allen Phasen seiner Existenz - Grundsteinlegung, Gegenwart und Zukunftsruine verschmelzen. Shadow verschwindet im temporalen Sturm, während Sofia verzweifelt versucht, eine Barriere zu errichten.\n\n
+Die Zerrüttung erreicht den Rosengarten. Der Turm des Luisenparks spaltet sich in unzählige temporale Echos. Die Stadtstruktur zerbricht in zeitliche Splitter.\n\n
+Eine schwache Nachricht durchdringt das Chaos: \'Wasserturm dient als Sammelpunkt... *Interferenzen* ...temporale Barriere errichten...\' Der Orden triumphiert - vorerst. Doch im Wasserturm sammeln sich bereits die Kräfte des Widerstands.</string>
+
+    <string name="quest_8_warrior_initial">Der Wasserturm ragt wie eine Festung aus dem temporalen Chaos. Seine massive Struktur scheint die Zeitrisse abzuwehren. Im Inneren haben sich Überlebende verschanzt - Magier, die einen Schutzzauber aufrechterhalten, Techniker, die Messgeräte aufbauen.\n\n
+Marcus ist auch hier, erschöpft, aber am Leben. \'Die alte Pumpenanlage\', erklärt er, \'sie stabilisiert irgendwie die Zeit. Der Orden hat nicht mit der Industriegeschichte des Turms gerechnet. Wir können das nutzen.\'\n\n
+Auf einem improvisierten Kartentisch siehst du Aufzeichnungen der temporalen Verwerfungen. Das Epizentrum liegt noch immer im Rosengarten, aber es gibt Hoffnung - die alten Wasserleitungen der Stadt bilden ein Netzwerk, das die Zeitanomalien eindämmen könnte.</string>
+
+    <string name="quest_8_thief_initial">Der Wasserturm ist zur letzten Bastion der Normalität geworden. Seine historischen Mauern bieten Schutz vor den temporalen Störungen. Überall arbeiten Überlebende - Ingenieure reparieren alte Maschinen, Magier weben Schutzzauber.\n\n
+Zu deiner Erleichterung findest du Viktor hier, angeschlagen, aber kampfbereit. \'Die ursprüngliche Wasserversorgung\', berichtet er, \'sie hat eine stabilisierende Wirkung auf die Zeitrisse. Der Orden hat die Kraft der Infrastruktur unterschätzt.\'\n\n
+Notfallpläne bedecken improvisierte Tische. Der Rosengarten ist zwar ein temporaler Hexenkessel, aber das alte Wasserleitungssystem könnte der Schlüssel sein - ein verborgenes Netz, das die Stadt wieder stabilisieren könnte.</string>
+
+    <string name="quest_8_mage_initial">Der Wasserturm strahlt eine unerwartete temporale Stabilität aus. Seine jahrhundertealte Konstruktion scheint die Zeitrisse abzublocken. Im Inneren herrscht organisiertes Chaos - Überlebende errichten Messstationen, andere verstärken die magischen Barrieren.\n\n
+Shadow hat es auch hierher geschafft, geschwächt, aber ungebrochen. \'Das alte Hydrauliksystem\', flüstert er, \'es schafft eine Art temporalen Anker. Der Orden hat die Macht der historischen Technik falsch eingeschätzt.\'\n\n
+Arkane Diagramme zeigen das Ausmaß der Katastrophe. Der Rosengarten ist ein Mahlstrom aus Zeit, doch die historischen Wasserleitungen der Stadt bilden ein Muster - ein Netzwerk, das zur Heilung der Zeitrisse genutzt werden könnte.</string>
+
+    <string name="quest_8_warrior_solution">Die alten Baupläne des Wasserturms offenbaren ein Netz von Hauptleitungen, die wie Adern durch die Stadt führen. Als erfahrener Taktiker erkennst du sofort das Potenzial: Diese Leitungen könnten wie Kanäle für die temporale Energie dienen.\n\n
+Marcus\' Augen leuchten auf: \'Die Pumpen - wenn wir sie reaktivieren, können wir die Zeitrisse wie Wasser umleiten.\' Das alte Industriesystem wird zur Waffe. Erste Tests mit einer kleinen Pumpe zeigen: Die Zeitanomalien lassen sich tatsächlich kanalisieren. Raven beobachtet fasziniert die Ergebnisse.\n\n
+Ein Plan nimmt Gestalt an: Der Hauptangriff muss vom Luisenpark ausgehen - dort, wo die städtischen Wasserleitungen zusammenlaufen. Von dort könnt ihr die temporale Energie durch das Wasserversorgungsnetz zum BASF-Gelände zurückführen, wo alles begann.</string>
+
+    <string name="quest_8_thief_solution">Beim Durchstöbern der historischen Archive des Wasserturms findest du Detailpläne des städtischen Wassernetzes. Diese vergessenen Tunnel sind perfekte Transportwege für die wilde Zeitenergie - genau wie die geheimen Passagen, die du sonst für deine Arbeit nutzt.\n\n
+Viktor deutet auf die alten Ventilsysteme: \'Sieh dir das an - wir können die temporalen Störungen wie Wasser umleiten.\' Elena nickt zustimmend. Ein Test an einem kleinen Nebenrohr bestätigt: Die alten Leitungen können die Zeitrisse tatsächlich eindämmen.\n\n
+Der Plan wird konkret: Vom Luisenpark aus, wo sich die Hauptleitungen kreuzen, könnt ihr die temporale Energie kontrolliert durch das Wassernetz zur BASF zurückleiten. Das System der Stadt wird zu eurem Verbündeten.</string>
+
+    <string name="quest_8_mage_solution">Die magische Analyse der Wasserturm-Konstruktionspläne zeigt ein faszinierendes Muster: Die Hauptwasserleitungen der Stadt folgen exakt den natürlichen Ley-Linien. Diese Infrastruktur ist ein bereits existierendes Kanalsystem für magische Energie.\n\n
+Shadow betrachtet ehrfürchtig die alten Ventilmechanismen: \'Die Verbindung ist perfekt - wir können die Zeitrisse wie Wasser umleiten.\' Sofia beobachtet aufmerksam, wie erste magische Experimente an einem Nebenrohr beweisen: Die Leitungen können temporale Energie transportieren.\n\n
+Eine Strategie kristallisiert sich heraus: Der Luisenpark, Knotenpunkt des städtischen Wassernetzes, wird zum Ausgangspunkt. Von dort könnt ihr die temporale Energie durch die Leitungen zur BASF zurückführen - eine perfekte Synthese aus Magie und Technik.</string>
+
+    <string name="quest_8_warrior_completion">Der Test am Wasserturm ist erfolgreich - die temporale Energie lässt sich tatsächlich durch die alten Leitungen umleiten. Die Zeitrisse um den Turm beginnen sich zu stabilisieren. Marcus strahlt vor Zuversicht, während Raven die Sicherheitssysteme überprüft.\n\n
+Doch plötzlich Alarm: Der Orden hat eure Aktivitäten bemerkt. Ihre Agenten sammeln sich am Luisenpark. Sie wissen, was ihr vorhabt. \'Sie werden das Wasserversorgungssystem sabotieren\', warnt ein Späher. \'Der Hauptknotenpunkt unter dem Friedrichsplatz muss gesichert werden.\'\n\n
+Die Zeit drängt. Mit wiedererlangter Kampfkraft und einem funktionierenden Plan macht ihr euch bereit für den entscheidenden Schlag. Der Friedrichsplatz wird zum Schlachtfeld werden - hier entscheidet sich das Schicksal der Region.</string>
+
+    <string name="quest_8_thief_completion">Die Probekanalisierung der Zeitenergie funktioniert perfekt. Die alten Rohre leiten die temporalen Störungen wie geplant um. Viktor nickt anerkennend, während Elena die magischen Resonanzen studiert.\n\n
+Da durchbricht eine Warnung die Konzentration: Ordensaktivität am Luisenpark. Sie haben euer Vorhaben durchschaut. \'Sie werden versuchen, die Wasserleitungen zu sprengen\', meldet ein Kundschafter. \'Der zentrale Verteilerpunkt am Friedrichsplatz muss gehalten werden.\'\n\n
+Keine Zeit zu verlieren. Mit zurückgewonnenen Schleichfähigkeiten und einer funktionierenden Strategie bereitet ihr euch auf die finale Konfrontation vor. Der Friedrichsplatz wird zur Arena des Endkampfs - hier entscheidet sich alles.</string>
+
+    <string name="quest_8_mage_completion">Der magische Test verläuft besser als erhofft - die Zeitanomalien folgen den alten Wasserwegen wie von selbst. Die temporalen Störungen um den Turm herum beruhigen sich. Shadow grinst verschmitzt, während Sofia die taktischen Positionen analysiert.\n\n
+Ein magischer Alarm unterbricht den Erfolg: Ordenstruppen formieren sich am Luisenpark. Sie haben euren Plan erkannt. \'Sie werden die Wasserleitungen zerstören\', warnt eine magische Vision. \'Der Hauptknotenpunkt unter dem Friedrichsplatz ist in Gefahr.\'\n\n
+Keine Sekunde zu verlieren. Mit regenerierter Magie und bewährter Strategie rüstet ihr euch für den letzten Kampf. Der Friedrichsplatz wird zum Schauplatz der Entscheidungsschlacht - hier wird das Schicksal der Zeitlinien besiegelt.</string>
+
+    <string name="quest_9_warrior_initial">Der Friedrichsplatz ist ein Schlachtfeld der Realitäten. Ordenskrieger haben die Zugänge zu den Wasserleitungen verbarrikadiert. Marcus ist erschöpft von den Zeitmanipulationen - aber Raven, bisher im Hintergrund, tritt vor.\n\n
+\'Die Hauptleitung hat einen versteckten Zugang\', flüstert sie, während sie eine alte Karte der Kanalisation studiert. \'Während ihr sie vorne ablenkt, kann ich mich von hinten an die Kontrollen schleichen. Vertrau mir - das ist genau meine Spezialität.\'\n\n
+Der Plan ist riskant, aber brillant. Die Ordenskrieger erwarten einen frontalen magischen Angriff. Sie rechnen nicht mit der List einer Meisterdiebin. Während du dich für den letzten großen Kampf rüstest, verschwindet Raven bereits in den Schatten.</string>
+
+    <string name="quest_9_thief_initial">Chaos regiert den Friedrichsplatz. Ordensagenten bewachen alle bekannten Zugänge zum Wasserversorgungssystem. Viktor ist von den Zeitsprüngen geschwächt - doch Elena, bisher zurückhaltend, tritt in Aktion.\n\n
+\'Die magischen Siegel haben ein Muster\', analysiert sie mit geschultem Blick. \'Wenn wir ihre Formation an der schwächsten Stelle durchbrechen, können wir einen Keil zur Hauptleitung treiben. Das ist klassische Thaumaturgie.\'\n\n
+Ein gewagter Plan, aber durchdacht. Die Ordensagenten erwarten Täuschung und List. Sie sind nicht auf einen direkten, magischen Durchbruch vorbereitet. Während du die Ablenkung vorbereitest, beginnt Elena bereits mit den ersten Gegenzaubern.</string>
+
+    <string name="quest_9_mage_initial">Der Friedrichsplatz ist ein Nexus kollidierender Zeitlinien. Der Orden hat alle Zugangspunkte zu den Wasserleitungen magisch versiegelt. Shadow ist durch die temporalen Sprünge erschöpft - aber Sofia, bisher zurückhaltend, macht einen Schritt nach vorn.\n\n
+\'Die Wachformationen haben eine Schwachstelle\', murmelt sie, taktische Muster analysierend. \'Wenn ihr ihre Aufmerksamkeit bindet, kann ich ihre Verteidigung von innen aufbrechen. Das ist eine klassische Militärstrategie.\'\n\n
+Ein gewagtes Manöver, aber genial. Die Ordensagenten rechnen mit magischen Angriffen. Sie unterschätzen die taktische Brillanz einer Kriegerin. Während du die Ablenkung planst, bringt Sofia bereits ihre Truppen in Position.</string>
+
+    <string name="quest_9_warrior_solution">Die Schlacht am Friedrichsplatz entbrennt mit voller Härte. Du und Marcus liefert euch einen spektakulären Kampf mit den Ordenskriegern - Schwert und Magie gegen temporale Waffen. Die Wasserfontäne wird zu deiner Deckung.\n\n
+Während der Orden alle Aufmerksamkeit auf den frontalen Angriff richtet, siehst du aus dem Augenwinkel Raven in Aktion. Wie ein Schatten gleitet sie zwischen den temporalen Störungen hindurch. Ihre jahrelange Erfahrung macht sich bezahlt - kein Wächter bemerkt sie.\n\n
+\'Haltet sie noch zwei Minuten hin!\', hörst du ihr Flüstern durch euer magisches Kommunikationssystem. Sie hat den Hauptzugang erreicht. Ihre flinken Finger arbeiten bereits an den komplexen Verschlüssen der Ventilsteuerung. Der Orden hat keine Ahnung, dass ihre größte Bedrohung direkt unter ihren Füßen lauert.</string>
+
+    <string name="quest_9_thief_solution">Der Friedrichsplatz versinkt im Chaos deiner Ablenkungsmanöver. Du führst die Ordensagenten in ein komplexes Netz aus Täuschungen - jeder Schatten könnte ein Angreifer sein. Die Wasserfontäne verschleiert deine wahren Bewegungen.\n\n
+In der Zwischenzeit setzt Viktor seinen Plan perfekt um. Mit präziser Koordination führt er eine kleine Gruppe Widerständler in die Bresche. Seine taktische Brillanz zeigt sich - jede Bewegung ist kalkuliert, jeder Schritt geplant.\n\n
+\'Position erreicht!\', meldet er knapp. Seine Einheit hat den kritischen Kontrollpunkt erobert. Mit militärischer Präzision sichern sie den Bereich. Der Orden erkennt zu spät, dass sie einer klassischen Umzingelungstaktik zum Opfer gefallen sind.</string>
+
+    <string name="quest_9_mage_solution">Der Kampf um den Friedrichsplatz erreicht seinen Höhepunkt. Du bindest die Aufmerksamkeit des Ordens mit komplexen Illusionen - temporale Echos deiner selbst verwirren die Gegner. Die Wasserfontäne verstärkt deine arkanen Täuschungen.\n\n
+Währenddessen entfaltet Sofia ihr wahres Können. Ihre Kampftechniken sind präzise, fast unsichtbar. Jahre des militärischen Trainings zahlen sich aus - Stück für Stück durchbricht sie die Verteidigungslinien des Ordens.\n\n
+\'Die Formationen brechen!\', spürst du ihre taktische Meldung. Ihre strategische Brillanz hat die Verteidigung ausgehebelt. Der Orden bemerkt nicht, wie ihre eigenen Linien sich auflösen. Ein Meisterwerk militärischer Präzision.</string>
+
+    <string name="quest_9_warrior_completion">Der Plan geht auf! Raven öffnet die Ventile im perfekten Moment. Die temporale Energie wird durch das Wassersystem umgeleitet, der Orden verliert die Kontrolle. Die Zeitrisse beginnen sich zu schließen.\n\n
+Die Überreste des Ordens fliehen in alle Richtungen. Am Paradeplatz versammeln sich bereits die Bürger der Stadt. Der Oberbürgermeister selbst will euch für die Rettung der Region auszeichnen. Besonders Raven, deren geschickte Infiltration alles entschied, soll geehrt werden.\n\n
+Doch die Feier muss warten - eine letzte Aufgabe bleibt. Im Learning Center der DHBW, wo alles begann, müssen die letzten temporalen Anomalien versiegelt werden. Zeit für den finalen Akt dieser unglaublichen Geschichte.</string>
+
+    <string name="quest_9_thief_completion">Triumph! Die militärische Präzision Viktors war der Schlüssel zum Sieg. Die temporale Energie fließt kontrolliert durch die Leitungen, der Orden ist geschlagen. Die Zeitlinien stabilisieren sich.\n\n
+Während die letzten Ordensmitglieder fliehen, strömen die Menschen zum Paradeplatz. Eine offizielle Ehrung durch die Stadtspitze ist geplant. Besonders Viktor, dessen taktisches Genie die Schlacht entschied, soll ausgezeichnet werden.\n\n
+Aber zuvor steht eine letzte Mission an. Im Learning Center der DHBW müssen die finalen temporalen Störungen behoben werden. Der Kreis schließt sich dort, wo er sich öffnete.</string>
+
+    <string name="quest_9_mage_completion">Es funktioniert! Die brillante Kampfkunst Sofias bricht die Macht des Ordens. Die temporale Energie wird umgeleitet, die Zeitrisse heilen. Die Realität festigt sich wieder.\n\n
+Die besiegten Ordensmitglieder ziehen sich zurück, während sich eine Menschenmenge am Paradeplatz sammelt. Die Stadtverwaltung plant eine große Ehrung. Besonders Sofia, deren strategische Meisterleistung den Sieg brachte, soll gewürdigt werden.\n\n
+Doch ein letzter Akt steht noch aus. Im Learning Center der DHBW warten die finalen temporalen Versiegelungen. Dort, wo die Geschichte ihren Anfang nahm, wird sie auch enden.</string>
+
+    <string name="quest_10_warrior_initial">Das Learning Center der DHBW strahlt eine seltsame Ruhe aus. Die temporalen Störungen sind hier subtiler, eleganter - als hätte der Ort selbst aus der Krise gelernt. Raven, jetzt nicht mehr im Schatten, sondern selbstbewusst an deiner Seite, untersucht die Bücherregale.\n\n
+\'Hier hat alles angefangen\', murmelt Marcus, während er die letzten Zeitrisse analysiert. \'Und hier versteckt sich noch etwas... in den Büchern selbst. Eine Art temporales Archiv des Ordens.\'\n\n
+Die Bibliothek scheint sich zu wandeln, alte Kataloge mischen sich mit modernen Datenbanken. Zwischen den Regalen schimmern noch schwache Zeitechos - Studenten aus verschiedenen Epochen der DHBW, alle auf der Suche nach Wissen.</string>
+
+    <string name="quest_10_thief_initial">Eine ungewohnte Stille liegt über dem Learning Center der DHBW. Die Zeitanomalien sind hier raffinierter, fast akademisch in ihrer Präzision. Viktor, nun nicht mehr der schweigsame Taktiker, sondern anerkannter Held, inspiziert die Strukturen.\n\n
+\'Die Bücher erzählen mehr als ihren Inhalt\', bemerkt Elena nachdenklich. \'Sie haben die temporalen Ereignisse aufgezeichnet. Der Orden hat seine Spuren in der Bibliothek selbst hinterlassen.\'\n\n
+Das Learning Center flackert zwischen Vergangenheit und Gegenwart. Karteikarten transformieren sich in Tablets, während schwache Zeitechos von Studierenden durch die Räume geistern - Generationen von Wissenssuchenden.</string>
+
+    <string name="quest_10_mage_initial">Das Learning Center der DHBW pulsiert mit den letzten temporalen Nachwehen. Die Zeitrisse hier sind akademischer Natur, fast wie bewusst konserviertes Wissen. Shadow, nicht länger der verstohlene Meisterdieb, sondern gefeierter Retter, untersucht die verborgenen Winkel.\n\n
+\'Die Bibliothek hat alles aufgezeichnet\', erkennt Sofia mit scharfem Blick. \'Jedes Buch ist wie ein temporaler Speicher. Der Orden hat seine Geschichte direkt in die Sammlung eingewoben.\'\n\n
+Durch das Learning Center wehen die letzten Zeitechos. Digitale Bildschirme werden zu antiken Folianten und zurück, während Schatten von Studierenden aus verschiedenen Epochen ihre ewige Suche nach Wissen fortsetzen.</string>
+
+    <string name="quest_10_warrior_solution">Das Learning Center verwandelt sich in einen Ort des Triumphs. Studenten und Dozenten strömen herein, während die letzten temporalen Anomalien wie festliche Lichter schimmern. Raven, eben noch für ihre Heldentat am Paradeplatz geehrt, erklärt einer staunenden Gruppe ihre Infiltrationstaktik.\n\n
+Die Bibliothekare haben einen besonderen Bereich für die Zeremonie vorbereitet. Zwischen den Regalen schweben noch vereinzelte Zeitblasen wie Festbeleuchtung. Marcus beobachtet fasziniert: \'Die Bücher heilen sich selbst - sie kehren in ihre richtige Zeitlinie zurück.\'\n\n
+Der Rektor der DHBW betritt den Raum, in den Händen drei besondere Exemplare der Universitätschronik - bereit, eure Geschichte für die Nachwelt festzuhalten.</string>
+
+    <string name="quest_10_thief_solution">Festliche Atmosphäre erfüllt das Learning Center. Überall Studierende und Mitarbeiter, die den Sieg feiern, während die letzten Zeitanomalien wie Dekorationen funkeln. Viktor, gerade am Paradeplatz für seine strategische Meisterleistung ausgezeichnet, demonstriert einer begeisterten Menge seine Kampftaktiken.\n\n
+Im Herzen der Bibliothek wurde ein Festbereich eingerichtet. Vereinzelte Zeitblasen tanzen wie Lampions zwischen den Bücherregalen. Elena beobachtet nachdenklich: \'Die Sammlung korrigiert sich selbst - jedes Buch findet seinen richtigen Platz in der Zeit.\'\n\n
+Der Rektor erscheint mit drei speziellen Ausgaben der DHBW-Geschichte - bereit, eure Heldentaten für kommende Generationen zu dokumentieren.</string>
+
+    <string name="quest_10_mage_solution">Das Learning Center erstrahlt in feierlichem Glanz. Studierende und Lehrende versammeln sich, während die verbliebenen Zeitanomalien wie festliche Illuminationen glitzern. Sofia, frisch am Paradeplatz für ihre brillante Kampfkunst geehrt, zeigt einer faszinierten Gruppe die Grundlagen temporaler Verteidigung.\n\n
+Ein Festbereich wurde im Zentrum der Bibliothek errichtet. Die letzten Zeitblasen schweben wie magische Laternen zwischen den Regalen. Shadow betrachtet ehrfürchtig die Verwandlung: \'Die Bücher ordnen sich neu - sie finden ihre wahre Position im Zeitgefüge.\'\n\n
+Der Rektor schreitet herein, drei besondere Bände der Universitätsgeschichte in den Händen - bereit, eure Taten für die Ewigkeit festzuhalten.</string>
+
+    <string name="quest_10_warrior_completion">Die Zeremonie im Learning Center markiert das Ende eures Abenteuers. Die letzten Zeitrisse schließen sich wie ein zufallendes Buch. Raven, deren geschickte Infiltration am Friedrichsplatz alles entschied, erhält einen Ehrenplatz in der Universitätschronik.\n\n
+\'Custos Rheni\', liest der Rektor aus dem schicksalhaften Buch vor, \'war ein Orden, der die Zeit kontrollieren wollte. Doch die wahren Hüter unserer Region sind ihre Menschen.\' Marcus nickt zustimmend, während die Bibliothek applaudiert.\n\n
+Als die Feier sich dem Ende neigt, sitzt du zwischen den Bücherregalen, wo alles begann. Marcus vertieft sich bereits wieder in neue Mysterien, während Raven verschmitzt lächelt: \'War doch ein ganz normaler Tag, oder?\' Die Bibliothek der DHBW wird nie wieder nur eine gewöhnliche Bibliothek sein.</string>
+
+    <string name="quest_10_thief_completion">Das Learning Center wird zum Schauplatz der finalen Festivität. Die verbliebenen Zeitanomalien verblassen wie Tinte auf altem Papier. Viktor, dessen taktisches Genie am Friedrichsplatz den Ausschlag gab, wird in der Universitätschronik verewigt.\n\n
+\'Der Custos Rheni\', verkündet der Rektor, das schicksalhafte Buch in Händen, \'wollte die Zeit beherrschen. Aber die wahre Kraft liegt in der Gemeinschaft unserer Region.\' Elena lächelt wissend, während begeisterter Beifall den Raum erfüllt.\n\n
+Nach der Feier ruhst du zwischen den Regalen, wo dein Abenteuer startete. Elena studiert bereits neue arkane Formeln, während Viktor zufrieden schmunzelt: \'Ein ganz normaler Tag in Mannheim, nicht wahr?\' Die DHBW-Bibliothek wird für immer ein Ort der Wunder bleiben.</string>
+
+    <string name="quest_10_mage_completion">Die finale Feier im Learning Center läutet das Ende eurer Quest ein. Die letzten temporalen Störungen verschwinden wie Morgennebel. Sofia, deren brillante Kampfkunst am Friedrichsplatz alles wendete, bekommt einen Ehrenplatz in den Annalen der Universität.\n\n
+\'Der Custos Rheni\', erklärt der Rektor mit dem bedeutsamen Buch in der Hand, \'träumte von der Herrschaft über die Zeit. Doch die wahre Magie liegt in der Einheit unserer Region.\' Shadow grinst verschmitzt, während tosender Applaus aufbrandet.\n\n
+Nach den Feierlichkeiten entspannst du zwischen den Regalen, wo sich das erste Kapitel öffnete. Shadow huscht bereits wieder durch die Schatten, während Sofia augenzwinkernd bemerkt: \'Ein völlig normaler Tag an der DHBW, oder?\' Die Bibliothek wird für immer ein Ort der Magie bleiben.</string>
 
 
-    <!-- Quest 1: Der erste Auftrag -->
-    <string name="quest_1_warrior_initial">Der Hauptmann der Wache benötigt Hilfe bei einem Banditenproblem</string>
-    <string name="quest_1_thief_initial">Ein Händler sucht jemanden für einen delikaten Auftrag</string>
-    <string name="quest_1_mage_initial">Der Erzmagier hat eine wichtige magische Anomalie entdeckt</string>
-
-    <string name="quest_1_warrior_solution">Die Banditen wurden in einer alten Mine gesichtet</string>
-    <string name="quest_1_thief_solution">Der gestohlene Gegenstand wurde in einer alten Mine versteckt</string>
-    <string name="quest_1_mage_solution">Die magische Störung kommt aus einer alten Mine</string>
-
-    <string name="quest_1_warrior_completion">Die Banditen wurden vertrieben</string>
-    <string name="quest_1_thief_completion">Der Gegenstand wurde erfolgreich zurückgebracht</string>
-    <string name="quest_1_mage_completion">Die magische Anomalie wurde behoben</string>
-
-    <!-- Quest 2: Der Wald der Geheimnisse -->
-    <string name="quest_2_warrior_initial">Der Krieger hört von seltsamen Geräuschen im Wald und benötigt Hilfe.</string>
-    <string name="quest_2_thief_initial">Ein Dieb hat von einem versteckten Schatz im Wald gehört und sucht nach Verbündeten.</string>
-    <string name="quest_2_mage_initial">Der Magier spürt eine magische Präsenz im Wald und bittet um Unterstützung.</string>
-
-    <string name="quest_2_warrior_solution">Die Spuren führen tiefer in den Wald hinein, wo das Unheil seinen Ursprung hat.</string>
-    <string name="quest_2_thief_solution">Der Schatz könnte in einer alten Ruine verborgen sein, die im Wald liegt.</string>
-    <string name="quest_2_mage_solution">Die magische Energie scheint von einem alten Artefakt auszugehen, das im Wald versteckt ist.</string>
-
-    <string name="quest_2_warrior_completion">Die Bedrohung im Wald wurde beseitigt und der Krieger kann wieder sicher patrouillieren.</string>
-    <string name="quest_2_thief_completion">Der Schatz wurde gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
-    <string name="quest_2_mage_completion">Die magische Präsenz wurde neutralisiert und der Wald ist wieder sicher.</string>
-
-    <!-- Quest 3: Die Höhle der Prüfungen -->
-    <string name="quest_3_warrior_initial">Ein Krieger berichtet von einer gefährlichen Höhle, die Monster beherbergt.</string>
-    <string name="quest_3_thief_initial">Ein Dieb hat gehört, dass wertvolle Schätze in der Höhle versteckt sind.</string>
-    <string name="quest_3_mage_initial">Der Magier hat von einer magischen Kreatur gehört, die in der Höhle lebt und die Gegend terrorisiert.</string>
-
-    <string name="quest_3_warrior_solution">Die Monster müssen besiegt werden, um die Höhle zu erkunden.</string>
-    <string name="quest_3_thief_solution">Die Schätze sind nur zugänglich, wenn die Wächter besiegt werden.</string>
-    <string name="quest_3_mage_solution">Die magische Kreatur muss besiegt werden, um die Geheimnisse der Höhle zu lüften.</string>
-
-    <string name="quest_3_warrior_completion">Die Höhle ist nun sicher und die Monster wurden besiegt.</string>
-    <string name="quest_3_thief_completion">Der Schatz wurde erfolgreich geborgen und der Dieb hat seinen Reichtum zurückgewonnen.</string>
-    <string name="quest_3_mage_completion">Die magische Kreatur wurde besiegt und das Geheimnis der Höhle gelüftet.</string>
-
-    <!-- Quest 4: Der Angriff auf das Schloss -->
-    <string name="quest_4_warrior_initial">Das Schloss wird von feindlichen Truppen angegriffen und benötigt Hilfe!</string>
-    <string name="quest_4_thief_initial">Ein Dieb hat Informationen über einen geheimen Zugang zum Schloss erhalten.</string>
-    <string name="quest_4_mage_initial">Der Magier benötigt Unterstützung, um eine magische Barriere um das Schloss zu brechen.</string>
-
-    <string name="quest_4_warrior_solution">Die feindlichen Truppen versammeln sich vor dem Haupttor; ein Angriff muss geplant werden.</string>
-    <string name="quest_4_thief_solution">Der geheime Zugang könnte den Unterschied machen; er muss schnell genutzt werden!</string>
-    <string name="quest_4_mage_solution">Die Barriere kann nur durch einen starken Zauber gebrochen werden; Unterstützung ist nötig!</string>
-
-    <string name="quest_4_warrior_completion">Das Schloss wurde verteidigt und die Feinde zurückgeschlagen!</string>
-    <string name="quest_4_thief_completion">Der geheime Zugang war erfolgreich; der Dieb hat wertvolle Informationen gesammelt!</string>
-    <string name="quest_4_mage_completion">Die magische Barriere ist gefallen; das Schloss ist wieder sicher!</string>
-
-    <!-- Quest 5: Die Ruinen der Vergangenheit -->
-    <string name="quest_5_warrior_initial">Der Krieger hat von einem geheimen Ort in den Ruinen gehört, der Schätze birgt.</string>
-    <string name="quest_5_thief_initial">Ein Dieb sucht nach verborgenen Reichtümern in den alten Ruinen.</string>
-    <string name="quest_5_mage_initial">Der Magier spürt eine magische Energie, die aus den Ruinen strömt.</string>
-
-    <string name="quest_5_warrior_solution">Die Ruinen sind voller Gefahren; der Krieger muss vorsichtig sein.</string>
-    <string name="quest_5_thief_solution">Die Schätze sind gut versteckt; der Dieb muss seine Fähigkeiten einsetzen.</string>
-    <string name="quest_5_mage_solution">Die magische Energie könnte von einem Artefakt stammen; es muss untersucht werden.</string>
-
-    <string name="quest_5_warrior_completion">Die Ruinen wurden erkundet und die Geheimnisse gelüftet.</string>
-    <string name="quest_5_thief_completion">Der Schatz wurde gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
-    <string name="quest_5_mage_completion">Die magische Quelle wurde entdeckt und die Gefahr gebannt.</string>
-
-    <!-- Quest 6: Der Sumpf der Schatten -->
-    <string name="quest_6_warrior_initial">Der Krieger hört von einem Sumpf, der von dunklen Kreaturen heimgesucht wird.</string>
-    <string name="quest_6_thief_initial">Ein Dieb hat von einem wertvollen Artefakt gehört, das im Sumpf verborgen ist.</string>
-    <string name="quest_6_mage_initial">Der Magier spürt eine dunkle Magie im Sumpf und benötigt Hilfe.</string>
-
-    <string name="quest_6_warrior_solution">Die dunklen Kreaturen müssen besiegt werden, um den Sumpf zu erkunden.</string>
-    <string name="quest_6_thief_solution">Das Artefakt ist nur zugänglich, wenn die Wächter des Sumpfes besiegt werden.</string>
-    <string name="quest_6_mage_solution">Die dunkle Magie muss neutralisiert werden, um den Sumpf zu reinigen.</string>
-
-    <string name="quest_6_warrior_completion">Der Sumpf ist nun sicher und die Kreaturen wurden vertrieben.</string>
-    <string name="quest_6_thief_completion">Das Artefakt wurde erfolgreich geborgen und der Dieb hat seinen Ruhm zurückgewonnen.</string>
-    <string name="quest_6_mage_completion">Die dunkle Magie wurde beseitigt und der Sumpf ist wieder sicher.</string>
-
-    <!-- Quest 7: Der Berg der Prüfungen -->
-    <string name="quest_7_warrior_initial">Der Krieger hört von einem Berg voller Herausforderungen und Gefahren.</string>
-    <string name="quest_7_thief_initial">Ein Dieb hat von wertvollen Schätzen gehört, die auf dem Berg verborgen sind.</string>
-    <string name="quest_7_mage_initial">Der Magier spürt eine starke magische Energie, die vom Gipfel des Berges ausgeht.</string>
-
-    <string name="quest_7_warrior_solution">Um den Gipfel zu erreichen, müssen viele Prüfungen bestanden werden.</string>
-    <string name="quest_7_thief_solution">Die Schätze sind nur zugänglich, wenn die Fallen überwunden werden.</string>
-    <string name="quest_7_mage_solution">Die magische Energie muss untersucht werden, um ihre Quelle zu finden.</string>
-
-    <string name="quest_7_warrior_completion">Der Gipfel des Berges wurde erreicht und die Herausforderungen gemeistert.</string>
-    <string name="quest_7_thief_completion">Die Schätze wurden gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
-    <string name="quest_7_mage_completion">Die magische Quelle wurde entdeckt und ihre Geheimnisse gelüftet.</string>
-
-    <!-- Quest 8: Die alten Ruinen -->
-    <string name="quest_8_warrior_initial">Der Krieger hat von den alten Ruinen gehört, die voller Geheimnisse sind.</string>
-    <string name="quest_8_thief_initial">Ein Dieb sucht nach verborgenen Schätzen in den alten Ruinen.</string>
-    <string name="quest_8_mage_initial">Der Magier spürt eine starke magische Präsenz in den Ruinen.</string>
-
-    <string name="quest_8_warrior_solution">Die Ruinen sind gefährlich; der Krieger muss vorsichtig sein.</string>
-    <string name="quest_8_thief_solution">Die Schätze sind gut versteckt; der Dieb muss seine Fähigkeiten einsetzen.</string>
-    <string name="quest_8_mage_solution">Die magische Energie könnte von einem Artefakt stammen; es muss untersucht werden.</string>
-
-    <string name="quest_8_warrior_completion">Die Geheimnisse der Ruinen wurden gelüftet und die Gefahren besiegt.</string>
-    <string name="quest_8_thief_completion">Der Schatz wurde gefunden und der Dieb hat seinen Ruhm zurückgewonnen.</string>
-    <string name="quest_8_mage_completion">Die magische Quelle wurde entdeckt und die Gefahr neutralisiert.</string>
-
-    <!-- Quest 9: Der dunkle Wald -->
-    <string name="quest_9_warrior_initial">Der Krieger hört von einem dunklen Wald, der von gefährlichen Kreaturen bewohnt wird.</string>
-    <string name="quest_9_thief_initial">Ein Dieb hat von einem wertvollen Artefakt gehört, das im dunklen Wald verborgen ist.</string>
-    <string name="quest_9_mage_initial">Der Magier spürt eine dunkle Magie im Wald und benötigt Hilfe.</string>
-
-    <string name="quest_9_warrior_solution">Die Kreaturen müssen besiegt werden, um den Wald zu erkunden.</string>
-    <string name="quest_9_thief_solution">Das Artefakt ist nur zugänglich, wenn die Wächter des Waldes besiegt werden.</string>
-    <string name="quest_9_mage_solution">Die dunkle Magie muss neutralisiert werden, um den Wald zu reinigen.</string>
-
-    <string name="quest_9_warrior_completion">Der Wald ist nun sicher und die Kreaturen wurden vertrieben.</string>
-    <string name="quest_9_thief_completion">Das Artefakt wurde erfolgreich geborgen und der Dieb hat seinen Ruhm zurückgewonnen.</string>
-    <string name="quest_9_mage_completion">Die dunkle Magie wurde beseitigt und der Wald ist wieder sicher.</string>
-
-    <!-- Quest 10: Der letzte Kampf -->
-    <string name="quest_10_warrior_initial">Der Krieger bereitet sich auf den letzten Kampf gegen die Dunkelheit vor!</string>
-    <string name="quest_10_thief_initial">Ein Dieb hat Informationen über den Aufenthaltsort des Endgegners erhalten!</string>
-    <string name="quest_10_mage_initial">Der Magier spürt, dass die finale Konfrontation bevorsteht; er benötigt Unterstützung!</string>
-
-    <string name="quest_10_warrior_solution">Um zu gewinnen, müssen alle Kräfte gebündelt werden!</string>
-    <string name="quest_10_thief_solution">Der Dieb muss seine Fähigkeiten nutzen, um den Feind zu überlisten!</string>
-    <string name="quest_10_mage_solution">Die magische Barriere muss durchbrochen werden, um den Endgegner zu erreichen!</string>
-
-    <string name="quest_10_warrior_completion">Der letzte Kampf wurde gewonnen und das Königreich ist gerettet!</string>
-    <string name="quest_10_thief_completion">Der Dieb hat den Endgegner überlistet und seine Beute gesichert!</string>
-    <string name="quest_10_mage_completion">Die Dunkelheit wurde besiegt und das Gleichgewicht der Magie wiederhergestellt!</string>
     <string name="quest_location_id">QUEST_LOCATION_ID</string>
     <string name="choose_your_class">Wähle deine Klasse:</string>
     <string name="create_your_character">Erstelle deinen Charakter</string>
@@ -168,7 +405,7 @@
     <string name="level_up_information">Level-Up Information</string>
     <string name="max_level_reached">Maximallevel erreicht!</string>
     <string name="add_test_xp_button">Add 250 XP</string>
-    <string name="try_level_up_button">Level-Up-Try</string>
+    <string name="try_level_up_button">Level Up!</string>
     <string name="random_character_1">Thoren der Schmied</string>
     <string name="random_character_2">Elara die Kräuterkundige</string>
     <string name="random_character_3">Garrick der Waffenhändler</string>
@@ -211,5 +448,94 @@
     <string name="rand_quest_story_15">" wurde von einem Gestaltwandler getäuscht und in einen Käfig gesperrt. Dein scharfer Verstand durchschaute die List und befreite den dankbaren Gefangenen."</string>
     <string name="rand_quest_story_16">" geriet in einen Zeitwirbel und drohte, aus der Existenz gelöscht zu werden. Dein beherzter Sprung in den Wirbel rettete beide und brachte euch in eine faszinierende Zukunft."</string>
     <string name="rand_quest_progress">Rand_Quest_Progress</string>
+    <string name="accept_terms">Ich bin mindestens 18 Jahre alt und mit den Bedingungen einverstanden.</string>
+    <string name="continue_button">Weiter</string>
+    <string name="welcome_title">Uncover</string>
+    <string name="no_back_dialog_header">Beenden</string>
+    <string name="no_back_dialog_message">Möchtest du die App wirklich beenden?</string>
+    <string name="no_back_dialog_accept">Ja</string>
+    <string name="no_back_dialog_dismiss">Nein</string>
+
+
+    <string name="achievement_1">Erste Schritte (Beende die erste Hauptquest)</string>
+    <string name="achievement_2">Questjäger (Beende die zweite Hauptquest)</string>
+    <string name="achievement_3">Questprofi (Beende die dritte Hauptquest)</string>
+    <string name="achievement_4">Questmeister (Beende die vierte Hauptquest)</string>
+    <string name="achievement_5">Questexperte (Beende die fünfte Hauptquest)</string>
+    <string name="achievement_6">Questvirtuose (Beende die sechste Hauptquest)</string>
+    <string name="achievement_7">Questchampion (Beende die siebte Hauptquest)</string>
+    <string name="achievement_8">Questlegende (Beende die achte Hauptquest)</string>
+    <string name="achievement_9">Questheld (Beende die neunte Hauptquest)</string>
+    <string name="achievement_10">Questbezwinger (Beende die zehnte Hauptquest)</string>
+
+    <!-- Nebenquest Achievements -->
+    <string name="achievement_11">Neugieriger Erkunder (Beende 1 Nebenquest)</string>
+    <string name="achievement_12">Fleißiger Helfer (Beende 3 Nebenquests)</string>
+    <string name="achievement_13">Engagierter Abenteurer (Beende 5 Nebenquests)</string>
+    <string name="achievement_14">Questsammler (Beende 10 Nebenquests)</string>
+    <string name="achievement_15">Questkönig (Beende 25 Nebenquests)</string>
+
+    <!-- Level Achievements -->
+    <string name="achievement_16">Anfänger (Erreiche Level 5)</string>
+    <string name="achievement_17">Fortgeschrittener (Erreiche Level 10)</string>
+    <string name="achievement_18">Experte (Erreiche Level 15)</string>
+    <string name="achievement_19">Meister (Erreiche Level 20)</string>
+    <string name="achievement_20">Großmeister (Erreiche Level 25)</string>
+
+    <!-- XP Achievements -->
+    <string name="achievement_21">XP-Sammler (Sammle 100 XP)</string>
+    <string name="achievement_22">XP-Jäger (Sammle 1000 XP)</string>
+    <string name="achievement_23">XP-Meister (Sammle 5000 XP)</string>
+    <string name="achievement_24">XP-Champion (Sammle 10000 XP)</string>
+
+    <!-- Finale Achievement -->
+    <string name="achievement_25">Uncover-Legende (Schalte alle anderen Erfolge frei)</string>
+    <string name="menu_achievements">Erfolge</string>
+    <string name="level_up_max_reached">Du hast das maximale Level bereits erreicht!</string>
+    <string name="player_stats_mana">Mana</string>
+    <string name="player_stats_health">Leben</string>
+    <string name="player_stats_stamina">Ausdauer</string>
+    <string name="player_stats_experience">Erfahrungspunkte: %1d / %2d</string>
+    <string name="player_stats_level">Level %1$s</string>
+    <string name="button_ok">OK</string>
+    <string name="welcome_text_disclaimer">Alle Spieldaten (Quests, Fortschritt, Charakterentwicklung, Erfolge) werden ausschließlich lokal auf deinem Gerät gespeichert. Kartendaten von OpenStreetMap (OSM) werden zur Reduzierung des Datenverbrauchs zwischengespeichert. Es werden keine persönlichen Standortdaten gespeichert.</string>
+    <string name="welcome_text_data_privacy">"Datenschutz: "</string>
+    <string name="welcome_text_title">Willkommen in Ludwigshafen und Mannheim!</string>
+    <string name="welcome_text_mainquest">Hauptquest</string>
+    <string name="welcome_text_mainquests">" = Hauptquests"</string>
+    <string name="welcome_text_randquest">Nebenquest</string>
+    <string name="welcome_text_randquests">" = Nebenquests"</string>
+    <string name="welcome_text_experience">Sammle Erfahrungspunkte durch das Abschließen von Quests und entwickle deinen Charakter weiter.</string>
+    <string name="welcome_text_info">Wichtige Informationen:</string>
+    <string name="welcome_text_internet">• Internetverbindung wird für das Laden der Karte benötigt</string>
+    <string name="welcome_text_location">• Standortfreigabe ermöglicht das Spielen von Quests in deiner Nähe</string>
+    <string name="welcome_text_fog_of_war">• Quests werden in einem bestimmten Radius um deinen Standort freigeschaltet</string>
+    <string name="enter_character_name">Gib den Namen deines Spielcharacters ein:</string>
+    <string name="start_game">Spiel starten (Zur Karte)</string>
+    <string name="rand_quest_title">Nebenquest</string>
+    <string name="rand_quest_subtitle">Ein mysteriöses Ereignis am Wegesrand…</string>
+    <string name="rand_quest_finish">Quest abschließen</string>
+    <string name="map_no_internet">Keine Internetverbindung</string>
+    <string name="map_no_internet_info">Für die Darstellung der Karte wird eine aktive Internetverbindung benötigt. Bitte stelle sicher, dass du mit dem Internet verbunden bist.</string>
+    <string name="map_no_internet_settings">Zu den Netzwerk-Einstellungen</string>
+    <string name="map_no_internet_close">Schließen</string>
+    <string name="map_no_location">Standort-Berechtigung</string>
+    <string name="map_no_location_info">Ohne Standort-Zugriff kann dein Character nicht auf der Karte angezeigt werden und keine Quests entdecken. Du kannst die Berechtigung in den Einstellungen aktivieren.</string>
+    <string name="map_no_location_settings">Zu den Einstellungen</string>
+    <string name="map_no_location_dismiss">Trotzdem fortfahren</string>
+    <string name="map_location_disabled">Standort deaktiviert</string>
+    <string name="map_location_disabled_info">Der Standortdienst ist deaktiviert. Ohne aktiven Standort können keine Quests entdeckt werden.</string>
+    <string name="map_location_settings">Standort aktivieren</string>
+    <string name="map_continue_anyway">Trotzdem fortfahren</string>
+    <string name="map_outside_bounds">Außerhalb des Spielbereichs</string>
+    <string name="map_outside_bounds_info">Du befindest dich außerhalb des Spielbereichs. In diesem Bereich können keine Quests entdeckt werden.</string>
+    <string name="map_no_location_signal">Kein GPS-Signal</string>
+    <string name="map_no_location_signal_info">Dein Standort konnte nicht ermittelt werden. Stelle sicher, dass du dich an einem Ort mit GPS-Empfang befindest.</string>
+    <string name="fallback_character_name">Unbekannter Character</string>
+    <string name="fallback_quest_story">" in einer unbekannten Mission."</string>
+    <string name="error_no_locations_available">No location available: Check location init.</string>
+    <string name="main_quest_content_title">Hauptquest</string>
+    <string name="main_quest_content_progress">Questfortschritt</string>
+
 
 </resources>

@@ -1,10 +1,13 @@
 package com.github.cstrerath.uncover.domain.quest.randquest.generators
 
 import android.content.Context
+import android.util.Log
 import com.github.cstrerath.uncover.R
 
 class QuestActionGenerator(private val context: Context) {
+    private val tag = "QuestActionGenerator"
 
+    // Fixed resource IDs are preferred over getIdentifier() for better build optimization
     private val questActions = listOf(
         context.getString(R.string.rand_quest_story_1),
         context.getString(R.string.rand_quest_story_2),
@@ -23,8 +26,16 @@ class QuestActionGenerator(private val context: Context) {
         context.getString(R.string.rand_quest_story_15),
         context.getString(R.string.rand_quest_story_16)
     )
-    
-    fun getRandomQuestStory () : String {
-        return questActions.random()
+
+    fun getRandomQuestStory(): String {
+        return try {
+            questActions.random().also {
+                Log.d(tag, "Generated random quest story")
+                Log.v(tag, "Selected story: $it")
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error generating random quest story: ${e.message}")
+            context.getString(R.string.fallback_quest_story)
+        }
     }
 }

@@ -11,22 +11,28 @@ class LevelUpManager(
     private val xpCalculator: XpCalculator,
     private val statCalculator: StatCalculator
 ) {
-    companion object {
-        private const val MAX_LEVEL = 25
-        private const val TAG = "LevelUpManager"
-    }
+    private val tag = "LevelUpManager"
 
     suspend fun tryLevelUp() {
+        Log.d(tag, "Starting level up process")
         try {
             performLevelUp()
         } catch (e: Exception) {
-            Log.e(TAG, "Error during level up", e)
+            Log.e(tag, "Error during level up: ${e.message}", e)
+            throw e
         }
     }
 
     private suspend fun performLevelUp() {
-        val player = repository.getPlayer() ?: return
-        if (!canLevelUp(player)) return
+        val player = repository.getPlayer() ?: run {
+            Log.w(tag, "No player found for level up")
+            return
+        }
+
+        if (!canLevelUp(player)) {
+            Log.d(tag, "Level up conditions not met")
+            return
+        }
 
         val requiredXp = xpCalculator.calculateRequiredXp(player.level + 1)
         val statIncrease = statCalculator.getStatIncreaseForClass(player.characterClass)
@@ -40,20 +46,27 @@ class LevelUpManager(
         )
 
         repository.updateCharacter(updatedPlayer)
-        Log.i(TAG, "Level up successful: Level ${player.level} -> ${updatedPlayer.level}")
+        Log.i(tag, "Level up successful: ${player.level} -> ${updatedPlayer.level}")
+        Log.d(tag, "New stats - HP: ${updatedPlayer.health}, MP: ${updatedPlayer.mana}, SP: ${updatedPlayer.stamina}")
     }
 
     private fun canLevelUp(player: GameCharacter): Boolean {
         if (player.level >= MAX_LEVEL) {
-            Log.i(TAG, "Maximum level already reached")
+            Log.i(tag, "Maximum level ($MAX_LEVEL) already reached")
             return false
         }
 
         val requiredXp = xpCalculator.calculateRequiredXp(player.level + 1)
-        if (player.experience < requiredXp) {
-            Log.i(TAG, "Not enough XP: ${player.experience}/$requiredXp")
-            return false
+        return if (player.experience >= requiredXp) {
+            Log.d(tag, "Level up possible - XP: ${player.experience}/$requiredXp")
+            true
+        } else {
+            Log.d(tag, "Insufficient XP for level up: ${player.experience}/$requiredXp")
+            false
         }
-        return true
+    }
+
+    companion object {
+        private const val MAX_LEVEL = 25
     }
 }

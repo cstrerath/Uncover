@@ -1,6 +1,7 @@
 package com.github.cstrerath.uncover.domain.character.progression
 
 import android.content.Context
+import android.util.Log
 import com.github.cstrerath.uncover.data.repository.CharacterRepository
 import com.github.cstrerath.uncover.domain.character.calculator.StatCalculator
 import com.github.cstrerath.uncover.domain.character.calculator.XpCalculator
@@ -9,8 +10,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-// CharacterProgression.kt
 class CharacterProgression(context: Context) {
+    private val tag = "CharacterProgression"
     private val repository = CharacterRepository(context)
     private val xpCalculator = XpCalculator()
     private val statCalculator = StatCalculator()
@@ -19,21 +20,35 @@ class CharacterProgression(context: Context) {
     private val xpManager = XpManager(repository)
     private val levelUpManager = LevelUpManager(repository, xpCalculator, statCalculator)
 
-    fun getRequiredXpForNextLevel(currentLevel: Int): Int =
-        xpCalculator.getRequiredXpForNextLevel(currentLevel)
+    fun getRequiredXpForNextLevel(currentLevel: Int): Int {
+        Log.d(tag, "Calculating required XP for level ${currentLevel + 1}")
+        return xpCalculator.getRequiredXpForNextLevel(currentLevel)
+    }
 
-    fun getRemainingXp(currentLevel: Int, currentXp: Int): Int =
-        xpCalculator.getRemainingXp(currentLevel, currentXp)
+    fun getRemainingXp(currentLevel: Int, currentXp: Int): Int {
+        Log.d(tag, "Calculating remaining XP for level $currentLevel (Current: $currentXp)")
+        return xpCalculator.getRemainingXp(currentLevel, currentXp)
+    }
 
     fun addTestXp() {
+        Log.d(tag, "Adding test XP")
         coroutineScope.launch {
-            xpManager.addTestXp()
+            try {
+                xpManager.addTestXp()
+            } catch (e: Exception) {
+                Log.e(tag, "Failed to add test XP: ${e.message}")
+            }
         }
     }
 
     fun tryLevelUp() {
+        Log.d(tag, "Attempting level up")
         coroutineScope.launch {
-            levelUpManager.tryLevelUp()
+            try {
+                levelUpManager.tryLevelUp()
+            } catch (e: Exception) {
+                Log.e(tag, "Failed to level up: ${e.message}")
+            }
         }
     }
 }

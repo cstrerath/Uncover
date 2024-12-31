@@ -16,4 +16,7 @@ interface QuestStepDao {
 
     @Insert
     fun insertQuestStep(questStep: QuestStep)
+
+    @Query("SELECT COUNT(*) FROM quest_steps")
+    suspend fun getStepCount(): Int
 }

@@ -1,9 +1,13 @@
 package com.github.cstrerath.uncover.domain.quest.randquest.generators
 
 import android.content.Context
+import android.util.Log
 import com.github.cstrerath.uncover.R
 
 class NameGenerator(private val context: Context) {
+    private val tag = "NameGenerator"
+
+    // Fixed resource IDs are preferred over getIdentifier() for better build optimization
     private val names = listOf(
         context.getString(R.string.random_character_1),
         context.getString(R.string.random_character_2),
@@ -29,11 +33,17 @@ class NameGenerator(private val context: Context) {
         context.getString(R.string.random_character_22),
         context.getString(R.string.random_character_23),
         context.getString(R.string.random_character_24),
-        context.getString(R.string.random_character_25),
+        context.getString(R.string.random_character_25)
     )
 
-    fun getRandomName() : String {
-        return names.random()
+    fun getRandomName(): String {
+        return try {
+            names.random().also {
+                Log.d(tag, "Generated random name: $it")
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error generating random name: ${e.message}")
+            context.getString(R.string.fallback_character_name)
+        }
     }
-
 }

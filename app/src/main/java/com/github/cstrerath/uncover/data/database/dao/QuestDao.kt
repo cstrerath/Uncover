@@ -15,4 +15,7 @@ interface QuestDao {
 
     @Insert
     fun insertQuest(quest: Quest)
+
+    @Query("SELECT COUNT(*) FROM quests")
+    suspend fun getQuestCount(): Int
 }
