@@ -276,8 +276,26 @@
     <string name="enter_character_name">Gib den Namen deines Spielcharacters ein:</string>
     <string name="start_game">Spiel starten (Zur Karte)</string>
     <string name="rand_quest_title">Nebenquest</string>
-    <string name="rand_quest_subtitle">Ein mysteriöses Ereignis am Wegesrand...</string>
+    <string name="rand_quest_subtitle">Ein mysteriöses Ereignis am Wegesrand…</string>
     <string name="rand_quest_finish">Quest abschließen</string>
+    <string name="map_no_internet">Keine Internetverbindung</string>
+    <string name="map_no_internet_info">Für die Darstellung der Karte wird eine aktive Internetverbindung benötigt. Bitte stelle sicher, dass du mit dem Internet verbunden bist.</string>
+    <string name="map_no_internet_settings">Zu den Netzwerk-Einstellungen</string>
+    <string name="map_no_internet_close">Schließen</string>
+    <string name="map_no_location">Standort-Berechtigung</string>
+    <string name="map_no_location_info">Ohne Standort-Zugriff kann dein Character nicht auf der Karte angezeigt werden und keine Quests entdecken. Du kannst die Berechtigung in den Einstellungen aktivieren.</string>
+    <string name="map_no_location_settings">Zu den Einstellungen</string>
+    <string name="map_no_location_dismiss">Trotzdem fortfahren</string>
+    <string name="map_location_disabled">Standort deaktiviert</string>
+    <string name="map_location_disabled_info">Der Standortdienst ist deaktiviert. Ohne aktiven Standort können keine Quests entdeckt werden.</string>
+    <string name="map_location_settings">Standort aktivieren</string>
+    <string name="map_continue_anyway">Trotzdem fortfahren</string>
+    <string name="map_outside_bounds">Außerhalb des Spielbereichs</string>
+    <string name="map_outside_bounds_info">Du befindest dich außerhalb des Spielbereichs. In diesem Bereich können keine Quests entdeckt werden.</string>
+    <string name="map_no_location_signal">Kein GPS-Signal</string>
+    <string name="map_no_location_signal_info">Dein Standort konnte nicht ermittelt werden. Stelle sicher, dass du dich an einem Ort mit GPS-Empfang befindest.</string>
+
+
 
 
 </resources>
