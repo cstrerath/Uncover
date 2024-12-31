@@ -3,6 +3,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -33,11 +34,18 @@ class MapActivity : BaseActivity() {
             Manifest.permission.ACCESS_FINE_LOCATION,
             false
         )
+        Log.d(TAG, "Location permission granted: $hasLocationPermission")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "Creating Map Activity")
         initializeComponents()
+        setupContent()
+        checkLocationPermissions()
+    }
+
+    private fun setupContent() {
         setContent {
             UncoverTheme {
                 UncoverBaseScreen(0.dp) {
@@ -51,10 +59,10 @@ class MapActivity : BaseActivity() {
                 }
             }
         }
-        checkLocationPermissions()
     }
 
     private fun initializeComponents() {
+        Log.d(TAG, "Initializing components")
         Configuration.getInstance().load(this, getPreferences(MODE_PRIVATE))
         locationValidator = LocationValidator(this)
         initializeQuestLauncher()
@@ -63,18 +71,18 @@ class MapActivity : BaseActivity() {
     private fun initializeQuestLauncher() {
         questLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
-        ) { _ ->
-            restartActivity()
-        }
+        ) { _ -> restartActivity() }
     }
 
     private fun restartActivity() {
+        Log.d(TAG, "Restarting Map Activity")
         finish()
         startActivity(intent)
     }
 
     override fun onResume() {
         super.onResume()
+        Log.d(TAG, "Resuming Map Activity")
         refreshLocationChecks()
     }
 
@@ -88,18 +96,21 @@ class MapActivity : BaseActivity() {
             checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED -> {
                 hasLocationPermission = true
+                Log.d(TAG, "Location permission already granted")
             }
             else -> requestLocationPermissions()
         }
     }
 
     private fun requestLocationPermissions() {
+        Log.d(TAG, "Requesting location permissions")
         locationPermissionRequest.launch(arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION
         ))
     }
+
+    companion object {
+        private const val TAG = "MapActivity"
+    }
 }
-
-
-
