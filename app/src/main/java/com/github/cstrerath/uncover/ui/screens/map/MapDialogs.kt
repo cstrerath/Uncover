@@ -1,4 +1,4 @@
-package com.github.cstrerath.uncover.ui.screens.map.dialog
+package com.github.cstrerath.uncover.ui.screens.map
 
 import android.content.Intent
 import android.net.Uri
