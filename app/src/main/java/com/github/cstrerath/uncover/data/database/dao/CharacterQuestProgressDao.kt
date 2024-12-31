@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
-import com.github.cstrerath.uncover.data.database.entities.QuestStage
 
 @Dao
 interface CharacterQuestProgressDao {
@@ -17,9 +16,6 @@ interface CharacterQuestProgressDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateProgress(progress: CharacterQuestProgress)
-
-    @Query("SELECT questId FROM character_quest_progress WHERE characterId = :characterId AND stage < :stage")
-    suspend fun getActiveQuestIds(characterId: String, stage: QuestStage = QuestStage.COMPLETED): List<Int>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertProgress(progress: CharacterQuestProgress)

@@ -2,7 +2,7 @@ package com.github.cstrerath.uncover.domain.auth
 
 import android.content.Context
 import com.github.cstrerath.uncover.data.database.AppDatabase
-import com.github.cstrerath.uncover.data.database.initialization.DatabaseInitializer
+import com.github.cstrerath.uncover.data.database.initialization.DatabaseInitializationManager
 
 class LoginManager(private val context: Context) {
     suspend fun performInitialCheck(): Boolean {
@@ -11,7 +11,7 @@ class LoginManager(private val context: Context) {
     }
 
     private suspend fun initializeDatabase() {
-        DatabaseInitializer(context).initializedDatabase()
+        DatabaseInitializationManager(context).initializedDatabase()
     }
 
     private suspend fun checkForExistingPlayer(): Boolean {

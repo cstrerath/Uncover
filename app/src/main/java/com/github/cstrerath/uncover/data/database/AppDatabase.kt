@@ -4,7 +4,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
+import android.util.Log
 import androidx.room.TypeConverters
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.github.cstrerath.uncover.data.database.dao.AchievementDao
 import com.github.cstrerath.uncover.data.database.entities.CharacterQuestProgress
 import com.github.cstrerath.uncover.data.database.dao.CharacterQuestProgressDao
@@ -45,22 +47,39 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         private const val DATABASE_NAME = "app_database"
+        private const val TAG = "AppDatabase"
 
         @Volatile
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
+                Log.d(TAG, "Creating new database instance")
+                instance ?: buildDatabase(context).also {
+                    instance = it
+                    Log.d(TAG, "Database instance created successfully")
+                }
             }
         }
 
         private fun buildDatabase(context: Context): AppDatabase {
+            Log.d(TAG, "Building database with version 6")
             return Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
                 DATABASE_NAME
-            ).build()
+            ).addCallback(object : Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    Log.i(TAG, "Database created")
+                }
+
+                override fun onOpen(db: SupportSQLiteDatabase) {
+                    super.onOpen(db)
+                    Log.d(TAG, "Database opened")
+                }
+            }).build()
         }
     }
+
 }
