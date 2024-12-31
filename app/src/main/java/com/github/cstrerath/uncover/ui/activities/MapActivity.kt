@@ -26,6 +26,7 @@ class MapActivity : BaseActivity() {
     private var internetCheckKey by mutableIntStateOf(0)
     private var locationCheckKey by mutableIntStateOf(0)
     private var hasLocationPermission by mutableStateOf(false)
+    private var isPermissionCheckComplete by mutableStateOf(false)
 
     private val locationPermissionRequest = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -34,6 +35,7 @@ class MapActivity : BaseActivity() {
             Manifest.permission.ACCESS_FINE_LOCATION,
             false
         )
+        isPermissionCheckComplete = true
         Log.d(TAG, "Location permission granted: $hasLocationPermission")
     }
 
@@ -41,22 +43,36 @@ class MapActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "Creating Map Activity")
         initializeComponents()
-        setupContent()
+        setContent {
+            UncoverTheme {
+                // Warte auf Permission-Check-Ergebnis
+                if (isPermissionCheckComplete) {
+                    UncoverBaseScreen(0.dp) {
+                        MapScreen(questLauncher)
+                        LocationValidationScreen(
+                            locationValidator = locationValidator,
+                            hasLocationPermission = hasLocationPermission,
+                            internetCheckKey = internetCheckKey,
+                            locationCheckKey = locationCheckKey
+                        )
+                    }
+                }
+            }
+        }
         checkLocationPermissions()
     }
 
-    private fun setupContent() {
-        setContent {
-            UncoverTheme {
-                UncoverBaseScreen(0.dp) {
-                    MapScreen(questLauncher)
-                    LocationValidationScreen(
-                        locationValidator = locationValidator,
-                        hasLocationPermission = hasLocationPermission,
-                        internetCheckKey = internetCheckKey,
-                        locationCheckKey = locationCheckKey
-                    )
-                }
+    private fun checkLocationPermissions() {
+        when {
+            checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED -> {
+                hasLocationPermission = true
+                isPermissionCheckComplete = true
+                Log.d(TAG, "Location permission already granted")
+            }
+            else -> {
+                Log.d(TAG, "Requesting location permissions")
+                requestLocationPermissions()
             }
         }
     }
@@ -91,16 +107,6 @@ class MapActivity : BaseActivity() {
         locationCheckKey++
     }
 
-    private fun checkLocationPermissions() {
-        when {
-            checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED -> {
-                hasLocationPermission = true
-                Log.d(TAG, "Location permission already granted")
-            }
-            else -> requestLocationPermissions()
-        }
-    }
 
     private fun requestLocationPermissions() {
         Log.d(TAG, "Requesting location permissions")
