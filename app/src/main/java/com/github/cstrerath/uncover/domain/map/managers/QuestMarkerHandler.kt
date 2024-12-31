@@ -20,73 +20,98 @@ import com.github.cstrerath.uncover.ui.activities.QuestActivity
 import com.github.cstrerath.uncover.ui.activities.RandQuestActivity
 
 class QuestMarkerHandler(private val context: Context) {
+    private val tag = "QuestMarkerHandler"
+    private val database = AppDatabase.getInstance(context)
+
     suspend fun loadPlayerAndQuestData(
         mapView: MapView?,
         questLauncher: ActivityResultLauncher<Intent>
     ) {
-        val database = AppDatabase.getInstance(context)
-        val player = database.gameCharacterDao().getPlayerCharacter() ?: return
+        Log.d(tag, "Loading player and quest data")
+        try {
+            val player = database.gameCharacterDao().getPlayerCharacter() ?: run {
+                Log.w(tag, "No player character found")
+                return
+            }
 
-        val progressManager = QuestProgressHandler(
-            database.characterQuestProgressDao(),
-            database.questDao(),
-            XpManager(CharacterRepository(context))
-        )
+            val progressManager = createProgressManager()
+            val randQuestProgressHandler = createRandQuestProgressHandler()
 
-        val randQuestProgressHandler = RandQuestProgressHandler(
-            context,
-            database.characterQuestProgressDao(),
-            database.randomQuestDatabaseDao(),
-            XpManager(CharacterRepository(context))
-        )
+            val activeLocationIds = getActiveLocations(
+                player.id,
+                progressManager,
+                randQuestProgressHandler
+            )
 
-        val activeMainLocationIds = progressManager.getActiveQuestLocations(player.id)
-        val activeRandLocationId = randQuestProgressHandler.getActiveRandQuestLocation(player.id)
-
-        val activeLocationIds = activeMainLocationIds.toMutableList().apply {
-            activeRandLocationId?.let { add(it) }
-        }
-
-        mapView?.let { map ->
-            handleQuestMarkers(
-                ids = activeLocationIds,
-                mapView = map,
-                locationOverlay = map.overlays.filterIsInstance<MyLocationNewOverlay>().firstOrNull()
-                    ?: return,
-                onMarkerClick = { locationId, isRandomQuest ->
+            mapView?.let { map ->
+                val locationOverlay = findLocationOverlay(map) ?: run {
+                    Log.e(tag, "Location overlay not found")
+                    return
+                }
+                handleQuestMarkers(activeLocationIds, map, locationOverlay) { locationId, isRandomQuest ->
                     createAndLaunchQuestIntent(questLauncher, locationId, isRandomQuest)
                 }
-            )
+            } ?: Log.w(tag, "MapView is null")
+        } catch (e: Exception) {
+            Log.e(tag, "Error loading quest data: ${e.message}")
         }
-
     }
+
+    private fun createProgressManager() = QuestProgressHandler(
+        database.characterQuestProgressDao(),
+        database.questDao(),
+        XpManager(CharacterRepository(context))
+    )
+
+    private fun createRandQuestProgressHandler() = RandQuestProgressHandler(
+        context,
+        database.characterQuestProgressDao(),
+        database.randomQuestDatabaseDao(),
+        XpManager(CharacterRepository(context))
+    )
+
+    private suspend fun getActiveLocations(
+        playerId: String,
+        progressManager: QuestProgressHandler,
+        randQuestProgressHandler: RandQuestProgressHandler
+    ): List<Int> {
+        Log.d(tag, "Getting active locations for player: $playerId")
+        val mainLocations = progressManager.getActiveQuestLocations(playerId)
+        val randLocation = randQuestProgressHandler.getActiveRandQuestLocation(playerId)
+
+        return mainLocations.toMutableList().apply {
+            randLocation?.let { add(it) }
+        }.also {
+            Log.d(tag, "Found ${it.size} active locations")
+        }
+    }
+
+    private fun findLocationOverlay(mapView: MapView): MyLocationNewOverlay? =
+        mapView.overlays.filterIsInstance<MyLocationNewOverlay>().firstOrNull()
 
     private fun createAndLaunchQuestIntent(
         questLauncher: ActivityResultLauncher<Intent>,
         locationId: Int,
         isRandomQuest: Boolean
     ) {
+        Log.d(tag, "Creating intent for location $locationId (Random: $isRandomQuest)")
         val intent = if (isRandomQuest) {
-            Log.i("MAP_HANDLER","Value of isRandomQuest: $isRandomQuest.toString()")
-            Intent(context, RandQuestActivity::class.java).apply {
-                putExtra(context.getString(R.string.quest_location_id), locationId)
-            }
+            Intent(context, RandQuestActivity::class.java)
         } else {
-            Log.i("MAP_HANDLER", "Value of isRandomQuest: $isRandomQuest.toString()")
-            Intent(context, QuestActivity::class.java).apply {
-                putExtra(context.getString(R.string.quest_location_id), locationId)
-            }
+            Intent(context, QuestActivity::class.java)
+        }.apply {
+            putExtra(context.getString(R.string.quest_location_id), locationId)
         }
         questLauncher.launch(intent)
     }
-
 
     private suspend fun handleQuestMarkers(
         ids: List<Int>,
         mapView: MapView,
         locationOverlay: MyLocationNewOverlay,
-        onMarkerClick: (Int,Boolean) -> Unit
+        onMarkerClick: (Int, Boolean) -> Unit
     ) {
+        Log.d(tag, "Handling ${ids.size} quest markers")
         withContext(Dispatchers.IO) {
             removeExistingMarkers(mapView)
             addNewMarkers(ids, mapView, locationOverlay, onMarkerClick)
@@ -95,8 +120,11 @@ class QuestMarkerHandler(private val context: Context) {
     }
 
     private suspend fun removeExistingMarkers(mapView: MapView) {
+        Log.d(tag, "Removing existing markers")
         withContext(Dispatchers.Main) {
+            val removedCount = mapView.overlays.count { it is QuestMarkerOverlay }
             mapView.overlays.removeAll { it is QuestMarkerOverlay }
+            Log.d(tag, "Removed $removedCount markers")
         }
     }
 
@@ -104,30 +132,35 @@ class QuestMarkerHandler(private val context: Context) {
         ids: List<Int>,
         mapView: MapView,
         locationOverlay: MyLocationNewOverlay,
-        onMarkerClick: (Int,Boolean) -> Unit
+        onMarkerClick: (Int, Boolean) -> Unit
     ) {
-        val database = AppDatabase.getInstance(context)
+        Log.d(tag, "Adding new markers")
         val locationDao = database.locationDao()
+        var addedCount = 0
 
         ids.forEach { locationId ->
-            val location = locationDao.getLocation(locationId) ?: return@forEach
-            addMarkerToMap(location, mapView, locationOverlay, onMarkerClick)
+            locationDao.getLocation(locationId)?.let { location ->
+                addMarkerToMap(location, mapView, locationOverlay, onMarkerClick)
+                addedCount++
+            } ?: Log.w(tag, "Location not found for ID: $locationId")
         }
+        Log.d(tag, "Added $addedCount markers")
     }
 
     private suspend fun addMarkerToMap(
         location: Location,
         mapView: MapView,
         locationOverlay: MyLocationNewOverlay,
-        onMarkerClick: (Int,Boolean) -> Unit
+        onMarkerClick: (Int, Boolean) -> Unit
     ) {
+        Log.v(tag, "Adding marker for location ${location.id}")
         withContext(Dispatchers.Main) {
             val marker = QuestMarkerOverlay(
                 location = location,
                 latitude = location.latitude,
                 longitude = location.longitude,
                 playerLocationProvider = { locationOverlay.myLocation },
-                onMarkerClick =  onMarkerClick ,
+                onMarkerClick = onMarkerClick,
                 context = context
             )
             mapView.overlays.add(marker)
@@ -135,8 +168,10 @@ class QuestMarkerHandler(private val context: Context) {
     }
 
     private suspend fun refreshMap(mapView: MapView) {
+        Log.v(tag, "Refreshing map view")
         withContext(Dispatchers.Main) {
             mapView.invalidate()
         }
     }
 }
+

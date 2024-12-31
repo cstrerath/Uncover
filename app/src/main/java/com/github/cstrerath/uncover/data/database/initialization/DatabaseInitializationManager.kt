@@ -17,7 +17,7 @@ class DatabaseInitializationManager(private val context: Context) {
         AppDatabase.getInstance(context)
     }
 
-    suspend fun initializedDatabase() {
+    suspend fun initializeDatabase() {
         if (!isDatabaseInitialized()) {
             withContext(Dispatchers.IO) {
                 initializeAllData()

@@ -294,8 +294,9 @@
     <string name="map_outside_bounds_info">Du befindest dich außerhalb des Spielbereichs. In diesem Bereich können keine Quests entdeckt werden.</string>
     <string name="map_no_location_signal">Kein GPS-Signal</string>
     <string name="map_no_location_signal_info">Dein Standort konnte nicht ermittelt werden. Stelle sicher, dass du dich an einem Ort mit GPS-Empfang befindest.</string>
-
-
+    <string name="fallback_character_name">Unbekannter Character</string>
+    <string name="fallback_quest_story">" in einer unbekannten Mission."</string>
+    <string name="error_no_locations_available">No location available: Check location init.</string>
 
 
 </resources>
