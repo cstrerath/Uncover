@@ -45,7 +45,6 @@ class MapActivity : BaseActivity() {
         initializeComponents()
         setContent {
             UncoverTheme {
-                // Warte auf Permission-Check-Ergebnis
                 if (isPermissionCheckComplete) {
                     UncoverBaseScreen(0.dp) {
                         MapScreen(questLauncher)

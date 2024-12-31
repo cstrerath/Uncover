@@ -11,6 +11,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,12 +26,20 @@ private const val MAX_NAME_LENGTH = 20
 
 @Composable
 fun CharacterCreationScreen(
-    onCharacterCreated: (name: String, characterClass: CharacterClass?) -> Unit
+    initialName: String? = null,
+    initialClass: CharacterClass? = null,
+    onCharacterCreated: (String, CharacterClass?) -> Unit,
+    onValuesChanged: (String, CharacterClass?) -> Unit
 ) {
-    var characterName by remember { mutableStateOf("") }
-    var selectedClass by remember { mutableStateOf<CharacterClass?>(null) }
+    var characterName by remember { mutableStateOf(initialName ?: "") }
+    var selectedClass by remember { mutableStateOf(initialClass) }
 
-    Log.d(TAG, "Initializing character creation screen")
+    Log.d(TAG, "Initializing character creation screen with initial name: $initialName, initial class: $initialClass")
+
+    LaunchedEffect(characterName, selectedClass) {
+        Log.d(TAG, "Values changed - updating Activity state - name: $characterName, class: $selectedClass")
+        onValuesChanged(characterName, selectedClass)
+    }
 
     LazyColumn(
         modifier = Modifier

@@ -5,7 +5,6 @@ import com.github.cstrerath.uncover.utils.location.LocationValidator
 
 private const val TAG = "LocationScreenController"
 
-
 class LocationScreenController(
     private val locationValidator: LocationValidator
 ) {
@@ -31,7 +30,6 @@ class LocationScreenController(
                 Log.d(TAG, "Location in bounds: $inBounds")
             }
         }
-
         dialogStates.logCurrentState()
     }
 }
